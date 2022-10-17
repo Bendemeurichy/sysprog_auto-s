@@ -1,0 +1,207 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "cmake",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                ".",
+                "-DCMAKE_BUILD_TYPE=Debug",
+            ],
+            // If your system needs to use a specific gcc compiler, you can uncomment and edit the lines below
+            //"options": {
+            //    "env": {
+            //        "CC": "gcc-8",
+            //        "CXX": "g++-8",
+            //    }
+            //},
+            "problemMatcher": []
+        },
+        {
+            "label": "cmake rm cache",
+            "type": "shell",
+            "command": "rm",
+            "args": [
+                "-r",
+                "CMakeCache.txt",
+                "CMakeFiles/",
+                "cmake_install.cmake",
+                "Makefile"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "clean all",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "build spg_part1",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-j",
+                "${config:make.jobs}",
+                "spg_part1"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+            }
+        },
+        {
+            "label": "run spg_part1 (+ build)",
+            "type": "shell",
+            "command": "./spg_part1",
+            "dependsOn": [ "build spg_part1" ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+            }
+
+        },
+        {
+            "label": "build spg_part1_edit",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-j",
+                "${config:make.jobs}",
+                "spg_part1_edit"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+            }
+        },
+        {
+            "label": "run spg_part1_edit (+ build)",
+            "type": "shell",
+            "command": "./spg_part1_edit ${input:level_to_edit}",
+            "dependsOn": [ "build spg_part1_edit" ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+            }
+
+        },
+        {
+            "label": "build spg_part2",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-j",
+                "${config:make.jobs}",
+                "spg_part2"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+            }
+        },
+        {
+            "label": "run spg_part2 (+ build)",
+            "type": "shell",
+            "command": "./spg_part2",
+            "dependsOn": [ "build spg_part2" ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+            }
+
+        },
+        {
+            "label": "build spg_part1_tests",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-j",
+                "${config:make.jobs}",
+                "spg_part1_tests"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+            }
+        },
+        {
+            "label": "run spg_part1_tests (+ build)",
+            "type": "shell",
+            "command": "./spg_part1_tests",
+            "dependsOn": [ "build spg_part1_tests" ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+            }
+
+        },
+        {
+            "label": "build spg_part2_tests",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-j",
+                "${config:make.jobs}",
+                "spg_part2_tests"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+            }
+        },
+        {
+            "label": "run spg_part2_tests (+ build)",
+            "type": "shell",
+            "command": "./spg_part2_tests",
+            "dependsOn": [ "build spg_part2_tests" ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+            }
+
+        }
+    ],
+    "inputs": [
+        {
+            "id": "level_to_edit",
+            "description": "CLI arguments specifying number of level to edit",
+            "default": "0",
+            "type": "promptString"
+        },
+    ]
+}

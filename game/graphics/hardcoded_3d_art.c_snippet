@@ -1,0 +1,2959 @@
+#pragma GCC push_options
+#pragma GCC optimize ("-fno-var-tracking-assignments")
+
+void add_hardcoded_3d_art(Renderer3D* renderer) {
+   renderer->art_building_count = 50;
+   renderer->art_ground_count = 141;
+   renderer->art_car_count = 11;
+   renderer->art_various_count = 19;
+   renderer->art_colored_count = 9;
+   renderer->art_ground_id_unknown = 130;
+   renderer->art_colored_id_highlight = 4;
+   renderer->art_various_id_tile_sub_highlight = 14;
+   renderer->art_various_id_tile_sub_highlight_45 = 15;
+   renderer->art_various_id_tile_sub_highlight_center = 16;
+   renderer->art_various_id_tile_highlight = 17;
+   renderer->art_various_id_unknown = 18;
+{
+   ArtBuilding3D* art = &renderer->art_building[0];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 5;
+   art->window_type = 2;
+   art->extra = 8;
+   art->extra_color = 6;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 143;
+   art->tile_id_by_dir[1] = 150;
+   art->tile_id_by_dir[2] = 143;
+   art->tile_id_by_dir[3] = 150;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[1];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 2;
+   art->extra = 6;
+   art->extra_color = 5;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 160;
+   art->tile_id_by_dir[1] = 152;
+   art->tile_id_by_dir[2] = 145;
+   art->tile_id_by_dir[3] = 153;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[2];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 5;
+   art->window_type = 3;
+   art->extra = 2;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 151;
+   art->tile_id_by_dir[1] = 158;
+   art->tile_id_by_dir[2] = 151;
+   art->tile_id_by_dir[3] = 158;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[3];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 4;
+   art->window_type = 1;
+   art->extra = 4;
+   art->extra_color = 4;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 155;
+   art->tile_id_by_dir[1] = 162;
+   art->tile_id_by_dir[2] = 155;
+   art->tile_id_by_dir[3] = 162;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[4];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 5;
+   art->window_type = 2;
+   art->extra = 6;
+   art->extra_color = 7;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 174;
+   art->tile_id_by_dir[1] = 166;
+   art->tile_id_by_dir[2] = 159;
+   art->tile_id_by_dir[3] = 167;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[5];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 2;
+   art->extra = 7;
+   art->extra_color = 7;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 176;
+   art->tile_id_by_dir[1] = 168;
+   art->tile_id_by_dir[2] = 161;
+   art->tile_id_by_dir[3] = 169;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[6];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 2;
+   art->window_type = 1;
+   art->extra = 4;
+   art->extra_color = 4;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 163;
+   art->tile_id_by_dir[1] = 170;
+   art->tile_id_by_dir[2] = 163;
+   art->tile_id_by_dir[3] = 170;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[7];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 5;
+   art->window_type = 1;
+   art->extra = 4;
+   art->extra_color = 4;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 171;
+   art->tile_id_by_dir[1] = 177;
+   art->tile_id_by_dir[2] = 171;
+   art->tile_id_by_dir[3] = 177;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[8];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 5;
+   art->window_type = 2;
+   art->extra = 7;
+   art->extra_color = 6;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 187;
+   art->tile_id_by_dir[1] = 181;
+   art->tile_id_by_dir[2] = 175;
+   art->tile_id_by_dir[3] = 182;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[9];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 1;
+   art->extra = 4;
+   art->extra_color = 4;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 226;
+   art->tile_id_by_dir[1] = 226;
+   art->tile_id_by_dir[2] = 178;
+   art->tile_id_by_dir[3] = 183;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[10];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 1;
+   art->extra = 4;
+   art->extra_color = 4;
+   art->alt_art_index = 1;
+   art->tile_id_by_dir[0] = 178;
+   art->tile_id_by_dir[1] = 183;
+   art->tile_id_by_dir[2] = 178;
+   art->tile_id_by_dir[3] = 183;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[11];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 3;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 226;
+   art->tile_id_by_dir[1] = 226;
+   art->tile_id_by_dir[2] = 242;
+   art->tile_id_by_dir[3] = 234;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[12];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 2;
+   art->extra = 5;
+   art->extra_color = 7;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 176;
+   art->tile_id_by_dir[1] = 168;
+   art->tile_id_by_dir[2] = 249;
+   art->tile_id_by_dir[3] = 241;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[13];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 4;
+   art->extra = 1;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 250;
+   art->tile_id_by_dir[1] = 257;
+   art->tile_id_by_dir[2] = 250;
+   art->tile_id_by_dir[3] = 257;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[14];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 5;
+   art->window_type = 2;
+   art->extra = 9;
+   art->extra_color = 4;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 233;
+   art->tile_id_by_dir[1] = 244;
+   art->tile_id_by_dir[2] = 254;
+   art->tile_id_by_dir[3] = 240;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[15];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 2;
+   art->extra = 9;
+   art->extra_color = 5;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 255;
+   art->tile_id_by_dir[1] = 263;
+   art->tile_id_by_dir[2] = 256;
+   art->tile_id_by_dir[3] = 248;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[16];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 4;
+   art->extra = 8;
+   art->extra_color = 5;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 258;
+   art->tile_id_by_dir[1] = 265;
+   art->tile_id_by_dir[2] = 258;
+   art->tile_id_by_dir[3] = 265;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[17];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 5;
+   art->window_type = 4;
+   art->extra = 1;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 264;
+   art->tile_id_by_dir[1] = 142;
+   art->tile_id_by_dir[2] = 264;
+   art->tile_id_by_dir[3] = 142;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[18];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 3;
+   art->extra = 2;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 266;
+   art->tile_id_by_dir[1] = 144;
+   art->tile_id_by_dir[2] = 266;
+   art->tile_id_by_dir[3] = 144;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[19];
+   art->type = 0;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 226;
+   art->tile_id_by_dir[1] = 226;
+   art->tile_id_by_dir[2] = 226;
+   art->tile_id_by_dir[3] = 226;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[20];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 4;
+   art->window_type = 2;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 141;
+   art->tile_id_by_dir[1] = 141;
+   art->tile_id_by_dir[2] = 141;
+   art->tile_id_by_dir[3] = 141;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[21];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 4;
+   art->window_type = 3;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 148;
+   art->tile_id_by_dir[1] = 148;
+   art->tile_id_by_dir[2] = 148;
+   art->tile_id_by_dir[3] = 148;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[22];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 2;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 149;
+   art->tile_id_by_dir[1] = 149;
+   art->tile_id_by_dir[2] = 149;
+   art->tile_id_by_dir[3] = 149;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[23];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 3;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 156;
+   art->tile_id_by_dir[1] = 156;
+   art->tile_id_by_dir[2] = 156;
+   art->tile_id_by_dir[3] = 156;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[24];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 5;
+   art->window_type = 2;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 157;
+   art->tile_id_by_dir[1] = 157;
+   art->tile_id_by_dir[2] = 157;
+   art->tile_id_by_dir[3] = 157;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[25];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 5;
+   art->window_type = 3;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 164;
+   art->tile_id_by_dir[1] = 164;
+   art->tile_id_by_dir[2] = 164;
+   art->tile_id_by_dir[3] = 164;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[26];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 2;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 165;
+   art->tile_id_by_dir[1] = 165;
+   art->tile_id_by_dir[2] = 165;
+   art->tile_id_by_dir[3] = 165;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[27];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 3;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 172;
+   art->tile_id_by_dir[1] = 172;
+   art->tile_id_by_dir[2] = 172;
+   art->tile_id_by_dir[3] = 172;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[28];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 4;
+   art->window_type = 1;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 173;
+   art->tile_id_by_dir[1] = 179;
+   art->tile_id_by_dir[2] = 173;
+   art->tile_id_by_dir[3] = 179;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[29];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 2;
+   art->window_type = 1;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 180;
+   art->tile_id_by_dir[1] = 185;
+   art->tile_id_by_dir[2] = 180;
+   art->tile_id_by_dir[3] = 185;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[30];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 4;
+   art->window_type = 4;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 184;
+   art->tile_id_by_dir[1] = 188;
+   art->tile_id_by_dir[2] = 184;
+   art->tile_id_by_dir[3] = 188;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[31];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 5;
+   art->window_type = 1;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 186;
+   art->tile_id_by_dir[1] = 190;
+   art->tile_id_by_dir[2] = 186;
+   art->tile_id_by_dir[3] = 190;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[32];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 2;
+   art->window_type = 4;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 189;
+   art->tile_id_by_dir[1] = 192;
+   art->tile_id_by_dir[2] = 189;
+   art->tile_id_by_dir[3] = 192;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[33];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 1;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 191;
+   art->tile_id_by_dir[1] = 194;
+   art->tile_id_by_dir[2] = 191;
+   art->tile_id_by_dir[3] = 194;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[34];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 5;
+   art->window_type = 4;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 193;
+   art->tile_id_by_dir[1] = 195;
+   art->tile_id_by_dir[2] = 193;
+   art->tile_id_by_dir[3] = 195;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[35];
+   art->type = 1;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 4;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 196;
+   art->tile_id_by_dir[1] = 197;
+   art->tile_id_by_dir[2] = 196;
+   art->tile_id_by_dir[3] = 197;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[36];
+   art->type = 2;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 154;
+   art->tile_id_by_dir[1] = 147;
+   art->tile_id_by_dir[2] = 268;
+   art->tile_id_by_dir[3] = 146;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[37];
+   art->type = 2;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 1;
+   art->tile_id_by_dir[0] = 269;
+   art->tile_id_by_dir[1] = 269;
+   art->tile_id_by_dir[2] = 269;
+   art->tile_id_by_dir[3] = 269;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[38];
+   art->type = 2;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 2;
+   art->tile_id_by_dir[0] = 261;
+   art->tile_id_by_dir[1] = 261;
+   art->tile_id_by_dir[2] = 261;
+   art->tile_id_by_dir[3] = 261;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[39];
+   art->type = 2;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 3;
+   art->tile_id_by_dir[0] = 262;
+   art->tile_id_by_dir[1] = 262;
+   art->tile_id_by_dir[2] = 262;
+   art->tile_id_by_dir[3] = 262;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[40];
+   art->type = 2;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 4;
+   art->tile_id_by_dir[0] = 252;
+   art->tile_id_by_dir[1] = 259;
+   art->tile_id_by_dir[2] = 267;
+   art->tile_id_by_dir[3] = 260;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[41];
+   art->type = 2;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 5;
+   art->tile_id_by_dir[0] = 244;
+   art->tile_id_by_dir[1] = 236;
+   art->tile_id_by_dir[2] = 243;
+   art->tile_id_by_dir[3] = 251;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[42];
+   art->type = 2;
+   art->roof_type = 0;
+   art->wall_color = 1;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 6;
+   art->tile_id_by_dir[0] = 228;
+   art->tile_id_by_dir[1] = 220;
+   art->tile_id_by_dir[2] = 227;
+   art->tile_id_by_dir[3] = 235;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[43];
+   art->type = 2;
+   art->roof_type = 1;
+   art->wall_color = 1;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 200;
+   art->tile_id_by_dir[1] = 198;
+   art->tile_id_by_dir[2] = 199;
+   art->tile_id_by_dir[3] = 202;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[44];
+   art->type = 2;
+   art->roof_type = 1;
+   art->wall_color = 5;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 216;
+   art->tile_id_by_dir[1] = 210;
+   art->tile_id_by_dir[2] = 215;
+   art->tile_id_by_dir[3] = 223;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[45];
+   art->type = 2;
+   art->roof_type = 1;
+   art->wall_color = 3;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 230;
+   art->tile_id_by_dir[1] = 222;
+   art->tile_id_by_dir[2] = 229;
+   art->tile_id_by_dir[3] = 237;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[46];
+   art->type = 2;
+   art->roof_type = 1;
+   art->wall_color = 4;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 207;
+   art->tile_id_by_dir[1] = 203;
+   art->tile_id_by_dir[2] = 206;
+   art->tile_id_by_dir[3] = 211;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[47];
+   art->type = 2;
+   art->roof_type = 2;
+   art->wall_color = 5;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 232;
+   art->tile_id_by_dir[1] = 224;
+   art->tile_id_by_dir[2] = 231;
+   art->tile_id_by_dir[3] = 239;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[48];
+   art->type = 2;
+   art->roof_type = 2;
+   art->wall_color = 3;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 246;
+   art->tile_id_by_dir[1] = 238;
+   art->tile_id_by_dir[2] = 245;
+   art->tile_id_by_dir[3] = 253;
+}
+{
+   ArtBuilding3D* art = &renderer->art_building[49];
+   art->type = 2;
+   art->roof_type = 2;
+   art->wall_color = 4;
+   art->window_type = 0;
+   art->extra = 0;
+   art->extra_color = 0;
+   art->alt_art_index = 0;
+   art->tile_id_by_dir[0] = 218;
+   art->tile_id_by_dir[1] = 212;
+   art->tile_id_by_dir[2] = 217;
+   art->tile_id_by_dir[3] = 225;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[0];
+   art->type = 1;
+   art->alt_art_index = 0;
+   art->z_priority = -1;
+   art->tile_id_by_dir[0] = 547;
+   art->tile_id_by_dir[1] = 548;
+   art->tile_id_by_dir[2] = 550;
+   art->tile_id_by_dir[3] = 549;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[1];
+   art->type = 2;
+   art->alt_art_index = 1;
+   art->z_priority = -1;
+   art->tile_id_by_dir[0] = 560;
+   art->tile_id_by_dir[1] = 560;
+   art->tile_id_by_dir[2] = 560;
+   art->tile_id_by_dir[3] = 560;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[2];
+   art->type = 2;
+   art->alt_art_index = 0;
+   art->z_priority = -1;
+   art->tile_id_by_dir[0] = 561;
+   art->tile_id_by_dir[1] = 561;
+   art->tile_id_by_dir[2] = 561;
+   art->tile_id_by_dir[3] = 561;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[3];
+   art->type = 3;
+   art->alt_art_index = 0;
+   art->z_priority = -1;
+   art->tile_id_by_dir[0] = 541;
+   art->tile_id_by_dir[1] = 542;
+   art->tile_id_by_dir[2] = 544;
+   art->tile_id_by_dir[3] = 543;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[4];
+   art->type = 3;
+   art->alt_art_index = 1;
+   art->z_priority = -1;
+   art->tile_id_by_dir[0] = 537;
+   art->tile_id_by_dir[1] = 540;
+   art->tile_id_by_dir[2] = 539;
+   art->tile_id_by_dir[3] = 538;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[5];
+   art->type = 3;
+   art->alt_art_index = 2;
+   art->z_priority = -1;
+   art->tile_id_by_dir[0] = 481;
+   art->tile_id_by_dir[1] = 484;
+   art->tile_id_by_dir[2] = 483;
+   art->tile_id_by_dir[3] = 482;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[6];
+   art->type = 3;
+   art->alt_art_index = 3;
+   art->z_priority = -1;
+   art->tile_id_by_dir[0] = 485;
+   art->tile_id_by_dir[1] = 488;
+   art->tile_id_by_dir[2] = 487;
+   art->tile_id_by_dir[3] = 486;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[7];
+   art->type = 4;
+   art->alt_art_index = 0;
+   art->z_priority = -1;
+   art->tile_id_by_dir[0] = 477;
+   art->tile_id_by_dir[1] = 478;
+   art->tile_id_by_dir[2] = 480;
+   art->tile_id_by_dir[3] = 479;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[8];
+   art->type = 5;
+   art->alt_art_index = 0;
+   art->z_priority = 1;
+   art->tile_id_by_dir[0] = 489;
+   art->tile_id_by_dir[1] = 490;
+   art->tile_id_by_dir[2] = 489;
+   art->tile_id_by_dir[3] = 490;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[9];
+   art->type = 8;
+   art->alt_art_index = 0;
+   art->z_priority = 1;
+   art->tile_id_by_dir[0] = 562;
+   art->tile_id_by_dir[1] = 562;
+   art->tile_id_by_dir[2] = 562;
+   art->tile_id_by_dir[3] = 562;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[10];
+   art->type = 8;
+   art->alt_art_index = 1;
+   art->z_priority = 1;
+   art->tile_id_by_dir[0] = 563;
+   art->tile_id_by_dir[1] = 563;
+   art->tile_id_by_dir[2] = 563;
+   art->tile_id_by_dir[3] = 563;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[11];
+   art->type = 8;
+   art->alt_art_index = 2;
+   art->z_priority = 1;
+   art->tile_id_by_dir[0] = 564;
+   art->tile_id_by_dir[1] = 564;
+   art->tile_id_by_dir[2] = 564;
+   art->tile_id_by_dir[3] = 564;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[12];
+   art->type = 8;
+   art->alt_art_index = 3;
+   art->z_priority = 1;
+   art->tile_id_by_dir[0] = 565;
+   art->tile_id_by_dir[1] = 565;
+   art->tile_id_by_dir[2] = 565;
+   art->tile_id_by_dir[3] = 565;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[13];
+   art->type = 8;
+   art->alt_art_index = 4;
+   art->z_priority = 1;
+   art->tile_id_by_dir[0] = 566;
+   art->tile_id_by_dir[1] = 566;
+   art->tile_id_by_dir[2] = 566;
+   art->tile_id_by_dir[3] = 566;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[14];
+   art->type = 11;
+   art->alt_art_index = 0;
+   art->z_priority = -2;
+   art->tile_id_by_dir[0] = 1119;
+   art->tile_id_by_dir[1] = 1125;
+   art->tile_id_by_dir[2] = 1122;
+   art->tile_id_by_dir[3] = 1118;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[15];
+   art->type = 12;
+   art->alt_art_index = 0;
+   art->z_priority = -2;
+   art->tile_id_by_dir[0] = 1120;
+   art->tile_id_by_dir[1] = 1121;
+   art->tile_id_by_dir[2] = 1124;
+   art->tile_id_by_dir[3] = 1123;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[16];
+   art->type = 13;
+   art->alt_art_index = 0;
+   art->z_priority = -2;
+   art->tile_id_by_dir[0] = 1117;
+   art->tile_id_by_dir[1] = 1117;
+   art->tile_id_by_dir[2] = 1117;
+   art->tile_id_by_dir[3] = 1117;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[17];
+   art->type = 10;
+   art->alt_art_index = 0;
+   art->z_priority = -2;
+   art->tile_id_by_dir[0] = 1126;
+   art->tile_id_by_dir[1] = 1126;
+   art->tile_id_by_dir[2] = 1126;
+   art->tile_id_by_dir[3] = 1126;
+}
+{
+   ArtVarious3D* art = &renderer->art_various[18];
+   art->type = 14;
+   art->alt_art_index = 0;
+   art->z_priority = 0;
+   art->tile_id_by_dir[0] = 1127;
+   art->tile_id_by_dir[1] = 1127;
+   art->tile_id_by_dir[2] = 1127;
+   art->tile_id_by_dir[3] = 1127;
+}
+{
+   ArtColored3D* art = &renderer->art_colored[0];
+   art->type = 7;
+   art->alt_art_index = 0;
+   art->z_priority = 0;
+   art->tile_id_by_color[0] = 414;
+   art->tile_id_by_color[1] = 413;
+   art->tile_id_by_color[2] = 408;
+   art->tile_id_by_color[3] = 407;
+   art->tile_id_by_color[4] = 409;
+   art->tile_id_by_color[5] = 412;
+   art->tile_id_by_color[6] = 410;
+   art->tile_id_by_color[7] = 398;
+}
+{
+   ArtColored3D* art = &renderer->art_colored[1];
+   art->type = 8;
+   art->alt_art_index = 0;
+   art->z_priority = 0;
+   art->tile_id_by_color[0] = 430;
+   art->tile_id_by_color[1] = 429;
+   art->tile_id_by_color[2] = 424;
+   art->tile_id_by_color[3] = 423;
+   art->tile_id_by_color[4] = 425;
+   art->tile_id_by_color[5] = 428;
+   art->tile_id_by_color[6] = 426;
+   art->tile_id_by_color[7] = 398;
+}
+{
+   ArtColored3D* art = &renderer->art_colored[2];
+   art->type = 0;
+   art->alt_art_index = 0;
+   art->z_priority = -1;
+   art->tile_id_by_color[0] = 446;
+   art->tile_id_by_color[1] = 445;
+   art->tile_id_by_color[2] = 440;
+   art->tile_id_by_color[3] = 439;
+   art->tile_id_by_color[4] = 441;
+   art->tile_id_by_color[5] = 444;
+   art->tile_id_by_color[6] = 442;
+   art->tile_id_by_color[7] = 447;
+}
+{
+   ArtColored3D* art = &renderer->art_colored[3];
+   art->type = 1;
+   art->alt_art_index = 0;
+   art->z_priority = -1;
+   art->tile_id_by_color[0] = 455;
+   art->tile_id_by_color[1] = 454;
+   art->tile_id_by_color[2] = 449;
+   art->tile_id_by_color[3] = 448;
+   art->tile_id_by_color[4] = 450;
+   art->tile_id_by_color[5] = 453;
+   art->tile_id_by_color[6] = 451;
+   art->tile_id_by_color[7] = 456;
+}
+{
+   ArtColored3D* art = &renderer->art_colored[4];
+   art->type = 6;
+   art->alt_art_index = 0;
+   art->z_priority = -2;
+   art->tile_id_by_color[0] = 498;
+   art->tile_id_by_color[1] = 497;
+   art->tile_id_by_color[2] = 492;
+   art->tile_id_by_color[3] = 491;
+   art->tile_id_by_color[4] = 493;
+   art->tile_id_by_color[5] = 496;
+   art->tile_id_by_color[6] = 494;
+   art->tile_id_by_color[7] = 398;
+}
+{
+   ArtColored3D* art = &renderer->art_colored[5];
+   art->type = 4;
+   art->alt_art_index = 0;
+   art->z_priority = 1;
+   art->tile_id_by_color[0] = 472;
+   art->tile_id_by_color[1] = 471;
+   art->tile_id_by_color[2] = 466;
+   art->tile_id_by_color[3] = 465;
+   art->tile_id_by_color[4] = 467;
+   art->tile_id_by_color[5] = 470;
+   art->tile_id_by_color[6] = 468;
+   art->tile_id_by_color[7] = 473;
+}
+{
+   ArtColored3D* art = &renderer->art_colored[6];
+   art->type = 9;
+   art->alt_art_index = 0;
+   art->z_priority = -1;
+   art->tile_id_by_color[0] = 1112;
+   art->tile_id_by_color[1] = 1111;
+   art->tile_id_by_color[2] = 1111;
+   art->tile_id_by_color[3] = 1111;
+   art->tile_id_by_color[4] = 1111;
+   art->tile_id_by_color[5] = 1111;
+   art->tile_id_by_color[6] = 1111;
+   art->tile_id_by_color[7] = 1111;
+}
+{
+   ArtColored3D* art = &renderer->art_colored[7];
+   art->type = 10;
+   art->alt_art_index = 0;
+   art->z_priority = -1;
+   art->tile_id_by_color[0] = 1114;
+   art->tile_id_by_color[1] = 1111;
+   art->tile_id_by_color[2] = 1113;
+   art->tile_id_by_color[3] = 1111;
+   art->tile_id_by_color[4] = 1111;
+   art->tile_id_by_color[5] = 1111;
+   art->tile_id_by_color[6] = 1111;
+   art->tile_id_by_color[7] = 1111;
+}
+{
+   ArtColored3D* art = &renderer->art_colored[8];
+   art->type = 11;
+   art->alt_art_index = 0;
+   art->z_priority = -1;
+   art->tile_id_by_color[0] = 1116;
+   art->tile_id_by_color[1] = 1111;
+   art->tile_id_by_color[2] = 1115;
+   art->tile_id_by_color[3] = 1111;
+   art->tile_id_by_color[4] = 1111;
+   art->tile_id_by_color[5] = 1111;
+   art->tile_id_by_color[6] = 1111;
+   art->tile_id_by_color[7] = 1111;
+}
+{
+   ArtGround3D* art = &renderer->art_ground[0];
+   art->tile_id = 0;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 3, 4, 2, 4, 3, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[1];
+   art->tile_id = 1;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 3, 2, 2, 2, 3, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[2];
+   art->tile_id = 2;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 3, 4, 2, 4, 3, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[3];
+   art->tile_id = 3;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 3, 4, 2, 4, 3, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[4];
+   art->tile_id = 4;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 3, 2, 2, 2, 3, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[5];
+   art->tile_id = 5;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 6, 8, 6, 4, 2, 4, 6, 8 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[6];
+   art->tile_id = 6;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 3, 2, 2, 2, 3, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[7];
+   art->tile_id = 7;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 3, 4, 2, 4, 3, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[8];
+   art->tile_id = 8;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 6, 4, 2, 4, 6, 8, 6, 8 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[9];
+   art->tile_id = 9;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 6, 8, 6, 8, 6, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[10];
+   art->tile_id = 10;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 3, 2, 2, 3, 4, 4, 4, 3, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[11];
+   art->tile_id = 11;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 3, 2, 2, 2, 3, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[12];
+   art->tile_id = 12;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 6, 8, 6, 4, 2, 4, 6, 8 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[13];
+   art->tile_id = 13;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 2, 4, 6, 8, 6, 8, 6, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[14];
+   art->tile_id = 14;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[15];
+   art->tile_id = 15;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 3, 3, 2, 2, 2, 3, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[16];
+   art->tile_id = 16;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 3, 3, 4, 4, 4, 3, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[17];
+   art->tile_id = 17;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 6, 4, 2, 4, 6, 8, 6, 8 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[18];
+   art->tile_id = 18;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 6, 8, 6, 8, 6, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[19];
+   art->tile_id = 19;
+   art->alt_art_index = 0;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 0, 4, 4, 4, 2, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[20];
+   art->tile_id = 20;
+   art->alt_art_index = 2;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[21];
+   art->tile_id = 21;
+   art->alt_art_index = 2;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 6, 4, 4, 6, 8, 6, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[22];
+   art->tile_id = 22;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 3, 4, 4, 3, 2, 2, 2, 3, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[23];
+   art->tile_id = 23;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 2, 1, 4, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 2, 4, 4, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[24];
+   art->tile_id = 24;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 2, 4, 6, 8, 6, 8, 6, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[25];
+   art->tile_id = 25;
+   art->alt_art_index = 0;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 2, 4, 4, 4, 0, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[26];
+   art->tile_id = 26;
+   art->alt_art_index = 0;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 0, 4, 4, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[27];
+   art->tile_id = 27;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 5, 5, 2, 2, 2, 2, 2, 5 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 2, 2, 2, 2, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[28];
+   art->tile_id = 28;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 6, 6, 8, 6, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[29];
+   art->tile_id = 29;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 6, 4, 4, 4, 4, 6, 8, 6, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[30];
+   art->tile_id = 30;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 2, 1, 4, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 2, 4, 4, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[31];
+   art->tile_id = 31;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 4, 2, 1, 4, 1, 2, 1, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 2, 4, 4, 4, 2, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[32];
+   art->tile_id = 32;
+   art->alt_art_index = 1;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 0, 4, 4, 4, 2, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[33];
+   art->tile_id = 33;
+   art->alt_art_index = 0;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 4, 4, 0, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[34];
+   art->tile_id = 34;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 5, 5, 5 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[35];
+   art->tile_id = 35;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 5, 5, 5, 2, 2, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 4, 4, 2, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[36];
+   art->tile_id = 36;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 6, 6, 4, 4, 4, 4, 4, 6, 8 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[37];
+   art->tile_id = 37;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 2, 2, 5, 6, 5, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 4, 2, 4, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[38];
+   art->tile_id = 38;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 4, 2, 1, 4, 1, 2, 1, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 2, 4, 4, 4, 2, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[39];
+   art->tile_id = 39;
+   art->alt_art_index = 1;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 2, 4, 4, 4, 0, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[40];
+   art->tile_id = 40;
+   art->alt_art_index = 1;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 0, 4, 4, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[41];
+   art->tile_id = 41;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 5, 1, 5, 2, 2, 2, 5, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 2, 2, 2, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[42];
+   art->tile_id = 42;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 2, 2, 5, 5, 5, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 4, 4, 4, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[43];
+   art->tile_id = 43;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 2, 2, 2, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 2, 2, 2, 2, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[44];
+   art->tile_id = 44;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 5, 6, 5 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[45];
+   art->tile_id = 45;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 5, 6, 5, 2, 2, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 2, 4, 2, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[46];
+   art->tile_id = 46;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 4, 4, 2, 2, 2, 4, 2, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 2, 2, 2, 4, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[47];
+   art->tile_id = 47;
+   art->alt_art_index = 1;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 4, 4, 0, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[48];
+   art->tile_id = 48;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 5, 2, 2, 2, 5, 1, 1, 1, 5 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[49];
+   art->tile_id = 49;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 5, 1, 1, 1, 5, 2, 2, 2, 5 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 4, 4, 2, 2, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[50];
+   art->tile_id = 50;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[51];
+   art->tile_id = 51;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 2, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 4, 4, 2, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[52];
+   art->tile_id = 52;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 6, 5, 2, 2, 2, 2, 2, 5 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 2, 2, 2, 2, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[53];
+   art->tile_id = 53;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 2, 2, 5, 2, 2, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 4, 2, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[54];
+   art->tile_id = 54;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 4, 2, 2, 4, 2, 2, 2, 4, 2 };
+   uint8_t height[ART_POS__COUNT] = { 4, 2, 2, 4, 2, 2, 2, 4, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[55];
+   art->tile_id = 55;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 2, 2, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 2, 2, 2, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[56];
+   art->tile_id = 56;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 5, 2, 5, 1, 1, 1, 5, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 4, 4, 4, 4, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[57];
+   art->tile_id = 57;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 4, 4, 2, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[58];
+   art->tile_id = 58;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 2, 2, 1, 1, 1, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 4, 4, 4, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[59];
+   art->tile_id = 59;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 5, 5, 5, 5, 5, 5, 5, 5, 5 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[60];
+   art->tile_id = 60;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 5, 2, 2, 2, 2, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 2, 2, 2, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[61];
+   art->tile_id = 61;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 5, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 4, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[62];
+   art->tile_id = 62;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 1, 2, 2, 2, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 2, 2, 2, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[63];
+   art->tile_id = 63;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 2, 2, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 2, 2, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[64];
+   art->tile_id = 64;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 4, 4, 2, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[65];
+   art->tile_id = 65;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 2, 4, 4, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[66];
+   art->tile_id = 66;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 2, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[67];
+   art->tile_id = 67;
+   art->alt_art_index = 1;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[68];
+   art->tile_id = 68;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 2, 2, 5 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 2, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[69];
+   art->tile_id = 69;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 2, 2, 1, 2, 2, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 4, 2, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[70];
+   art->tile_id = 70;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 1, 2, 1, 1, 1, 1, 1, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 4, 2, 4, 4, 4, 4, 4, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[71];
+   art->tile_id = 71;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 2, 4, 2, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[72];
+   art->tile_id = 72;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 2, 4, 4, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[73];
+   art->tile_id = 73;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[74];
+   art->tile_id = 74;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 1, 1, 4, 1, 1, 1, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[75];
+   art->tile_id = 75;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[76];
+   art->tile_id = 76;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 2, 2, 2, 2, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 2, 2, 2, 2, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[77];
+   art->tile_id = 77;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 1, 2, 2 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 4, 2, 2 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[78];
+   art->tile_id = 78;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 2, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 2, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[79];
+   art->tile_id = 79;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 1, 1, 2, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 4, 4, 2, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[80];
+   art->tile_id = 80;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 1, 1, 4, 4, 4, 4, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[81];
+   art->tile_id = 81;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[82];
+   art->tile_id = 82;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 1, 1, 4, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[83];
+   art->tile_id = 83;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[84];
+   art->tile_id = 84;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 2, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 2, 2, 2, 2, 2, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[85];
+   art->tile_id = 85;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 2, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 2, 4, 2, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[86];
+   art->tile_id = 86;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 4, 4, 4, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[87];
+   art->tile_id = 87;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[88];
+   art->tile_id = 88;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 1, 1, 4, 4, 4, 4 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[89];
+   art->tile_id = 89;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 1, 1, 4, 1, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[90];
+   art->tile_id = 90;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 4, 1, 4, 1, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[91];
+   art->tile_id = 91;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 6, 6, 8, 8, 8, 6, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[92];
+   art->tile_id = 92;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 2, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 2, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[93];
+   art->tile_id = 93;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 1, 1, 1, 1, 2, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 4, 4, 4, 4, 2, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[94];
+   art->tile_id = 94;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 4, 4, 4, 4, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[95];
+   art->tile_id = 95;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 4, 4, 1, 1, 1, 4, 4 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[96];
+   art->tile_id = 96;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 4, 1, 4, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[97];
+   art->tile_id = 97;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 1, 1, 4, 1, 4, 1, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[98];
+   art->tile_id = 98;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 6, 8, 8, 6, 4, 4, 4, 6, 8 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[99];
+   art->tile_id = 99;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 6, 4, 4, 6, 8, 8, 8, 6, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[100];
+   art->tile_id = 100;
+   art->alt_art_index = 1;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 2, 2, 1, 1, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 2, 2, 4, 4, 4, 4, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[101];
+   art->tile_id = 101;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 1, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[102];
+   art->tile_id = 102;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 4, 1, 4, 4, 4, 4 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[103];
+   art->tile_id = 103;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 1, 1, 4, 1, 1, 1, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 6, 6, 8, 8, 8, 6, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[104];
+   art->tile_id = 104;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 4, 1, 1, 1, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[105];
+   art->tile_id = 105;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 1, 1, 4, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[106];
+   art->tile_id = 106;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 6, 6, 4, 4, 4, 6, 8, 8, 8 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[107];
+   art->tile_id = 107;
+   art->alt_art_index = 1;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 1, 1, 4, 1, 1, 1, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[108];
+   art->tile_id = 108;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 4, 4, 1, 4, 1, 4, 4 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[109];
+   art->tile_id = 109;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 1, 1, 4, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 6, 8, 8, 6, 4, 4, 4, 6, 8 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[110];
+   art->tile_id = 110;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 1, 1, 4, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 6, 4, 4, 6, 8, 8, 8, 6, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[111];
+   art->tile_id = 111;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 1, 1, 1, 1, 4, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[112];
+   art->tile_id = 112;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 1, 1, 1, 1, 1, 1, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[113];
+   art->tile_id = 113;
+   art->alt_art_index = 1;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 1, 1, 4, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[114];
+   art->tile_id = 114;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 1, 1, 4, 4, 4, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[115];
+   art->tile_id = 115;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 1, 1, 4, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 6, 6, 4, 4, 4, 6, 8, 8, 8 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[116];
+   art->tile_id = 116;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 7, 7, 4, 7, 7, 7, 4, 7 };
+   uint8_t height[ART_POS__COUNT] = { 6, 4, 4, 8, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[117];
+   art->tile_id = 117;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 1, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[118];
+   art->tile_id = 118;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 4, 4, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[119];
+   art->tile_id = 119;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 1, 1, 1, 1, 4, 4, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[120];
+   art->tile_id = 120;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 7, 7, 7, 4, 7, 1, 7 };
+   uint8_t height[ART_POS__COUNT] = { 6, 9, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[121];
+   art->tile_id = 121;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 7, 7, 7, 4, 7, 7, 7 };
+   uint8_t height[ART_POS__COUNT] = { 6, 4, 4, 4, 4, 8, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[122];
+   art->tile_id = 122;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 1, 1, 1, 1, 4, 4 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[123];
+   art->tile_id = 123;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 1, 1, 4, 1, 4, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[124];
+   art->tile_id = 124;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 7, 7, 4, 7, 7, 7, 4, 7 };
+   uint8_t height[ART_POS__COUNT] = { 6, 4, 4, 4, 4, 4, 4, 8, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[125];
+   art->tile_id = 125;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 4, 1, 1, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[126];
+   art->tile_id = 126;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 1, 1, 1, 1, 4, 1, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[127];
+   art->tile_id = 127;
+   art->alt_art_index = 0;
+   art->min_ground_height = 4;
+   Material materials[ART_POS__COUNT] = { 4, 4, 1, 1, 1, 1, 1, 4, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[128];
+   art->tile_id = 128;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 1, 1, 1, 2, 1, 1, 1, 2, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 4, 4, 2, 4, 4, 4, 2, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[129];
+   art->tile_id = 129;
+   art->alt_art_index = 0;
+   art->min_ground_height = 2;
+   Material materials[ART_POS__COUNT] = { 1, 2, 1, 1, 1, 2, 1, 1, 1 };
+   uint8_t height[ART_POS__COUNT] = { 4, 2, 4, 4, 4, 2, 4, 4, 4 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[130];
+   art->tile_id = 1127;
+   art->alt_art_index = 255;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 6, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[131];
+   art->tile_id = 1151;
+   art->alt_art_index = 255;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 6, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[132];
+   art->tile_id = 1142;
+   art->alt_art_index = 255;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 6, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[133];
+   art->tile_id = 1143;
+   art->alt_art_index = 255;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 6, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[134];
+   art->tile_id = 1144;
+   art->alt_art_index = 255;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 6, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[135];
+   art->tile_id = 1145;
+   art->alt_art_index = 255;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 6, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[136];
+   art->tile_id = 1152;
+   art->alt_art_index = 255;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 6, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[137];
+   art->tile_id = 1153;
+   art->alt_art_index = 255;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 6, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[138];
+   art->tile_id = 1154;
+   art->alt_art_index = 255;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 6, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[139];
+   art->tile_id = 1155;
+   art->alt_art_index = 255;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 6, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtGround3D* art = &renderer->art_ground[140];
+   art->tile_id = 1156;
+   art->alt_art_index = 255;
+   art->min_ground_height = 0;
+   Material materials[ART_POS__COUNT] = { 6, 0, 0, 0, 0, 0, 0, 0, 0 };
+   uint8_t height[ART_POS__COUNT] = { 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+   for (int i = 0; i < ART_POS__COUNT; i++) {
+      art->materials[i] = materials[i];
+      art->height[i] = height[i];
+   }
+}
+{
+   ArtCar3D* art = &renderer->art_cars[0];
+   art->car_type = 8;
+   art->color = 1;
+   art->tile_id_by_dir[0] = 1097;
+   art->tile_id_by_dir[1] = 1095;
+   art->tile_id_by_dir[2] = 1104;
+   art->tile_id_by_dir[3] = 1103;
+   art->tile_id_by_dir[4] = 1107;
+   art->tile_id_by_dir[5] = 1110;
+   art->tile_id_by_dir[6] = 1100;
+   art->tile_id_by_dir[7] = 1096;
+   art->tile_id_up_by_dir[0] = 1099;
+   art->tile_id_up_by_dir[1] = 1102;
+   art->tile_id_up_by_dir[2] = 1109;
+   art->tile_id_up_by_dir[3] = 1106;
+   art->tile_id_down_by_dir[0] = 1098;
+   art->tile_id_down_by_dir[1] = 1101;
+   art->tile_id_down_by_dir[2] = 1108;
+   art->tile_id_down_by_dir[3] = 1105;
+}
+{
+   ArtCar3D* art = &renderer->art_cars[1];
+   art->car_type = 5;
+   art->color = 1;
+   art->tile_id_by_dir[0] = 569;
+   art->tile_id_by_dir[1] = 567;
+   art->tile_id_by_dir[2] = 576;
+   art->tile_id_by_dir[3] = 575;
+   art->tile_id_by_dir[4] = 579;
+   art->tile_id_by_dir[5] = 582;
+   art->tile_id_by_dir[6] = 572;
+   art->tile_id_by_dir[7] = 568;
+   art->tile_id_up_by_dir[0] = 571;
+   art->tile_id_up_by_dir[1] = 574;
+   art->tile_id_up_by_dir[2] = 581;
+   art->tile_id_up_by_dir[3] = 578;
+   art->tile_id_down_by_dir[0] = 570;
+   art->tile_id_down_by_dir[1] = 573;
+   art->tile_id_down_by_dir[2] = 580;
+   art->tile_id_down_by_dir[3] = 577;
+}
+{
+   ArtCar3D* art = &renderer->art_cars[2];
+   art->car_type = 6;
+   art->color = 1;
+   art->tile_id_by_dir[0] = 1065;
+   art->tile_id_by_dir[1] = 1063;
+   art->tile_id_by_dir[2] = 1072;
+   art->tile_id_by_dir[3] = 1071;
+   art->tile_id_by_dir[4] = 1075;
+   art->tile_id_by_dir[5] = 1078;
+   art->tile_id_by_dir[6] = 1068;
+   art->tile_id_by_dir[7] = 1064;
+   art->tile_id_up_by_dir[0] = 1067;
+   art->tile_id_up_by_dir[1] = 1070;
+   art->tile_id_up_by_dir[2] = 1077;
+   art->tile_id_up_by_dir[3] = 1074;
+   art->tile_id_down_by_dir[0] = 1066;
+   art->tile_id_down_by_dir[1] = 1069;
+   art->tile_id_down_by_dir[2] = 1076;
+   art->tile_id_down_by_dir[3] = 1073;
+}
+{
+   ArtCar3D* art = &renderer->art_cars[3];
+   art->car_type = 7;
+   art->color = 1;
+   art->tile_id_by_dir[0] = 1081;
+   art->tile_id_by_dir[1] = 1079;
+   art->tile_id_by_dir[2] = 1088;
+   art->tile_id_by_dir[3] = 1087;
+   art->tile_id_by_dir[4] = 1091;
+   art->tile_id_by_dir[5] = 1094;
+   art->tile_id_by_dir[6] = 1084;
+   art->tile_id_by_dir[7] = 1080;
+   art->tile_id_up_by_dir[0] = 1083;
+   art->tile_id_up_by_dir[1] = 1086;
+   art->tile_id_up_by_dir[2] = 1093;
+   art->tile_id_up_by_dir[3] = 1090;
+   art->tile_id_down_by_dir[0] = 1082;
+   art->tile_id_down_by_dir[1] = 1085;
+   art->tile_id_down_by_dir[2] = 1092;
+   art->tile_id_down_by_dir[3] = 1089;
+}
+{
+   ArtCar3D* art = &renderer->art_cars[4];
+   art->car_type = 0;
+   art->color = 0;
+   art->tile_id_by_dir[0] = 890;
+   art->tile_id_by_dir[1] = 896;
+   art->tile_id_by_dir[2] = 895;
+   art->tile_id_by_dir[3] = 899;
+   art->tile_id_by_dir[4] = 894;
+   art->tile_id_by_dir[5] = 893;
+   art->tile_id_by_dir[6] = 888;
+   art->tile_id_by_dir[7] = 889;
+   art->tile_id_up_by_dir[0] = 891;
+   art->tile_id_up_by_dir[1] = 887;
+   art->tile_id_up_by_dir[2] = 898;
+   art->tile_id_up_by_dir[3] = 900;
+   art->tile_id_down_by_dir[0] = 892;
+   art->tile_id_down_by_dir[1] = 902;
+   art->tile_id_down_by_dir[2] = 897;
+   art->tile_id_down_by_dir[3] = 901;
+}
+{
+   ArtCar3D* art = &renderer->art_cars[5];
+   art->car_type = 9;
+   art->color = 1;
+   art->tile_id_by_dir[0] = 666;
+   art->tile_id_by_dir[1] = 672;
+   art->tile_id_by_dir[2] = 671;
+   art->tile_id_by_dir[3] = 675;
+   art->tile_id_by_dir[4] = 670;
+   art->tile_id_by_dir[5] = 669;
+   art->tile_id_by_dir[6] = 664;
+   art->tile_id_by_dir[7] = 665;
+   art->tile_id_up_by_dir[0] = 667;
+   art->tile_id_up_by_dir[1] = 663;
+   art->tile_id_up_by_dir[2] = 674;
+   art->tile_id_up_by_dir[3] = 676;
+   art->tile_id_down_by_dir[0] = 668;
+   art->tile_id_down_by_dir[1] = 678;
+   art->tile_id_down_by_dir[2] = 673;
+   art->tile_id_down_by_dir[3] = 677;
+}
+{
+   ArtCar3D* art = &renderer->art_cars[6];
+   art->car_type = 10;
+   art->color = 4;
+   art->tile_id_by_dir[0] = 778;
+   art->tile_id_by_dir[1] = 784;
+   art->tile_id_by_dir[2] = 783;
+   art->tile_id_by_dir[3] = 787;
+   art->tile_id_by_dir[4] = 782;
+   art->tile_id_by_dir[5] = 781;
+   art->tile_id_by_dir[6] = 776;
+   art->tile_id_by_dir[7] = 777;
+   art->tile_id_up_by_dir[0] = 779;
+   art->tile_id_up_by_dir[1] = 775;
+   art->tile_id_up_by_dir[2] = 786;
+   art->tile_id_up_by_dir[3] = 788;
+   art->tile_id_down_by_dir[0] = 780;
+   art->tile_id_down_by_dir[1] = 790;
+   art->tile_id_down_by_dir[2] = 785;
+   art->tile_id_down_by_dir[3] = 789;
+}
+{
+   ArtCar3D* art = &renderer->art_cars[7];
+   art->car_type = 4;
+   art->color = 2;
+   art->tile_id_by_dir[0] = 746;
+   art->tile_id_by_dir[1] = 752;
+   art->tile_id_by_dir[2] = 751;
+   art->tile_id_by_dir[3] = 755;
+   art->tile_id_by_dir[4] = 750;
+   art->tile_id_by_dir[5] = 749;
+   art->tile_id_by_dir[6] = 744;
+   art->tile_id_by_dir[7] = 745;
+   art->tile_id_up_by_dir[0] = 747;
+   art->tile_id_up_by_dir[1] = 743;
+   art->tile_id_up_by_dir[2] = 754;
+   art->tile_id_up_by_dir[3] = 756;
+   art->tile_id_down_by_dir[0] = 748;
+   art->tile_id_down_by_dir[1] = 758;
+   art->tile_id_down_by_dir[2] = 753;
+   art->tile_id_down_by_dir[3] = 757;
+}
+{
+   ArtCar3D* art = &renderer->art_cars[8];
+   art->car_type = 10;
+   art->color = 2;
+   art->tile_id_by_dir[0] = 682;
+   art->tile_id_by_dir[1] = 688;
+   art->tile_id_by_dir[2] = 687;
+   art->tile_id_by_dir[3] = 691;
+   art->tile_id_by_dir[4] = 686;
+   art->tile_id_by_dir[5] = 685;
+   art->tile_id_by_dir[6] = 680;
+   art->tile_id_by_dir[7] = 681;
+   art->tile_id_up_by_dir[0] = 683;
+   art->tile_id_up_by_dir[1] = 679;
+   art->tile_id_up_by_dir[2] = 690;
+   art->tile_id_up_by_dir[3] = 692;
+   art->tile_id_down_by_dir[0] = 684;
+   art->tile_id_down_by_dir[1] = 694;
+   art->tile_id_down_by_dir[2] = 689;
+   art->tile_id_down_by_dir[3] = 693;
+}
+{
+   ArtCar3D* art = &renderer->art_cars[9];
+   art->car_type = 9;
+   art->color = 3;
+   art->tile_id_by_dir[0] = 1050;
+   art->tile_id_by_dir[1] = 1056;
+   art->tile_id_by_dir[2] = 1055;
+   art->tile_id_by_dir[3] = 1059;
+   art->tile_id_by_dir[4] = 1054;
+   art->tile_id_by_dir[5] = 1053;
+   art->tile_id_by_dir[6] = 1048;
+   art->tile_id_by_dir[7] = 1049;
+   art->tile_id_up_by_dir[0] = 1051;
+   art->tile_id_up_by_dir[1] = 1047;
+   art->tile_id_up_by_dir[2] = 1058;
+   art->tile_id_up_by_dir[3] = 1060;
+   art->tile_id_down_by_dir[0] = 1052;
+   art->tile_id_down_by_dir[1] = 1062;
+   art->tile_id_down_by_dir[2] = 1057;
+   art->tile_id_down_by_dir[3] = 1061;
+}
+{
+   ArtCar3D* art = &renderer->art_cars[10];
+   art->car_type = 2;
+   art->color = 0;
+   art->tile_id_by_dir[0] = 906;
+   art->tile_id_by_dir[1] = 912;
+   art->tile_id_by_dir[2] = 911;
+   art->tile_id_by_dir[3] = 915;
+   art->tile_id_by_dir[4] = 910;
+   art->tile_id_by_dir[5] = 909;
+   art->tile_id_by_dir[6] = 904;
+   art->tile_id_by_dir[7] = 905;
+   art->tile_id_up_by_dir[0] = 907;
+   art->tile_id_up_by_dir[1] = 903;
+   art->tile_id_up_by_dir[2] = 914;
+   art->tile_id_up_by_dir[3] = 916;
+   art->tile_id_down_by_dir[0] = 908;
+   art->tile_id_down_by_dir[1] = 918;
+   art->tile_id_down_by_dir[2] = 913;
+   art->tile_id_down_by_dir[3] = 917;
+}
+}
+
+#pragma GCC pop_options
+

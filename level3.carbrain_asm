@@ -1,0 +1,222 @@
+// The right hand rule + states that determine action
+//
+// Uses %d as state register
+//
+// State 0:
+//  - pickup all crates
+//  - if pickup crate: state = 1
+//  - if reach filter (with no crates picked up): state = 2
+//
+// State 1:
+//  - pickup all crates
+//  - if reach rainbow marker (nr 1):
+//        - drop all crates but 1
+//        - state = 3
+//
+// State 2:
+//  - just drive back and forth
+//  - if see crate, pickup and state 3
+//
+// State 3:
+//  - Don't pickup crates
+//  - if reach red marker (nr 2)
+//      - state = 4
+//      - drop all crates
+//
+// State 4:
+//  - Just drive
+//
+//  # grey marker (nr 0)
+
+
+// Reference:
+// 8 positions around car (including own pos):
+//
+//   .
+//  ...
+//  .X.
+//   .
+//
+//   0
+//  123
+//  456
+//   7
+
+init:
+MOV $0, %d
+MOV $IO_DECISION_START, %c
+
+//main program
+main:
+call $find_right_hand_wall
+loop:
+//check if can go right
+MOVB $SENSOR_POSITION_0_ADDR, %e
+ADD $6, %e  //1 tile right of car
+MOVB (%e), %b
+TEST %b, $SENSE_ROAD
+JZ $after_turn_right
+call $move_right
+after_turn_right:
+//check if can go forward
+MOVB $SENSOR_POSITION_0_ADDR, %e
+ADD $2, %e  //1 tile in front of car
+MOVB (%e), %b
+TEST %b, $SENSE_ROAD
+JZ $left //if can't move forward, go left
+MOVB $DECISION_FORWARD, 1(%c)
+MOVB $1, (%c)
+//previous memory access (to action count) causes bot to have moved and sensor to update, before continuing program
+CALL $check_attach
+JMP $loop
+left:
+MOVB $DECISION_TURN_LEFT, 1(%c)
+MOVB $1, (%c)
+JMP $loop
+
+//helpers
+
+find_right_hand_wall:
+MOVB $SENSOR_POSITION_0_ADDR, %e
+ADD $2, %e  //1 tile in front of car
+MOVB (%e), %b
+TEST %b, $SENSE_ROAD
+JZ $reached_first_wall
+MOVB $DECISION_FORWARD, 1(%c)
+MOVB $1, (%c)
+CALL $check_attach
+JMP $find_right_hand_wall
+
+reached_first_wall:
+MOVB $SENSOR_POSITION_0_ADDR, %e
+ADD $4, %e  //1 tile left of car
+MOVB (%e), %b
+TEST %b, $SENSE_ROAD
+JNZ $no_wall_left
+MOVB $DECISION_TURN_LEFT, 1(%c)
+MOVB $1, (%c)
+JMP $reached_first_wall
+no_wall_left:
+MOVB $DECISION_TURN_LEFT, 1(%c)
+MOVB $1, (%c)
+RET  //find_right_hand_wall
+
+
+check_attach:
+CMP $3, %d
+JE $check_attach_ret  //don't attach in state 3
+CMP $4, %d
+JE $check_attach_ret  //don't attach in state 4
+MOVB $SENSOR_POSITION_0_ADDR, %e
+ADD $5, %e  //car tile itself
+MOVB (%e), %b
+TEST %b, $SENSE_CRATE
+JZ $check_attach_ret
+CALL $pickup
+CALL $check_state_change_0
+CALL $check_state_change_1
+CALL $check_state_change_2
+check_attach_ret:
+CALL $check_state_change_3
+RET
+
+pickup:
+MOVB $DECISION_ATTACH, 1(%c)
+MOVB $1, (%c)
+//previous memory access (to action count) causes bot to have moved and sensor to update, before continuing program
+RET
+
+drop_all_but_one:
+MOVB ($SENSOR_CRATE_COUNT_ADDR), %e
+CMP $1, %e
+JE $all_but_one_drops_done
+CMP $0, %e
+JE $all_but_one_drops_done
+MOVB $DECISION_DROP, 1(%c)
+MOVB $1, (%c)
+//previous memory access (to action count) causes bot to have moved and sensor to update, before continuing program
+JMP $drop_all_but_one
+all_but_one_drops_done:
+RET
+
+drop_all:
+MOVB ($SENSOR_CRATE_COUNT_ADDR), %e
+CMP $0, %e
+JE $all_drops_done
+MOVB $DECISION_DROP, 1(%c)
+MOVB $1, (%c)
+//previous memory access (to action count) causes bot to have moved and sensor to update, before continuing program
+JMP $drop_all
+all_drops_done:
+RET
+
+//  - if pickup crate: state = 1
+//  - if reach filter (with no crates picked up): state = 2
+check_state_change_0:
+CMP $0, %d
+JNE $check_state_change_0_ret  //only change if in state 0
+MOVB ($SENSOR_CRATE_COUNT_ADDR), %e
+CMP $0, %e
+JE $check_state_change_0_filter
+MOV $1, %d  //change state 0->1 if at least 1 crate attached
+RET
+check_state_change_0_filter:
+//check if filter in view
+MOVB $SENSOR_POSITION_0_ADDR, %e
+ADD $2, %e  //1 tile in front of car
+MOVB (%e), %b
+TEST %b, $SENSE_FILTER
+JZ $check_state_change_0_ret
+MOV $1, %d  //change state 0->2 if filter seen (without crates)
+check_state_change_0_ret:
+RET
+
+//  - if reach rainbow marker (nr 1):
+//        - drop all crates but 1
+//        - state = 3
+check_state_change_1:
+CMP $1, %d
+JNE $check_state_change_1_ret  //only change if in state 1
+MOVB $SENSOR_POSITION_0_ADDR, %e
+ADD $2, %e  //1 tile in front of car
+MOVB (%e), %b
+TEST %b, $SENSE_MARKER_B
+JZ $check_state_change_1_ret
+CALL $drop_all_but_one  //drop all but one crate if rainbow marker seen
+MOV $3, %d  //change state 1->3 if rainbow marker seen
+check_state_change_1_ret:
+RET
+
+//  - if got crate state 3
+check_state_change_2:
+CMP $2, %d
+JNE $check_state_change_2_ret  //only change if in state 1
+MOVB ($SENSOR_CRATE_COUNT_ADDR), %e
+CMP $0, %e
+JE $check_state_change_2_ret
+MOV $3, %d  //change state 2->3 if at least 1 crate attached
+check_state_change_2_ret:
+RET
+
+//  - if reach red marker (nr 2)
+//      - state = 4
+//      - drop all crates
+check_state_change_3:
+CMP $3, %d
+JNE $check_state_change_3_ret  //only change if in state 3
+MOVB $SENSOR_POSITION_0_ADDR, %e
+ADD $2, %e  //1 tile in front of car
+MOVB (%e), %b
+TEST %b, $SENSE_MARKER_C
+JZ $check_state_change_3_ret
+CALL $drop_all  //drop all if red marker seen
+MOV $4, %d  //change state 3->4 if red marker seen
+check_state_change_3_ret:
+RET
+
+move_right:
+MOVB $DECISION_TURN_RIGHT, 1(%c)
+MOVB $DECISION_FORWARD, 2(%c)
+MOVB $2, (%c)
+//previous memory access (to action count) causes bot to have moved and sensor to update, before continuing program
+RET

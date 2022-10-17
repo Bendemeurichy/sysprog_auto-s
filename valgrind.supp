@@ -1,0 +1,25 @@
+{
+   ignore_X11_leaks
+   Memcheck:Leak
+   ...
+   obj:*/libX11.so.*
+}
+{
+   ignore_X11_leaks
+   Memcheck:Leak
+   ...
+   obj:*libSDL2*
+}
+{
+   ignore_SDL_leaks
+   Memcheck:Leak
+   ...
+   fun:graphics_init
+}
+{
+   ignore_linux_graphics_leaks
+   Memcheck:Leak
+   ...
+   obj:*dri*
+}
+

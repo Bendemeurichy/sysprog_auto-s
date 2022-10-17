@@ -1,0 +1,46 @@
+cmake-build-debug
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+.idea
+*.cbp
+*.bmp
+\.vs/
+Debug/
+*.vcxproj
+*.filters
+*.sln
+CMakeSettings\.json
+run main part/
+/*.dll
+*.exe
+Testing/
+
+# executables
+glmc_demo
+glm_demo
+spg_part1
+spg_part1_edit
+spg_part2
+spg_*_tests
+
+benchmarks/*
+!benchmarks/base-benchmark.zip
+!benchmarks/results
+
+Testing/Temporary/
+
+CTestTestfile.cmake
+RTIMULib.ini
+
+stdout\.txt
+
+vgcore.*
+callgrind.*
+
+savefiles/
+
+# user edited level files
+game/level/level_files/*_edited.blvl
+

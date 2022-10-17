@@ -1,0 +1,22 @@
+Verslag Project Systeemprogrammeren {{students[0].record["Project"]}} deel 2
+
+Groepsleden:
+{% for student in students %}
+- {{student.record["First Name"]}} {{student.record["Last Name"]}}
+{% endfor %}
+
+Begeleider: {{mentors[0].record["First Name"]}} {{mentors[0].record["Last Name"]}}
+
+{% if students|length > 1 %}
+# Wie deed wat?
+
+**TODO** overzicht finale taakverdeling
+
+{% endif %}
+# Evaluatie
+
+**TODO** Een kort overzicht van welke gevraagde functionaliteit niet werkt in de finale oplossing, en of er gekende bugs zijn.
+
+# Ontwerpbeslissingen
+
+**TODO** Eventueel een extra woordje uitleg bij je ontwerpbeslissingen. Zeker als van de door ons gesuggereerde aanpak word afgeweken, moet in het verslag vermeld worden hoe werd afgeweken, en waarom. Dit hoeft echter niet zeer uitgebreid te zijn.

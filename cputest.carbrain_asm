@@ -1,0 +1,90 @@
+//cputest: Beweeg vooruit als CPU test ok, draai rond bij falen test.
+//let op: dit test slechts een minieme fractie van de functionaliteit.
+
+JMP $test
+
+fail:
+MOV $IO_DECISION_START, %a
+MOVB $DECISION_TURN_LEFT, 1(%a)
+MOVB $DECISION_TURN_LEFT, 2(%a)
+MOVB $DECISION_TURN_RIGHT, 3(%a)
+MOVB $DECISION_TURN_RIGHT, 4(%a)
+MOVB $4, (%a)
+JMP $fail
+
+test:
+MOV %sp, %e
+PUSH $7
+PUSH $8
+CMP $7, $7
+JNE $fail
+CMP $7, 2(%sp)
+JNE $fail
+CMP $1, $2
+XOR $7, 2(%sp)
+JNZ $fail
+CMP $0x8, (%sp)
+JNE $fail
+CMP $1, $2
+XOR $0x8, (%sp)
+JNZ $fail
+
+MOV %e, %d
+SUB %sp, %d
+CMP %d, $4
+JNE $fail
+
+MOV $2, %c
+CMP $2, %c
+JNE $fail
+CMP %c, $2
+JNE $fail
+INC %c
+JZ $fail
+CMP %c, $3
+JNE $fail
+DEC %c
+JZ $fail
+CMP %c, $2
+JNE $fail
+DEC %c
+JZ $fail
+DEC %c
+JNZ $fail
+
+MOV $0x1234, 6(%sp)
+CMP 6(%sp), $0x1234
+JNE $fail
+MOVB 6(%sp), %a
+MOVB 7(%sp), %b
+CMP %a, $0x12
+JNE $fail
+CMP %a, $0x34
+JNE $fail
+MOVB $0x98, 6(%sp)
+MOVB $0x76, 7(%sp)
+CMP 6(%sp), $0x9876
+JNE $fail
+
+POP %a //should be 8
+POP %b //should be 7
+CMP %e, %sp
+JNE $fail
+CMP %a, $8
+JNE $fail
+CMP %b, $7
+JNE $fail
+CMP $1, $2
+TEST %b, $0xFFF8
+JNZ $fail
+CMP $1, $2
+TEST %a, $0xFFF7
+JNZ $fail
+JE $success
+JMP $fail
+
+success:
+MOV $IO_DECISION_START, %a
+MOVB $DECISION_FORWARD, 1(%a)
+MOVB $1, (%a)
+JMP $success

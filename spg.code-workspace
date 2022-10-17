@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "sysprog-project-2022"
+		}
+	],
+	"settings": {
+		"make.jobs":"4",
+		"files.insertFinalNewline": true,
+		"terminal.integrated.env.linux": {
+			"LSAN_OPTIONS": "suppressions=lsan.supp"
+		},
+		"terminal.integrated.env.osx": {
+			"LSAN_OPTIONS": "suppressions=lsan.supp"
+		}
+	}
+}

@@ -1,0 +1,35 @@
+//This file contains a minimal hardcoded level.
+
+LevelPoint hardcoded_level_0_points__0[3] = {
+   {1, 4},
+   {1, 4},
+   {1, 4}
+};
+LevelPoint hardcoded_level_0_points__1[3] = {
+   {1, 4},
+   {1, 4},
+   {1, 4}
+};
+LevelPoint hardcoded_level_0_points__2[3] = {
+   {1, 4},
+   {1, 4},
+   {1, 4}
+};
+
+LevelPoint* hardcoded_level_0_points[3] = {
+   hardcoded_level_0_points__0,
+   hardcoded_level_0_points__1,
+   hardcoded_level_0_points__2
+};
+LevelItem hardcoded_level_0_items[1] = {
+  {1, 0, 1, 0, 0}
+};
+
+void load_hardcoded_level_0(Level* level) {
+   level->name = "HARDCODED";
+   level->width = 3;
+   level->height = 3;
+   level->item_count = 1;
+   level->points = hardcoded_level_0_points;
+   level->items = hardcoded_level_0_items;
+}

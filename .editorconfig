@@ -1,0 +1,11 @@
+# EditorConfig doc: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# SPG template levels
+[*.tlvl]
+indent_style = space
+indent_size = 1
+trim_trailing_whitespace = false
+insert_final_newline = true

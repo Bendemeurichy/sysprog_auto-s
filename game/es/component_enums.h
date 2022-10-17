@@ -1,0 +1,47 @@
+#ifndef SYSPROG_COMPONENT_ENUMS_H
+#define SYSPROG_COMPONENT_ENUMS_H
+
+typedef enum ComponentId {
+    COMP_WORLD,
+    COMP_LEVEL_INFO,
+    COMP_EDITOR_INFO,
+    COMP_TIME,
+    COMP_TILE_EDIT_INFO,
+    COMP_LOCATION, //x,y,z coord
+    COMP_GROUND_RECT, //(x0-x1,y0-y1,z) = rectangle orthogonal to z-axis
+    COMP_MOVE,
+    COMP_ART_GROUND,
+    COMP_ART_BUILDING,
+    COMP_ART_COLORED,
+    COMP_ART_VARIOUS,
+    COMP_ART_CAR,
+    COMP_INPUTRECEIVER_OPTION,
+    COMP_INPUTRECEIVER,
+    COMP_MOVE_REQUEST,
+    COMP_EDIT_REQUEST,
+    COMP_CAMERA,
+    COMP_DIRECTION,
+    COMP_UPDOWN,
+    COMP_EXIT,
+    COMP_EXIT_ACTIVATOR,
+    COMP_LEVEL_END_ANIMATION,
+    COMP_FILTER,
+    COMP_MARKER,
+    COMP_EDITOR_TOOLBAR,
+    COMP_ROAD,
+    COMP_AUTOMOVE_CONTROL,
+    COMP_CARBRAIN,
+
+    COMP_FILTER_REQUIREMENT,
+
+    COMP_ACTION_ATTACH,
+    COMP_ACTION_DROP,
+
+    COMP_DRAGGER,    //can attach/drop draggables
+    COMP_DRAGGING,   //link to dragged entity
+    COMP_DRAGGABLE,  //can be dragged by dragger + optional link to dragger
+
+    COMPONENT_ID_SIZE
+} ComponentId;
+
+#endif //SYSPROG_COMPONENT_ENUMS_H

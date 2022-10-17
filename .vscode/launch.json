@@ -1,0 +1,156 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    //
+    // More info on cppdbg-specific launch parameters: https://github.com/Microsoft/vscode-cpptools/blob/master/launch.md
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "spg_part1",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/spg_part1",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                // Turn off leak checking in debug mode because it crashes under gdb.
+                // https://stackoverflow.com/questions/54022889/leaksanitizer-not-working-under-gdb-in-ubuntu-18-04
+                {
+                    "name":"ASAN_OPTIONS",
+                    "value": "detect_leaks=0"
+                }
+            ],
+            "externalConsole": false, // This value doesn't seem to actually do anything..
+            "MIMode": "gdb",
+            "osx": {
+                "MIMode": "lldb",
+            },
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // Build the app before debugging
+            "preLaunchTask": "build spg_part1"
+        },
+        {
+            "name": "spg_part1_edit",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/spg_part1_edit",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                // Turn off leak checking in debug mode because it crashes under gdb.
+                // https://stackoverflow.com/questions/54022889/leaksanitizer-not-working-under-gdb-in-ubuntu-18-04
+                {
+                    "name":"ASAN_OPTIONS",
+                    "value": "detect_leaks=0"
+                }
+            ],
+            "externalConsole": false, // This value doesn't seem to actually do anything..
+            "MIMode": "gdb",
+            "osx": {
+                "MIMode": "lldb",
+            },
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // Build the app before debugging
+            "preLaunchTask": "build spg_part1_edit"
+        },
+        {
+            "name": "spg_part2",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/spg_part2",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                // Turn off leak checking in debug mode because it crashes under gdb.
+                // https://stackoverflow.com/questions/54022889/leaksanitizer-not-working-under-gdb-in-ubuntu-18-04
+                {
+                    "name":"ASAN_OPTIONS",
+                    "value": "detect_leaks=0"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // Build the app before debugging
+            "preLaunchTask": "build spg_part2"
+        },
+        {
+            "name": "spg_part1_tests",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/spg_part1_tests",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                // Turn off leak checking in debug mode because it crashes under gdb.
+                // https://stackoverflow.com/questions/54022889/leaksanitizer-not-working-under-gdb-in-ubuntu-18-04
+                {
+                    "name":"ASAN_OPTIONS",
+                    "value": "detect_leaks=0"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // Build the app before debugging
+            "preLaunchTask": "build spg_part1_tests"
+        },
+        {
+            "name": "spg_part2_tests",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/spg_part2_tests",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                // Turn off leak checking in debug mode because it crashes under gdb.
+                // https://stackoverflow.com/questions/54022889/leaksanitizer-not-working-under-gdb-in-ubuntu-18-04
+                {
+                    "name":"ASAN_OPTIONS",
+                    "value": "detect_leaks=0"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // Build the app before debugging
+            "preLaunchTask": "build spg_part2_tests"
+        }
+    ]
+}

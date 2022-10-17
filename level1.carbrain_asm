@@ -1,0 +1,98 @@
+// The right hand rule!
+//
+// + pickup any crates along the way
+//
+// This uses the stack and function calls (without cdecl).
+
+// Reference:
+// 8 positions around car (including own pos):
+//
+//   .
+//  ...
+//  .X.
+//   .
+//
+//   0
+//  123
+//  456
+//   7
+
+init:
+MOV $IO_DECISION_START, %c
+
+//main program
+main:
+call $find_right_hand_wall
+loop:
+//check if can go right
+MOV $SENSOR_POSITION_0_ADDR, %e
+ADD $6, %e  //1 tile right of car
+MOVB (%e), %b
+TEST %b, $SENSE_ROAD
+JZ $after_turn_right
+call $move_right
+after_turn_right:
+//check if can go forward
+MOV $SENSOR_POSITION_0_ADDR, %e
+ADD $2, %e  //1 tile in front of car
+MOVB (%e), %b
+TEST %b, $SENSE_ROAD
+JZ $left //if can't move forward, go left
+MOVB $DECISION_FORWARD, 1(%c)
+MOVB $1, (%c)
+//previous memory access (to action count) causes bot to have moved and sensor to update, before continuing program
+CALL $check_attach
+JMP $loop
+left:
+MOVB $DECISION_TURN_LEFT, 1(%c)
+MOVB $1, (%c)
+JMP $loop
+
+//helpers
+
+find_right_hand_wall:
+MOV $SENSOR_POSITION_0_ADDR, %e
+ADD $2, %e  //1 tile in front of car
+MOVB (%e), %b
+TEST %b, $SENSE_ROAD
+JZ $reached_first_wall
+MOVB $DECISION_FORWARD, 1(%c)
+MOVB $1, (%c)
+CALL $check_attach
+JMP $find_right_hand_wall
+
+reached_first_wall:
+MOV $SENSOR_POSITION_0_ADDR, %e
+ADD $4, %e  //1 tile left of car
+MOVB (%e), %b
+TEST %b, $SENSE_ROAD
+JNZ $no_wall_left
+MOVB $DECISION_TURN_LEFT, 1(%c)
+MOVB $1, (%c)
+JMP $reached_first_wall
+no_wall_left:
+MOVB $DECISION_TURN_LEFT, 1(%c)
+MOVB $1, (%c)
+RET  //find_right_hand_wall
+
+
+check_attach:
+MOV $SENSOR_POSITION_0_ADDR, %e
+ADD $5, %e  //car tile itself
+MOVB (%e), %b
+TEST %b, $SENSE_CRATE
+JNZ $pickup
+RET
+
+pickup:
+MOVB $DECISION_ATTACH, 1(%c)
+MOVB $1, (%c)
+//previous memory access (to action count) causes bot to have moved and sensor to update, before continuing program
+RET
+
+move_right:
+MOVB $DECISION_TURN_RIGHT, 1(%c)
+MOVB $DECISION_FORWARD, 2(%c)
+MOVB $2, (%c)
+//previous memory access (to action count) causes bot to have moved and sensor to update, before continuing program
+RET
