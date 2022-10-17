@@ -3,7 +3,7 @@ name: Questions & Problems
 about: Vraag je begeleider om hulp
 title: ''
 labels: question
-assignees: {{mentors[0].username}}
+assignees: sborny
 
 ---
 

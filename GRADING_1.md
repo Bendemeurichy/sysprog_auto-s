@@ -14,20 +14,11 @@ Indien de opgave iets vraagt wat niet in de lijst staat, moet dat zeker ook geda
 Meld dit dan dus zeker, zodat we deze lijst op tijd kunnen aanpassen.
 Ook bij onduidelijkheden neem je best contract op.
 
-{% if students|length == 1 %}
-**TODO na te kijken of deze gewijzigde opdracht evenwichtig is**
-Deze lijst is aangepast voor studenten die alleen werken i.p.v. in een groep van 2. 
-(Opmerking: Dit is niet vrij te kiezen, en kan slechts in samenspraak met de begeleiders.)
 
-Verschillen met 2 persoon opgave:
-- Geen command line argumenten voor `spg_part1` (steeds alle levels in volgorde)
-- Level editor (`spg_edit`) niet vereist
-- Ondersteuning "same" in binaire level bestanden niet vereist.
-{% endif %}
 
 Functionaliteit:
 - [ ] `spg_part1` met 0 command line arguments (= alle fixed levels)
-{% if students|length > 1 %}
+
 - [ ] `spg_part1` met command line argument `--help`
 - [ ] `spg_part1` met 1 of meerdere numerieke command line level arguments
 - [ ] `spg_part1` met 1 of meerdere filename command line level arguments
@@ -37,12 +28,10 @@ Functionaliteit:
 - [ ] `spg_edit` met enkel command line argument
 - [ ] `spg_edit` met 0, 2 of meer command line arguments (= foutmelding)
 - [ ] `spg_edit` met command line argument `--help`
-{% endif %}
-{% if students|length > 1 %}
+
+
 - [ ] Binaire levels inlezen (met ondersteuning "same")
-{% else %}
-- [ ] Binaire levels inlezen (ondersteuning "same" niet vereist)
-{% endif %}
+
 - [ ] Spelregels: Selecteren van te besturen auto
 - [ ] Spelregels: Basis Beweging auto's
 - [ ] Spelregels: Zwaartekracht

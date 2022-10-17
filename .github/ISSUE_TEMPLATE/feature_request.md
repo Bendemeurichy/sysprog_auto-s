@@ -3,7 +3,7 @@ name: Feature request
 about: Een uit te voeren taak
 title: ''
 labels: enhancement
-assignees: '{{students|map(attribute="username", default="Unknown")|join(", ")}}'
+assignees: 'bdmeuric, tcollyn'
 
 ---
 

@@ -16,20 +16,13 @@ Ook bij onduidelijkheden neem je best contract op.
 
 Alle functionaliteiten moeten in C++ geschreven worden (behalve de 2 nieuwe systems).
 
-{% if students|length == 1 %}
-Deze lijst is aangepast voor studenten die alleen werken i.p.v. in een groep van 2.
-(Opmerking: Dit is niet vrij te kiezen, en kan slechts in samenspraak met de begeleiders.)
 
-Verschillen met 2 persoon opgave:
-- Enkel BitWriter, BitReader en CPU (+ testen).
-- `Bus`, `Board`, `Module`, `Mem`, `Sensors`, `DecisionOutput` en de volledige integratie met deel 1 valt weg.
-{% endif %}
 
 Functionaliteit:
 - [ ] `BitWriter` implementeren
 - [ ] `BitReader` implementeren
 - [ ] `CPU` en alle CPU instructies implementeren
-{% if students|length > 1 %}
+
 - [ ] `Bus` implementeren
 - [ ] `Board` implementeren
 - [ ] `Module`, `Mem`, `Sensors`, `DecisionOutput` implementeren
@@ -37,9 +30,7 @@ Functionaliteit:
 - [ ] Decision system (C)
 - [ ] Alle levels worden door de meegeleverde programma's uitgespeeld
 
-{% else %}
 
-{% endif %}
 - [ ] Testen van alle CPU instructies implementeren
 - [ ] Gegeven testen `BitWriter` slagen
 - [ ] Gegeven testen `BitReader` slagen

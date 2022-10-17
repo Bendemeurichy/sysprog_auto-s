@@ -1,14 +1,16 @@
 # Project Systeemprogrammeren 2022
 
-This is the repository with the assignment for the project of Systeemprogrammeren, for {{students[0].record["Project"]}}.
+This is the repository with the assignment for the project of Systeemprogrammeren, for Project Groep 17.
 The full assignment for the Sysprog 2022 project can be found in the [assigment document](https://github.ugent.be/Systeemprogrammeren/docs/blob/master/project_sysprog22_opgave.pdf)
 
 Students:
-{% for student in students %}
-* {{student.record["First Name"]}} {{student.record["Last Name"]}}
-{% endfor %}
 
-Assistant for this group: {{mentors[0].record["First Name"]}} {{mentors[0].record["Last Name"]}} ({{mentors[0].record["Email"]}})
+* Ben De Meurichy
+
+* Thibaud Collyn
+
+
+Assistant for this group: Sander Borny (Sander.Borny@UGent.be)
 
 The goal of the project is to implement a puzzle game.
 

@@ -3,7 +3,7 @@ name: Bug report
 about: Bug
 title: ''
 labels: bug
-assignees: '{{students|map(attribute="username", default="Unknown")|join(", ")}}'
+assignees: 'bdmeuric, tcollyn'
 
 ---
 
