@@ -30,15 +30,14 @@ Functionaliteit:
 - [ ] `spg_edit` met command line argument `--help`
 
 
-- [ ] Binaire levels inlezen (met ondersteuning "same")
+- [ ] Binaire levels inlezen (met ondersteuning van "ground material" met waarde `0x3`)
 
 - [ ] Spelregels: Selecteren van te besturen auto
 - [ ] Spelregels: Basis Beweging auto's
-- [ ] Spelregels: Zwaartekracht
 - [ ] Spelregels: Correcte snelheid beweging
-- [ ] Spelregels: Markers weergegeven
-- [ ] Spelregels: beweging beperkt tot wegen
-- [ ] Spelregels: beweging geblokkeerd door filters
+- [ ] Spelregels: Markers weergegeven (reeds gegeven)
+- [ ] Spelregels: Beweging beperkt tot wegen
+- [ ] Spelregels: Beweging geblokkeerd door filters
 - [ ] Spelregels: Crate oprapen en laten vallen (functioneel)
 - [ ] Spelregels: Crate oprapen en laten vallen (visueel)
 - [ ] Spelregels: Filters activeren/deactiveren bij juiste aantal crates
@@ -53,7 +52,7 @@ Functionaliteit:
 - [ ] Level editor: Uitvoeren impliciete aanpas functies bij klikken bestaande object (hoogte gebouw, nummer filter, rotatie uitgang, kleur auto, kleur crate, type flora, kleur marker)
 - [ ] Level editor: Entities omzetten naar `struct Level`
 - [ ] Level editor: Opslaan levels juiste naar bestand (`*_edited.lvl`)
-- [ ] Binaire levels schrijven (met ondersteuning "same")
+- [ ] Binaire levels schrijven (met ondersteuning van "ground material" met waarde `0x3`)
 
 Aftrek voor fouten:
 - Crashes
