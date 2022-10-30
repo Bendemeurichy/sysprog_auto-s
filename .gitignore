@@ -44,3 +44,5 @@ savefiles/
 # user edited level files
 game/level/level_files/*_edited.blvl
 
+
+libraries/

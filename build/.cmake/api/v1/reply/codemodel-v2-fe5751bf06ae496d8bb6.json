@@ -1,0 +1,113 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "SPG",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "glm_demo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-glm_demo-Debug-ef71c9832d0c5d847ff3.json",
+					"name" : "glm_demo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "glmc_demo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-glmc_demo-Debug-4195c675d7441bcdefa5.json",
+					"name" : "glmc_demo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "spg_part1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-spg_part1-Debug-8164ef029d0992504b93.json",
+					"name" : "spg_part1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "spg_part1_edit::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-spg_part1_edit-Debug-d6cad577e2b0498c2403.json",
+					"name" : "spg_part1_edit",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "spg_part1_tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-spg_part1_tests-Debug-447c9facf69769414ce7.json",
+					"name" : "spg_part1_tests",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "spg_part2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-spg_part2-Debug-f588e2c9ecae745030cb.json",
+					"name" : "spg_part2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "spg_part2_tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-spg_part2_tests-Debug-aef707252c2fc52896a6.json",
+					"name" : "spg_part2_tests",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/build",
+		"source" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}
