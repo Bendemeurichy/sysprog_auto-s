@@ -93,13 +93,49 @@ char * test_read_level_demo() {
 
 
 char* assert_same_files(const char* file_a, const char* file_b) {
+    assert(file_a != NULL);
+    assert(file_b != NULL);
+    FILE* a = fopen(file_a, "rb");
+    FILE* b = fopen(file_b, "rb");
+
+    if (a == NULL || b == NULL) {
+        return "Failed to open file";
+    }
+
+    fseek(a, 0, SEEK_END);
+    size_t size_a = ftell(a);
+    fseek(b, 0, SEEK_END);
+    size_t size_b = ftell(b);
+
+    if (size_a != size_b) {
+        fprintf(stderr, "File sizes differ: '%s' is %zu bytes, '%s' is %zu bytes\n",
+                file_a, size_a, file_b, size_b);
+        return "Files differ in size";
+    }
+
+    rewind(a);
+    rewind(b);
+
+    for (size_t i = 0; i < size_a; i++) {
+        uint8_t byte_a, byte_b;
+        size_t ret_a = fread(&byte_a, 1, 1, a);
+        size_t ret_b = fread(&byte_b, 1, 1, b);
+        fatal_if_or_ferror(ret_a != 1, a, "Failed to read from file");
+        fatal_if_or_ferror(ret_b != 1, b, "Failed to read from file");
+        if (byte_a != byte_b) {
+            fprintf(stderr, "Byte %zu differs: in '%s' = 0x%X but in '%s' = 0x%X\n",
+                    i, file_a, byte_a, file_b, byte_b);
+            return "Bytes differ";
+        }
+    }
+
     return 0;
 }
 
 char * test_write_level(int level_nr, bool use_same) {
     Level level;
     load_hardcoded_level(&level, level_nr);
-    const char* tmp_file = use_same ? "/tmp/tmp.blvl" : level_binary_nosame_file[level_nr];
+    const char* tmp_file = "/tmp/tmp.blvl";
     levelwriter_write_binary_level(&level, tmp_file, use_same);
     level_free(&level);
     return assert_same_files(tmp_file, use_same ? level_binary_file[level_nr] : level_binary_nosame_file[level_nr]);
