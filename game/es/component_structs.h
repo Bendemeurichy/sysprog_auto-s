@@ -74,8 +74,10 @@ typedef struct GroundRectComponent {
 } GroundRectComponent;
 
 typedef struct MoveComponent {
-    //TODO
-    uint8_t placeholder_replaceme;  //needed because empty structs are not supported on all compilers
+    uint64_t startTime;
+    uint64_t duration;
+    t_vec3 startPos;
+    t_vec3 endPos;
 } MoveComponent;
 
 typedef struct CarArtComponent {

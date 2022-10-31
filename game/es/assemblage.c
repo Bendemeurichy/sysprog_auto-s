@@ -230,6 +230,7 @@ EntityId create_car(Engine *engine, t_vec3 pos, LevelItemColor color, Direction 
     LocationComponent *loc = create_component(engine, entity_id, COMP_LOCATION);
     glmc_assign_vec3(loc->pos, pos);
 
+    create_component(engine,entity_id,COMP_INPUTRECEIVER_OPTION);
     CarArtComponent* art = create_component(engine, entity_id, COMP_ART_CAR);
     //There are 7 colors and 11 cars at the moment. So this is not strictly needed.
     art->art_id = color % engine->render_static_info->renderer->art_car_count;
