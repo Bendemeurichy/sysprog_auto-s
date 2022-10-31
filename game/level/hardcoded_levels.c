@@ -21,7 +21,7 @@ void load_hardcoded_level(Level* level, int level_nr) {
 }
 
 bool is_hardcoded_level(Level* level) {
-    for (int level_nr = 0; level_nr < TOTAL_LEVEL_COUNT; level_nr++) {
+    for (int level_nr = 0; level_nr <= TOTAL_LEVEL_COUNT; level_nr++) {
         Level tmp;
         load_hardcoded_level(&tmp, level_nr);
         //Note: This uses ==, which compares pointers, instead of strcmp which compares string content
