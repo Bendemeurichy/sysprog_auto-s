@@ -142,23 +142,23 @@ char * test_write_level(int level_nr, bool use_same) {
 }
 
 char * test_write_level_0() {
-    return test_write_level(0, true);
+    return test_write_level(0, false);
 }
 
 char * test_write_level_1() {
-    return test_write_level(1, true);
+    return test_write_level(1, false);
 }
 
 char * test_write_level_2() {
-    return test_write_level(2, true);
+    return test_write_level(2, false);
 }
 
 char * test_write_level_3() {
-    return test_write_level(3, true);
+    return test_write_level(3, false);
 }
 
 char * test_write_level_demo() {
-    return test_write_level(4, true);
+    return test_write_level(4, false);
 }
 
 char * test_write_level_0_nosame() {
