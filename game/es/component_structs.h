@@ -121,13 +121,12 @@ typedef struct ExitedComponent {
 } ExitedComponent;
 
 typedef struct FilterComponent {
-    //TODO
-    uint8_t placeholder_replaceme;  //needed because empty structs are not supported on all compilers
+    int8_t required_crates;
 } FilterComponent;
 
 typedef struct MarkerComponent {
     //TODO
-    uint8_t placeholder_replaceme;  //needed because empty structs are not supported on all compilers
+    ArtColor color;
 } MarkerComponent;
 
 typedef enum EditorTool {
@@ -156,14 +155,14 @@ typedef struct CarBrainVisionComponent {
     uint8_t placeholder_replaceme;  //needed because empty structs are not supported everywhere
 } CarBrainVisionComponent;
 
+
 typedef struct DraggingComponent {
     //TODO
-    uint8_t placeholder_replaceme;  //needed because empty structs are not supported everywhere
+    EntityId first_crate;  //needed because empty structs are not supported everywhere
 } DraggingComponent;
 
 typedef struct DraggableComponent {
-    //TODO
-    uint8_t placeholder_replaceme;  //needed because empty structs are not supported everywhere
+    EntityId next_crate;
 } DraggableComponent;
 
 #endif //SYSPROG_COMPONENTS_H
