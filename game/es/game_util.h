@@ -113,8 +113,8 @@ static_assert(RELATIVE8_Y(SW8, 1) == 0, "RELATIVE8_Y(SW, 1)");
 static_assert(RELATIVE8_Y(W8, 1) == 1, "RELATIVE8_Y(W, 1)");
 static_assert(RELATIVE8_Y(NW8, 1) == 2, "RELATIVE8_Y(NW, 1)");
 
-#define RELATIVE8F_X(DIR, X) (((DIR) == E8 || (DIR) == SE8 || (DIR) == NE8) ? ((X)+0.3f) : ((DIR) == W8 || (DIR) == NW8 || (DIR) == SW8 ? ((X)-0.3f) : (X)))
-#define RELATIVE8F_Y(DIR, Y) ((DIR) == N8 || (DIR) == NE8 || (DIR) == NW8 ? ((Y)+0.3f) : ((DIR) == S8 || (DIR) == SW8 || (DIR) == SE8 ? ((Y)-0.3f) : (Y)))
+#define RELATIVE8F_X(DIR, X) (((DIR) == E8 || (DIR) == SE8 || (DIR) == NE8) ? ((X)+1/3) : ((DIR) == W8 || (DIR) == NW8 || (DIR) == SW8 ? ((X)-1/3) : (X)))
+#define RELATIVE8F_Y(DIR, Y) ((DIR) == N8 || (DIR) == NE8 || (DIR) == NW8 ? ((Y)+1/3) : ((DIR) == S8 || (DIR) == SW8 || (DIR) == SE8 ? ((Y)-1/3) : (Y)))
 
 #define direction8_is_90(in) ((in) == N8 || (in) == S8 || (in) == E8 || (in) == W8)
 #define is_direction8(in) ((in) >= 0 && (in) < DIRECTION8_COUNT)

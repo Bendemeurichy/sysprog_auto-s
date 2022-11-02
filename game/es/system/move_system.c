@@ -19,10 +19,10 @@ void handle_move(Engine* engine){
         LocationComponent* current_loc = get_component(engine,entity_id,COMP_LOCATION);
         current_loc->pos[0] += ((move->endPos[0] - move->startPos[0]) * (now-move->startTime)/move->duration);
         current_loc->pos[1] += ((move->endPos[1] - move->startPos[1]) * (now - move->startTime) / move->duration);
-        //if (now == (move->startTime+move->duration) )
-        //{
+        if (now == (move->startTime+move->duration) )
+        {
             free_component(engine,entity_id,COMP_MOVE);
-        //}
+        }
         update_gridloc_cache(&engine->es_memory);
     }
     
