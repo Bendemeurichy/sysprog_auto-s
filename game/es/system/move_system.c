@@ -64,11 +64,42 @@ void handle_requests(Engine* engine){
 }
 
 bool is_destination_blocked(Engine* engine,EntityId moving_entity_id,t_vec3 dest){
-    EntityIterator roads;
-    search_entity_by_location_1(engine, dest, 0.1f, 1, COMP_ROAD, &roads);
-    if(next_entity(&roads) == 1){
-        return false;
+    EntityIterator obstacles;
+    //check if dest is road
+    search_entity_by_location_1(engine, dest, 0.1f, 0, COMP_ROAD, &obstacles);
+    if(next_entity(&obstacles) == 1){
+        // check if dest is blocked by car
+        search_entity_by_location_1(engine, dest, 0.1f, 0, COMP_DRAGGER, &obstacles);
+        if (next_entity(&obstacles) == 0)
+        {
+            return false;
+        }
+        //check if car has enough crates for filter
+        search_entity_by_location_1(engine,dest,0.1f,0,COMP_FILTER, &obstacles);
+        if (next_entity(&obstacles) == 1 )
+        {
+            FilterComponent* filter= get_component(engine,obstacles.entity_id,COMP_FILTER);
+            DraggingComponent* dragging = get_component(engine,moving_entity_id,COMP_DRAGGING);
+            if(crate_amount(engine,dragging)>=filter->required_crates){
+                return false;
+            }
+        }
+        
     }
-    if()
     return true;
+}
+
+int crate_amount(Engine* engine,DraggingComponent* dragging){
+    int i = 0;
+    if(dragging->first_crate == NULL){
+        return i;
+    }
+    i++;
+    DraggableComponent *crate = get_component(engine, dragging->first_crate,COMP_DRAGGABLE);
+    while (crate!=NULL)
+    {
+        i++;
+        crate=get_component(engine,crate->next_crate,COMP_DRAGGABLE);
+    }
+    return i;
 }

@@ -162,6 +162,7 @@ typedef struct DraggingComponent {
 } DraggingComponent;
 
 typedef struct DraggableComponent {
+    EntityId dragged_by;
     EntityId next_crate;
 } DraggableComponent;
 
