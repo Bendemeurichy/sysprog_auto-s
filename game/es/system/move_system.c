@@ -91,12 +91,12 @@ bool is_destination_blocked(Engine* engine,EntityId moving_entity_id,t_vec3 dest
 
 int crate_amount(Engine* engine,DraggingComponent* dragging){
     int i = 0;
-    if(dragging->first_crate == NULL){
+    if(dragging->first_crate == NO_ENTITY){
         return i;
     }
     i++;
     DraggableComponent *crate = get_component(engine, dragging->first_crate,COMP_DRAGGABLE);
-    while (crate!=NULL)
+    while (crate!=NO_ENTITY)
     {
         i++;
         crate=get_component(engine,crate->next_crate,COMP_DRAGGABLE);
