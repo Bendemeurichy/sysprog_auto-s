@@ -181,11 +181,7 @@ EntityId create_crate(Engine *engine, t_vec3 pos, LevelItemColor color, bool art
 
     if (!art_only) {
         //TODO
-        create_component(engine,entity_id,COMP_DIRECTION);
         create_component(engine,entity_id,COMP_DRAGGABLE);
-        DraggableComponent* dragged = get_component(engine,entity_id,COMP_DRAGGABLE);
-        dragged->dragged_by=NULL;
-        dragged->next_crate=NULL;
     }
 
     return entity_id;
@@ -250,8 +246,6 @@ EntityId create_car(Engine *engine, t_vec3 pos, LevelItemColor color, Direction 
         create_component(engine, entity_id, COMP_INPUTRECEIVER_OPTION);
         create_component(engine,entity_id,COMP_DRAGGER);
         create_component(engine,entity_id,COMP_DRAGGING);
-        DraggingComponent* dragging = get_component(engine,entity_id,COMP_DRAGGING);
-        dragging->first_crate=NULL;
 
         //make car clickable
         GroundRectComponent* rect = create_component(engine, entity_id, COMP_GROUND_RECT);
