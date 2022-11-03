@@ -21,8 +21,8 @@ void handle_attach(Engine* engine){
         EntityId crate = next_entity(&crates);
         
         DraggableComponent *drag = get_component(engine, crate, COMP_DRAGGABLE);
-        if(!drag->dragged_by){
-            if (!dragging->first_crate)
+        if(drag->dragged_by==NO_ENTITY){
+            if (dragging->first_crate==NO_ENTITY)
             {
                 dragging->first_crate=crate;
                 drag->dragged_by=car;                                                                                                                                                                         
