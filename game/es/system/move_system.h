@@ -3,8 +3,11 @@
 
 #include "../engine.h"
 
+
 #define PLAYER_MOVE_MS 500u
 
+
+//functions of last year, ignore
 int do_blockers_overlap__excluding_edge(Engine* engine, EntityId a, EntityId b);
 int is_point_in_blocker__excluding_edge(Engine* engine, t_vec3 point, EntityId a);
 

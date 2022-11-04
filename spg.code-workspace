@@ -13,6 +13,10 @@
 		},
 		"terminal.integrated.env.osx": {
 			"LSAN_OPTIONS": "suppressions=lsan.supp"
+		},
+		"files.associations": {
+			"move_system.h": "c",
+			"engine.h": "c"
 		}
 	}
 }
