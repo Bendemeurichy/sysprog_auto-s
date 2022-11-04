@@ -72,8 +72,14 @@ void handle_detach(Engine* engine){
                 crate_info = get_component(engine,crate,COMP_DRAGGABLE);
             }
             EntityId previd = crate_info->dragged_by;
-            DraggableComponent* prev_crate = get_component(engine, previd, COMP_DRAGGABLE);
-            prev_crate->next_crate=NO_ENTITY;
+            if(has_component(engine,previd,COMP_DRAGGABLE)){
+                DraggableComponent* prev_crate= get_component(engine,previd,COMP_DRAGGABLE);
+                prev_crate->next_crate = NO_ENTITY;
+            } else {
+                DraggingComponent* prev_crate= get_component(engine,previd,COMP_DRAGGING);
+                prev_crate->first_crate = NO_ENTITY;
+            }
+            
             crate_info->dragged_by=NO_ENTITY;
         }
         if(dragging->first_crate==NO_ENTITY){
