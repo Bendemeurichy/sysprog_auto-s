@@ -116,8 +116,8 @@ typedef struct UpDownComponent {
 } UpDownComponent;
 
 typedef struct ExitedComponent {
-    //TODO
-    uint8_t placeholder_replaceme;  //needed because empty structs are not supported on all compilers
+    uint64_t sleep;
+    int8_t dir_tuned; // needed because empty structs are not supported on all compilers
 } ExitedComponent;
 
 typedef struct FilterComponent {

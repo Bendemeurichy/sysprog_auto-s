@@ -18,7 +18,9 @@ void system_levelloader_update(Engine* engine) {
             || world->game_request == GAME_REQUEST_LOAD) {
             world->game_state = GAME_EDIT;
             Level *new_level = &engine->levels[0];
-
+            if(world->game_request==GAME_REQUEST_LOAD){
+            
+            }
             clear_level(engine, false);
             set_level_entities(engine, new_level, true, true, false);
             update_gridloc_cache(&engine->es_memory);
@@ -27,7 +29,7 @@ void system_levelloader_update(Engine* engine) {
             Level level;
             leveledit_entities_to_level(engine, &level);
             //TODO set edited_level_filename based on editor_info->level_base_filename
-            const char* edited_level_filename = "todo.blvl";
+            const char* edited_level_filename = strcat(editor_info->level_base_filename,"_edited.blvl");
             levelwriter_write_binary_level(&level, edited_level_filename, true);
         }
         world->game_request = GAME_REQUEST_NONE;
