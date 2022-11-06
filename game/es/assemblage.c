@@ -32,7 +32,9 @@ EntityId create_world(Engine *engine) {
     assert(level_info->nr < engine->level_count);
 
     //TODO create AutoMoveControlComponent
-
+    AutoMoveControlComponent* automove= create_component(engine,entity_id,COMP_AUTOMOVE_CONTROL);
+    automove->next=false;
+    automove->auto_next=false;
     return entity_id;
 }
 

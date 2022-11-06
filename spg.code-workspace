@@ -16,7 +16,9 @@
 		},
 		"files.associations": {
 			"move_system.h": "c",
-			"engine.h": "c"
+			"engine.h": "c",
+			"c_levelloader.h": "c",
+			"*.hardcoded_level": "c"
 		}
 	}
 }

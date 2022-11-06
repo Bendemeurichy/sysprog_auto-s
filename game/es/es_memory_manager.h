@@ -30,6 +30,7 @@ typedef struct AllComponent {
         DraggingComponent dragging_component;
         ExitedComponent exited_component;
         CarBrainComponent carbrain_component;
+        TileEditInfoComponent tile_edit_info;
     } any_component;
 } AllComponent;
 

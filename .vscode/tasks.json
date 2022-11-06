@@ -7,15 +7,8 @@
             "command": "cmake",
             "args": [
                 ".",
-                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_BUILD_TYPE=Debug"
             ],
-            // If your system needs to use a specific gcc compiler, you can uncomment and edit the lines below
-            //"options": {
-            //    "env": {
-            //        "CC": "gcc-8",
-            //        "CXX": "g++-8",
-            //    }
-            //},
             "problemMatcher": []
         },
         {
@@ -54,22 +47,23 @@
                 "isDefault": true
             },
             "problemMatcher": {
-                "base": "$gcc",
+                "base": "$gcc"
             }
         },
         {
             "label": "run spg_part1 (+ build)",
             "type": "shell",
             "command": "./spg_part1",
-            "dependsOn": [ "build spg_part1" ],
+            "dependsOn": [
+                "build spg_part1"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "problemMatcher": {
-                "base": "$gcc",
+                "base": "$gcc"
             }
-
         },
         {
             "label": "build spg_part1_edit",
@@ -85,22 +79,23 @@
                 "isDefault": true
             },
             "problemMatcher": {
-                "base": "$gcc",
+                "base": "$gcc"
             }
         },
         {
             "label": "run spg_part1_edit (+ build)",
             "type": "shell",
             "command": "./spg_part1_edit ${input:level_to_edit}",
-            "dependsOn": [ "build spg_part1_edit" ],
+            "dependsOn": [
+                "build spg_part1_edit"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "problemMatcher": {
-                "base": "$gcc",
+                "base": "$gcc"
             }
-
         },
         {
             "label": "build spg_part2",
@@ -116,22 +111,23 @@
                 "isDefault": true
             },
             "problemMatcher": {
-                "base": "$gcc",
+                "base": "$gcc"
             }
         },
         {
             "label": "run spg_part2 (+ build)",
             "type": "shell",
             "command": "./spg_part2",
-            "dependsOn": [ "build spg_part2" ],
+            "dependsOn": [
+                "build spg_part2"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "problemMatcher": {
-                "base": "$gcc",
+                "base": "$gcc"
             }
-
         },
         {
             "label": "build spg_part1_tests",
@@ -147,22 +143,23 @@
                 "isDefault": true
             },
             "problemMatcher": {
-                "base": "$gcc",
+                "base": "$gcc"
             }
         },
         {
             "label": "run spg_part1_tests (+ build)",
             "type": "shell",
             "command": "./spg_part1_tests",
-            "dependsOn": [ "build spg_part1_tests" ],
+            "dependsOn": [
+                "build spg_part1_tests"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "problemMatcher": {
-                "base": "$gcc",
+                "base": "$gcc"
             }
-
         },
         {
             "label": "build spg_part2_tests",
@@ -178,22 +175,23 @@
                 "isDefault": true
             },
             "problemMatcher": {
-                "base": "$gcc",
+                "base": "$gcc"
             }
         },
         {
             "label": "run spg_part2_tests (+ build)",
             "type": "shell",
             "command": "./spg_part2_tests",
-            "dependsOn": [ "build spg_part2_tests" ],
+            "dependsOn": [
+                "build spg_part2_tests"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "problemMatcher": {
-                "base": "$gcc",
+                "base": "$gcc"
             }
-
         }
     ],
     "inputs": [
