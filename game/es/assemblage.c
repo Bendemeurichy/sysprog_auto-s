@@ -32,7 +32,9 @@ EntityId create_world(Engine *engine) {
     assert(level_info->nr < engine->level_count);
 
     //TODO create AutoMoveControlComponent
-
+    AutoMoveControlComponent* automove= create_component(engine,entity_id,COMP_AUTOMOVE_CONTROL);
+    automove->next=false;
+    automove->auto_next=false;
     return entity_id;
 }
 
@@ -221,6 +223,8 @@ EntityId create_filter(Engine *engine, float *pos, int count, bool art_only) {
     direction_comp->direction = N;
 
     if (!art_only) {
+        FilterComponent* filter= create_component(engine,entity_id,COMP_FILTER);
+        filter->required_crates=count;
         //TODO
     }
 
@@ -245,6 +249,7 @@ EntityId create_car(Engine *engine, t_vec3 pos, LevelItemColor color, Direction 
 
     if (!art_only) {
         //TODO
+        create_component(engine,entity_id,COMP_EXIT_ACTIVATOR);
         create_component(engine, entity_id, COMP_INPUTRECEIVER_OPTION);
         create_component(engine,entity_id,COMP_DRAGGER);
 
@@ -272,6 +277,10 @@ EntityId create_exit(Engine *engine, float *pos, Direction direction, bool art_o
     art->art_id = renderer_3d_various_lookup(engine->render_static_info->renderer, ART_FLAG, 0);
 
     if (!art_only) {
+        create_component(engine, entity_id, COMP_EXIT);
+        ExitedComponent* exit_animation= create_component(engine,entity_id,COMP_LEVEL_END_ANIMATION);
+        exit_animation->sleep=350u;
+        exit_animation->dir_tuned=0;
         //TODO
     }
     return entity_id;
