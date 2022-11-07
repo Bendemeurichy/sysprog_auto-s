@@ -63,18 +63,24 @@ int main(int argc, char *argv[])
                 engine->levels = (Level *)calloc(engine->level_count, sizeof(Level));
                 for(int i = 2;i<argc;i++){
 
-                    if(!strcmp(tolowercase(argv[i]),"demo")){
+                    if ((!strcmp(argv[i], "0")) || (!strcmp(tolowercase(argv[i]), "demo")))
+                    {
                         //printf("demo level %s will be loaded", argv[i]);
                         levelloader_load_demo_level(&engine->levels[i-2]);
-
-                    } else if(islevelnumber(argv[i])){
+                        Level *clevel = &engine->levels[i - 2];
+                        clevel->nr = i - 2;
+                    }
+                    else if (islevelnumber(argv[i]))
+                    {
                         //printf("level with number %s will be loaded", argv[i]);
-                        levelloader_load_fixed_level(&engine->levels[i-2],atoi(argv[i]));
-
-                    } else {
+                        levelloader_load_fixed_level(&engine->levels[i-2],atoi(argv[i])-1);
+                        Level *clevel = &engine->levels[i - 2];
+                        clevel->nr = i - 2;
+                    }
+                    else
+                    {
                         //printf("level with name %s will be loaded",argv[i]);
                         levelloader_load_binary_level(&engine->levels[i-2],i-2,tolowercase(argv[i]));
-
                     }
                 }
             }
@@ -84,20 +90,24 @@ int main(int argc, char *argv[])
             for (int i = 1; i < argc; i++)
             {
 
-                if (!strcmp(tolowercase(argv[i]), "demo"))
+                if ((!strcmp(argv[i],"0")) || (!strcmp(tolowercase(argv[i]), "demo")))
                 {
                     //printf("demo level %s will be loaded", argv[i]);
                     levelloader_load_demo_level(&engine->levels[i-1]);
+                    Level *clevel = &engine->levels[i - 1];
+                    clevel->nr = i - 1;
                 }
                 else if (islevelnumber(argv[i]))
                 {   
                     printf("level with number %s will be loaded:arg %d",argv[i],i);
-                    levelloader_load_fixed_level(&engine->levels[i-1], atoi(argv[i]));
+                    levelloader_load_fixed_level(&engine->levels[i-1], atoi(argv[i])-1);
+                    Level* clevel= &engine->levels[i-1];
+                    clevel->nr=i-1;
                 }
                 else
                 {
                     //printf("level with name %s will be loaded", argv[i]);
-                    levelloader_load_binary_level(&engine->levels[i-2], i-2, tolowercase(argv[i]));
+                    levelloader_load_binary_level(&engine->levels[i-1], i-1, tolowercase(argv[i]));
                 }
             }
     }

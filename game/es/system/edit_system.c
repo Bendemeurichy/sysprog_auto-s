@@ -19,7 +19,11 @@ void system_edit_update(Engine* engine) {
     TileEditInfoComponent* tile_info = get_component(engine,screenpos_id,COMP_TILE_EDIT_INFO);
     switch(toolbar->selected_tool){
         case EDITOR_GRASS: {
-            tile_info->item;
+            tile_info->ground_material=ART_GRASS;
+            redo_art=true;
+            break;
+        }
+        default: {
             break;
         }
     }
