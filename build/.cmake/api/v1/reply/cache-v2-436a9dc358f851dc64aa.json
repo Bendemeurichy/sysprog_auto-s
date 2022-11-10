@@ -95,7 +95,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/build"
+			"value" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -635,7 +635,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17"
+			"value" : "/home/thiba/Systeemprogrammeren2022-project-groep-17"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1239,7 +1239,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/build"
+			"value" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/build"
 		},
 		{
 			"name" : "SPG_SOURCE_DIR",
@@ -1251,7 +1251,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17"
+			"value" : "/home/thiba/Systeemprogrammeren2022-project-groep-17"
 		},
 		{
 			"name" : "boost_headers_DIR",
