@@ -23,9 +23,9 @@ int main(int argc, char *argv[])
     // handle command line arguments
     if(argc>1){
         if(!strcmp(argv[1],"--help")){
-            printf("spg:help\n\nSyntax: spg_part1 [ARG ...] [<level> ...]\n\n Where ARG:\n\t--help :returns help of spg\n\t-- :next arguments are <level>"
-            "\n\nAnd <level>:\n\t-a valid level number\n\t-\"demo\": plays the demo level\n\t-a valid level filename\n\nit's possible to give multiple levels, only these levels will be played.");
-            
+            printf("spg:help\n\nSyntax: spg_part1_edit [ARG ...] [<level> ...]\n\n Where ARG is one of:\n\t--help :returns help of spg\n\t--: Treat all further arguments as literal <level> filenames"
+                   "\n\nAnd <level>:\n\t-a valid level nr: edit the level with that number (0 = demo level)\n\t  - \" demo \": play the demo level (any case allowed, ex: DEMO, deMo, ...)\n\t- a filename: play the level in the file\n\n<level> can be repeated multiple times. The levels are played in the specified order.\n");
+
             return EXIT_SUCCESS;
         }
     }
@@ -62,26 +62,10 @@ int main(int argc, char *argv[])
                 engine->level_count=argc-2; //argc - filename and arg "--"
                 engine->levels = (Level *)calloc(engine->level_count, sizeof(Level));
                 for(int i = 2;i<argc;i++){
-
-                    if ((!strcmp(argv[i], "0")) || (!strcmp(tolowercase(argv[i]), "demo")))
-                    {
-                        //printf("demo level %s will be loaded", argv[i]);
-                        levelloader_load_demo_level(&engine->levels[i-2]);
-                        Level *clevel = &engine->levels[i - 2];
-                        clevel->nr = i - 2;
-                    }
-                    else if (islevelnumber(argv[i]))
-                    {
-                        //printf("level with number %s will be loaded", argv[i]);
-                        levelloader_load_fixed_level(&engine->levels[i-2],atoi(argv[i])-1);
-                        Level *clevel = &engine->levels[i - 2];
-                        clevel->nr = i - 2;
-                    }
-                    else
-                    {
-                        //printf("level with name %s will be loaded",argv[i]);
-                        levelloader_load_binary_level(&engine->levels[i-2],i-2,tolowercase(argv[i]));
-                    }
+                    
+                    //printf("level with name %s will be loaded",argv[i]);
+                    levelloader_load_binary_level(&engine->levels[i-2],i-2,tolowercase(argv[i]));
+                    
                 }
             }
         } else {
@@ -150,7 +134,7 @@ int main(int argc, char *argv[])
     free(game);
 
     renderer_3d_clear(renderer);
-    renderer_3d_free(renderer);
+    renderer_3d_free(renderer);    
     free(renderer);
 
     IMG_Quit();
