@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
         }
         else if (argc==2)
         {
-            engine->level_count = argc - 1; // argc - filename
+            engine->level_count = 1; // argc - filename
             engine->levels = (Level *)calloc(engine->level_count, sizeof(Level));
             
                 if ((!strcmp(argv[1], "0")) || (!strcmp(tolowercase(argv[1]), "demo")))
@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
     else
     {
         fatal("spg:help\n\nSyntax: spg_part1_edit [ARG ...] [<level> ...]\n\n Where ARG is one of:\n\t--help :returns help of spg\n\t--: Treat all further arguments as literal <level> filenames"
-            "\n\nAnd <level>:\n\t-a valid level nr: edit the level with that number (0 = demo level)\n\t  - \" demo \": play the demo level (any case allowed, ex: DEMO, deMo, ...)\n\t- a filename: play the level in the file\n\n.<level> must be specified exactly one");
+           "\n\nAnd <level>:\n\t-a valid level nr: edit the level with that number (0 = demo level)\n\t  - \" demo \": play the demo level (any case allowed, ex: DEMO, deMo, ...)\n\t- a filename: play the level in the file\n\n.<level> must be specified exactly one");
         game_free(game);
         free(game);
 

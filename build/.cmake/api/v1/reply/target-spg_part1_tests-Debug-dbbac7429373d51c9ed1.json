@@ -64,7 +64,7 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/libraries/glmc/include"
+					"path" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/libraries/glmc/include"
 				},
 				{
 					"backtrace" : 3,
@@ -72,7 +72,7 @@
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/libraries/glm"
+					"path" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/libraries/glm"
 				}
 			],
 			"language" : "C",
@@ -131,7 +131,7 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/libraries/glmc/include"
+					"path" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/libraries/glmc/include"
 				},
 				{
 					"backtrace" : 3,
@@ -139,7 +139,7 @@
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/libraries/glm"
+					"path" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/libraries/glm"
 				}
 			],
 			"language" : "CXX",

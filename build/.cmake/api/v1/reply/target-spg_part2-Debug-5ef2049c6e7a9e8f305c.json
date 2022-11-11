@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "spg_part1_edit"
+			"path" : "spg_part2"
 		}
 	],
 	"backtrace" : 1,
@@ -25,7 +25,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 180,
+				"line" : 183,
 				"parent" : 0
 			},
 			{
@@ -64,7 +64,7 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/libraries/glmc/include"
+					"path" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/libraries/glmc/include"
 				},
 				{
 					"backtrace" : 3,
@@ -72,47 +72,46 @@
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/libraries/glm"
+					"path" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/libraries/glm"
 				}
 			],
 			"language" : "C",
 			"sourceIndexes" : 
 			[
 				0,
-				1,
-				3,
-				5,
-				7,
-				9,
-				11,
-				15,
-				18,
-				20,
-				22,
-				24,
-				26,
-				28,
-				30,
-				32,
-				34,
-				36,
-				38,
-				40,
-				42,
-				44,
-				46,
-				48,
-				52,
-				54,
-				56,
-				58,
-				60,
-				62,
-				65,
+				47,
+				49,
+				51,
+				53,
+				55,
+				57,
+				61,
+				64,
 				66,
-				67,
-				69,
-				71
+				68,
+				70,
+				72,
+				74,
+				76,
+				78,
+				80,
+				82,
+				84,
+				86,
+				88,
+				90,
+				92,
+				94,
+				98,
+				100,
+				102,
+				104,
+				106,
+				108,
+				111,
+				112,
+				113,
+				115
 			]
 		},
 		{
@@ -129,7 +128,7 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/libraries/glmc/include"
+					"path" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/libraries/glmc/include"
 				},
 				{
 					"backtrace" : 3,
@@ -137,17 +136,28 @@
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/libraries/glm"
+					"path" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/libraries/glm"
 				}
 			],
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
-				50
+				1,
+				4,
+				6,
+				8,
+				10,
+				13,
+				15,
+				17,
+				19,
+				21,
+				23,
+				96
 			]
 		}
 	],
-	"id" : "spg_part1_edit::@6890427a1f51a3e7e1df",
+	"id" : "spg_part2::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -171,12 +181,16 @@
 			{
 				"fragment" : "-lm",
 				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lstdc++fs",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "spg_part1_edit",
-	"nameOnDisk" : "spg_part1_edit",
+	"name" : "spg_part2",
+	"nameOnDisk" : "spg_part2",
 	"paths" : 
 	{
 		"build" : ".",
@@ -190,40 +204,50 @@
 			[
 				0,
 				1,
-				3,
-				5,
-				7,
-				9,
-				11,
+				4,
+				6,
+				8,
+				10,
+				13,
 				15,
-				18,
-				20,
-				22,
-				24,
-				26,
-				28,
-				30,
-				32,
-				34,
-				36,
-				38,
-				40,
-				42,
-				44,
-				46,
-				48,
-				50,
-				52,
-				54,
-				56,
-				58,
-				60,
-				62,
-				65,
+				17,
+				19,
+				21,
+				23,
+				47,
+				49,
+				51,
+				53,
+				55,
+				57,
+				61,
+				64,
 				66,
-				67,
-				69,
-				71
+				68,
+				70,
+				72,
+				74,
+				76,
+				78,
+				80,
+				82,
+				84,
+				86,
+				88,
+				90,
+				92,
+				94,
+				96,
+				98,
+				100,
+				102,
+				104,
+				106,
+				108,
+				111,
+				112,
+				113,
+				115
 			]
 		},
 		{
@@ -231,41 +255,76 @@
 			"sourceIndexes" : 
 			[
 				2,
-				4,
-				6,
-				8,
-				10,
+				3,
+				5,
+				7,
+				9,
+				11,
 				12,
-				13,
 				14,
 				16,
-				17,
-				19,
-				21,
-				23,
+				18,
+				20,
+				22,
+				24,
 				25,
+				26,
 				27,
+				28,
 				29,
+				30,
 				31,
+				32,
 				33,
+				34,
 				35,
+				36,
 				37,
+				38,
 				39,
+				40,
 				41,
+				42,
 				43,
+				44,
 				45,
-				47,
-				49,
-				51,
-				53,
-				55,
-				57,
+				46,
+				48,
+				50,
+				52,
+				54,
+				56,
+				58,
 				59,
-				61,
+				60,
+				62,
 				63,
-				64,
-				68,
-				70
+				65,
+				67,
+				69,
+				71,
+				73,
+				75,
+				77,
+				79,
+				81,
+				83,
+				85,
+				87,
+				89,
+				91,
+				93,
+				95,
+				97,
+				99,
+				101,
+				103,
+				105,
+				107,
+				109,
+				110,
+				114,
+				116
 			]
 		}
 	],
@@ -274,8 +333,249 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "spg_edit.c",
+			"path" : "spg_game.c",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "game/carbrain/part2/Assembler.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "game/carbrain/part2/Assembler.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "game/carbrain/part2/BitHelper.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "game/carbrain/part2/Board.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "game/carbrain/part2/Board.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "game/carbrain/part2/Bus.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "game/carbrain/part2/Bus.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "game/carbrain/part2/CPU.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "game/carbrain/part2/CPU.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "game/carbrain/part2/CPUInstruction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "game/carbrain/part2/CPUInstruction.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "game/carbrain/part2/Constants.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "game/carbrain/part2/DecisionOutput.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "game/carbrain/part2/DecisionOutput.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "game/carbrain/part2/Exceptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "game/carbrain/part2/Exceptions.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "game/carbrain/part2/Mem.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "game/carbrain/part2/Mem.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "game/carbrain/part2/Module.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "game/carbrain/part2/Module.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "game/carbrain/part2/Sensors.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "game/carbrain/part2/Sensors.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "game/carbrain/part2/carbrain_es_integration.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/common.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/exponential.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/ext.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/fwd.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/geometric.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/glm.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/integer.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/mat2x2.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/mat2x3.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/mat2x4.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/mat3x2.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/mat3x3.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/mat3x4.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/mat4x2.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/mat4x3.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/mat4x4.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/matrix.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/packing.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/trigonometric.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/vec2.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/vec3.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/vec4.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/glm/glm/vector_relational.hpp",
+			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
@@ -660,12 +960,6 @@
 			"backtrace" : 1,
 			"path" : "game/carbrain/carbrain_io.h",
 			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "game/carbrain/part1/carbrain_es_integration.c",
-			"sourceGroupIndex" : 0
 		}
 	],
 	"type" : "EXECUTABLE"

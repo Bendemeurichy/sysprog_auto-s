@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "spg_part2_tests"
+			"path" : "spg_part1_edit"
 		}
 	],
 	"backtrace" : 1,
@@ -11,8 +11,6 @@
 		"commands" : 
 		[
 			"add_executable",
-			"target_link_libraries",
-			"target_compile_options",
 			"include_directories"
 		],
 		"files" : 
@@ -27,35 +25,23 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 184,
+				"line" : 180,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 312,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 190,
-				"parent" : 0
-			},
-			{
-				"command" : 3,
-				"file" : 0,
 				"line" : 248,
 				"parent" : 0
 			},
 			{
-				"command" : 3,
+				"command" : 1,
 				"file" : 0,
 				"line" : 249,
 				"parent" : 0
 			},
 			{
-				"command" : 3,
+				"command" : 1,
 				"file" : 0,
 				"line" : 250,
 				"parent" : 0
@@ -68,109 +54,31 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -g -std=c++17 -Wall -Wno-unused-function -Wno-unused-variable -Wno-comment -Wno-unknown-pragmas -fms-extensions -fdiagnostics-color -pthread -Og -march=native    -fsanitize=address -static-libasan -fno-omit-frame-pointer -g  "
-				},
-				{
-					"backtrace" : 3,
-					"fragment" : "-DONLY_IN_PART2_TESTS"
-				},
-				{
-					"fragment" : "-std=gnu++17"
-				}
-			],
-			"defines" : 
-			[
-				{
-					"backtrace" : 2,
-					"define" : "BOOST_ALL_NO_LIB"
-				},
-				{
-					"backtrace" : 2,
-					"define" : "BOOST_UNIT_TEST_FRAMEWORK_DYN_LINK"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 4,
-					"path" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/libraries/glmc/include"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "/usr/include/SDL2"
-				},
-				{
-					"backtrace" : 6,
-					"path" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/libraries/glm"
-				}
-			],
-			"language" : "CXX",
-			"sourceIndexes" : 
-			[
-				0,
-				50,
-				71,
-				74,
-				76,
-				78,
-				80,
-				83,
-				85,
-				87,
-				89,
-				91,
-				93,
-				117,
-				118,
-				119,
-				120,
-				121,
-				122
-			]
-		},
-		{
-			"compileCommandFragments" : 
-			[
-				{
 					"fragment" : "   -g -std=gnu11 -Wall -Wno-unused-function -Wno-unused-variable -Wno-comment -Wno-unknown-pragmas -fms-extensions -fdiagnostics-color -Og   -march=native      -fsanitize=address -static-libasan -fno-omit-frame-pointer -g  "
-				},
-				{
-					"backtrace" : 3,
-					"fragment" : "-DONLY_IN_PART2_TESTS"
 				},
 				{
 					"fragment" : "-std=gnu11"
 				}
 			],
-			"defines" : 
-			[
-				{
-					"backtrace" : 2,
-					"define" : "BOOST_ALL_NO_LIB"
-				},
-				{
-					"backtrace" : 2,
-					"define" : "BOOST_UNIT_TEST_FRAMEWORK_DYN_LINK"
-				}
-			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
-					"path" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/libraries/glmc/include"
+					"backtrace" : 2,
+					"path" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/libraries/glmc/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 3,
 					"path" : "/usr/include/SDL2"
 				},
 				{
-					"backtrace" : 6,
-					"path" : "/home/bdmeuric/sysprog/Systeemprogrammeren2022-project-groep-17/libraries/glm"
+					"backtrace" : 4,
+					"path" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/libraries/glm"
 				}
 			],
 			"language" : "C",
 			"sourceIndexes" : 
 			[
+				0,
 				1,
 				3,
 				5,
@@ -203,11 +111,43 @@
 				65,
 				66,
 				67,
-				69
+				69,
+				71
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -g -std=c++17 -Wall -Wno-unused-function -Wno-unused-variable -Wno-comment -Wno-unknown-pragmas -fms-extensions -fdiagnostics-color -pthread -Og -march=native    -fsanitize=address -static-libasan -fno-omit-frame-pointer -g  "
+				},
+				{
+					"fragment" : "-std=gnu++17"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"path" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/libraries/glmc/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/usr/include/SDL2"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/thiba/Systeemprogrammeren2022-project-groep-17/libraries/glm"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				50
 			]
 		}
 	],
-	"id" : "spg_part2_tests::@6890427a1f51a3e7e1df",
+	"id" : "spg_part1_edit::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -231,21 +171,12 @@
 			{
 				"fragment" : "-lm",
 				"role" : "libraries"
-			},
-			{
-				"fragment" : "-lstdc++fs",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so.1.71.0",
-				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "spg_part2_tests",
-	"nameOnDisk" : "spg_part2_tests",
+	"name" : "spg_part1_edit",
+	"nameOnDisk" : "spg_part1_edit",
 	"paths" : 
 	{
 		"build" : ".",
@@ -292,23 +223,7 @@
 				66,
 				67,
 				69,
-				71,
-				74,
-				76,
-				78,
-				80,
-				83,
-				85,
-				87,
-				89,
-				91,
-				93,
-				117,
-				118,
-				119,
-				120,
-				121,
-				122
+				71
 			]
 		},
 		{
@@ -350,42 +265,7 @@
 				63,
 				64,
 				68,
-				70,
-				72,
-				73,
-				75,
-				77,
-				79,
-				81,
-				82,
-				84,
-				86,
-				88,
-				90,
-				92,
-				94,
-				95,
-				96,
-				97,
-				98,
-				99,
-				100,
-				101,
-				102,
-				103,
-				104,
-				105,
-				106,
-				107,
-				108,
-				109,
-				110,
-				111,
-				112,
-				113,
-				114,
-				115,
-				116
+				70
 			]
 		}
 	],
@@ -394,12 +274,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "spg_part2_test_main.cpp",
+			"path" : "spg_edit.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/level/c_levelloader.c",
 			"sourceGroupIndex" : 0
 		},
@@ -410,7 +290,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/level/c_levelwriter.c",
 			"sourceGroupIndex" : 0
 		},
@@ -421,7 +301,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/level/fixed_level_info.c",
 			"sourceGroupIndex" : 0
 		},
@@ -432,7 +312,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/level/hardcoded_levels.c",
 			"sourceGroupIndex" : 0
 		},
@@ -443,7 +323,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/level/level.c",
 			"sourceGroupIndex" : 0
 		},
@@ -454,7 +334,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/assemblage.c",
 			"sourceGroupIndex" : 0
 		},
@@ -475,7 +355,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/engine.c",
 			"sourceGroupIndex" : 0
 		},
@@ -491,7 +371,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/es_memory_manager.c",
 			"sourceGroupIndex" : 0
 		},
@@ -502,7 +382,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/es_memory_manager_collections.c",
 			"sourceGroupIndex" : 0
 		},
@@ -513,7 +393,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/game.c",
 			"sourceGroupIndex" : 0
 		},
@@ -524,7 +404,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/game_util.c",
 			"sourceGroupIndex" : 0
 		},
@@ -535,7 +415,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/system/automove_c_system.c",
 			"sourceGroupIndex" : 0
 		},
@@ -546,7 +426,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/system/camera_system.c",
 			"sourceGroupIndex" : 0
 		},
@@ -557,7 +437,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/system/carbrain_decision_system.c",
 			"sourceGroupIndex" : 0
 		},
@@ -568,7 +448,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/system/carbrain_sensor_system.c",
 			"sourceGroupIndex" : 0
 		},
@@ -579,7 +459,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/system/dragging_system.c",
 			"sourceGroupIndex" : 0
 		},
@@ -590,7 +470,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/system/edit_system.c",
 			"sourceGroupIndex" : 0
 		},
@@ -601,7 +481,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/system/endlevel_system.c",
 			"sourceGroupIndex" : 0
 		},
@@ -612,7 +492,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/system/filter_system.c",
 			"sourceGroupIndex" : 0
 		},
@@ -623,7 +503,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/system/input_system.c",
 			"sourceGroupIndex" : 0
 		},
@@ -634,7 +514,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/system/levelloader_system.c",
 			"sourceGroupIndex" : 0
 		},
@@ -645,7 +525,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/system/move_system.c",
 			"sourceGroupIndex" : 0
 		},
@@ -656,7 +536,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/es/system/render_system.c",
 			"sourceGroupIndex" : 0
 		},
@@ -667,7 +547,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 0,
+			"compileGroupIndex" : 1,
 			"path" : "util/glm_helper.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -678,7 +558,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "util/sleep.c",
 			"sourceGroupIndex" : 0
 		},
@@ -689,7 +569,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "util/util.c",
 			"sourceGroupIndex" : 0
 		},
@@ -700,7 +580,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/graphics/renderer_3d.c",
 			"sourceGroupIndex" : 0
 		},
@@ -711,7 +591,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/graphics/renderer_isometric.c",
 			"sourceGroupIndex" : 0
 		},
@@ -722,7 +602,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/graphics/sdl_graphics.c",
 			"sourceGroupIndex" : 0
 		},
@@ -733,7 +613,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/graphics/spgsdl_texture.c",
 			"sourceGroupIndex" : 0
 		},
@@ -749,19 +629,19 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "libraries/glmc/src/glmc_matrix.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "libraries/glmc/src/glmc_model.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "libraries/glmc/src/glmc_vector.c",
 			"sourceGroupIndex" : 0
 		},
@@ -772,7 +652,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "game/carbrain/carbrain_io.c",
 			"sourceGroupIndex" : 0
 		},
@@ -784,278 +664,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "game/carbrain/part2/Assembler.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "game/carbrain/part2/Assembler.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "game/carbrain/part2/BitHelper.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "game/carbrain/part2/Board.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "game/carbrain/part2/Board.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "game/carbrain/part2/Bus.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "game/carbrain/part2/Bus.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "game/carbrain/part2/CPU.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "game/carbrain/part2/CPU.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "game/carbrain/part2/CPUInstruction.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "game/carbrain/part2/CPUInstruction.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "game/carbrain/part2/Constants.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "game/carbrain/part2/DecisionOutput.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "game/carbrain/part2/DecisionOutput.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "game/carbrain/part2/Exceptions.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "game/carbrain/part2/Exceptions.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "game/carbrain/part2/Mem.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "game/carbrain/part2/Mem.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "game/carbrain/part2/Module.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "game/carbrain/part2/Module.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "game/carbrain/part2/Sensors.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "game/carbrain/part2/Sensors.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "game/carbrain/part2/carbrain_es_integration.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/common.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/exponential.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/ext.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/fwd.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/geometric.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/glm.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/integer.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/mat2x2.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/mat2x3.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/mat2x4.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/mat3x2.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/mat3x3.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/mat3x4.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/mat4x2.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/mat4x3.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/mat4x4.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/matrix.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/packing.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/trigonometric.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/vec2.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/vec3.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/vec4.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "libraries/glm/glm/vector_relational.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "tests/part2/BitReader-test.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "tests/part2/BitWriter-test.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "tests/part2/Bus-test.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "tests/part2/CPU-test.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "tests/part2/InstructionDecode-test.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "tests/part2/InstructionEncode-test.cpp",
+			"path" : "game/carbrain/part1/carbrain_es_integration.c",
 			"sourceGroupIndex" : 0
 		}
 	],
