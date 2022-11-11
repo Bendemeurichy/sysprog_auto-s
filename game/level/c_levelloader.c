@@ -19,6 +19,8 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
     level->source_file_name = calloc(strlen(filename) + 1, sizeof(char));
     strcpy(level->source_file_name, filename);
 
+    level->nr = level_nr;
+
     //Start form 8th byte
     fseek(level_file, 8, SEEK_SET);
 
@@ -37,10 +39,6 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
     level->name[titel_length] = '\0';
 
     level->points = calloc(level->width, sizeof(LevelPoint*));
-
-    //DEBUG LINES
-    int same = 0;
-    int unique = 0;
 
     //Tile handeling: sets a buffer and a buffer position to read bytes 2 bits at a time.
     uint8_t buffer;
@@ -72,8 +70,6 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
             {
                 level->points[x][y].ground_material = materials[prev_GM];
                 level->points[x][y].ground_height = (prev_GH + 1);
-                //DEBUG LINE
-                same++;
             }
             else
             {
@@ -85,17 +81,9 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
                 level->points[x][y].ground_height = (GH + 1);
                 prev_GM = GM;
                 prev_GH = GH;
-
-                //DEBUG LINE
-                unique++;
             }
         }
     }
-
-    printf("Byte = %d \n", ftell(level_file));
-
-    //DEBUG LINE
-    printf("Unique points: %d, Copied points : %d\n", unique, same);
 
     //Item handeling
     uint16_t item_count;
@@ -176,8 +164,6 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
             fatal("Error: level item does not exists ");
             break;
         }
-        printf("{%d, %d, %d, %d, %d, %d, %d}\n", level->items[i].x, level->items[i].y, level->items[i].type,
-         level->items[i].dir, level->items[i].color, level->items[i].art_variant, level->items[i].count);
     }
     fclose(level_file);
 }
