@@ -4,6 +4,7 @@
 #include "hardcoded_levels.h"
 
 #include <assert.h>
+#include <byteswap.h>
 
 const Material materials[3] = {ART_GRASS, ART_WATER, ART_ROAD};
 
@@ -25,8 +26,8 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
     uint16_t height;
     fread(&width, 2, 1, level_file);
     fread(&height, 2, 1, level_file);
-    level->width = ntohs(width);
-    level->height = ntohs(height);
+    level->width = __bswap_16(width);
+    level->height = __bswap_16(height);
 
     uint8_t titel_length;
     fread(&titel_length, 1, 1, level_file);
@@ -37,23 +38,31 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
 
     level->points = calloc(level->width, sizeof(LevelPoint*));
 
-    //Sets a buffer and a buffer position to read bytes 2 bits at a time.
+    //DEBUG LINES
+    int same = 0;
+    int unique = 0;
+
+    //Tile handeling: sets a buffer and a buffer position to read bytes 2 bits at a time.
     uint8_t buffer;
     uint8_t temp_buffer;
-    int buffer_position = 6;
+    int buffer_position = -2;
     int prev_GM;
     int prev_GH;
-    fread(&buffer, 1, 1, level_file);
 
     for (int x = 0; x < level->width; x++)
     {
         level->points[x] = calloc(level->height, sizeof(LevelPoint));
         for (int y = 0; y < level->height; y++)
         {  
+            if (buffer_position < 0)
+            {
+                fread(&buffer, 1, 1, level_file);
+                buffer_position = 6;
+            }
             temp_buffer = buffer >>buffer_position;
             int GM = temp_buffer & 0b11;
             buffer_position -= 2;
-            if (buffer_position < 0)
+            if (buffer_position < 0 && x != (level->width)-1)
             {
                 fread(&buffer, 1, 1, level_file);
                 buffer_position = 6;
@@ -63,39 +72,46 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
             {
                 level->points[x][y].ground_material = materials[prev_GM];
                 level->points[x][y].ground_height = (prev_GH + 1);
+                //DEBUG LINE
+                same++;
             }
             else
             {
                 temp_buffer = buffer >>buffer_position;
                 int GH = temp_buffer & 0b11;
                 buffer_position -= 2;
-                if (buffer_position < 0)
-                {
-                    fread(&buffer, 1, 1, level_file);
-                    buffer_position = 6;
-                }
+
                 level->points[x][y].ground_material = materials[GM];
                 level->points[x][y].ground_height = (GH + 1);
                 prev_GM = GM;
                 prev_GH = GH;
+
+                //DEBUG LINE
+                unique++;
             }
         }
     }
 
+    printf("Byte = %d \n", ftell(level_file));
+
+    //DEBUG LINE
+    printf("Unique points: %d, Copied points : %d\n", unique, same);
+
+    //Item handeling
     uint16_t item_count;
-    fread(&item_count, 2, 1, level_file);
-    level->item_count = item_count;
+    fread(&item_count, sizeof(uint16_t), 1, level_file);
+    level->item_count = __bswap_16(item_count);
     level->items = calloc(item_count, sizeof(LevelItem));
 
     for (size_t i = 0; i < level->item_count; i++)
     {
         uint16_t x_coord;
-        fread(&x_coord, 2, 1, level_file);
-        level->items[i].x = x_coord;
+        fread(&x_coord, sizeof(uint16_t), 1, level_file);
+        level->items[i].x = __bswap_16(x_coord);
 
         uint16_t y_coord;
-        fread(&y_coord, 2, 1, level_file);
-        level->items[i].y = y_coord;
+        fread(&y_coord, sizeof(uint16_t), 1, level_file);
+        level->items[i].y = __bswap_16(y_coord);
         
         uint8_t LIT_VAR;
         fread(&LIT_VAR, 1, 1, level_file);
