@@ -15,22 +15,31 @@ typedef struct AllComponent {
         //make sure each and every component is in here! (although there is no problem as long as you don't forget the component with the largest "sizeof")
         CameraComponent camera_lookfrom;
         MoveRequestComponent move_request_component;
-        LocationComponent location_component;
+        LocationComponent location_component;//
         MoveComponent moveanimation_component;
         CarArtComponent car_art_component;
         GroundArtComponent floor_art_component;
+        BuildingArtComponent building_art_component;
+        ColoredArtComponent colored_art_component;
+        VariousArtComponent various_art_component;
         FilterComponent filter_component;
         InputReceiverComponent inputreceiver_component;
+        MarkerComponent marker_component;
+        EditorToolBarComponent editor_toolbar_component;
+        AutoMoveControlComponent automove_control_component;
         DirectionComponent direction_component;
         UpDownComponent updown_component;
-        WorldComponent world_component;
-        LevelInfoComponent level_info_component;
-        EditorInfoComponent editor_info_component;
+        WorldComponent world_component;//
+        LevelInfoComponent level_info_component;//
+        EditorInfoComponent editor_info_component;//
         DraggableComponent draggable_component;
         DraggingComponent dragging_component;
         ExitedComponent exited_component;
         CarBrainComponent carbrain_component;
-        TileEditInfoComponent tile_edit_info;
+        TileEditInfoComponent tile_edit_info;//
+        TimeComponent time; //
+        GroundRectComponent ground_rect_component;
+
     } any_component;
 } AllComponent;
 
