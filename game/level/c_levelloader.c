@@ -73,6 +73,11 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
             }
             else
             {
+                if (buffer_position < 0)
+                {
+                    fread(&buffer, 1, 1, level_file);
+                    buffer_position = 6;
+                }
                 temp_buffer = buffer >>buffer_position;
                 int GH = temp_buffer & 0b11;
                 buffer_position -= 2;
@@ -161,7 +166,7 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
             
             break;
         default:
-            fatal("Error: level item does not exists ");
+            fatal("Error: level item does not exists \n");
             break;
         }
     }
