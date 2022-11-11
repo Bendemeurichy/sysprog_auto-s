@@ -65,7 +65,7 @@ void handle_requests(Engine* engine){
 
 int crate_amount(Engine *engine, EntityId car);
 
-    bool is_destination_blocked(Engine *engine, EntityId moving_entity_id, t_vec3 dest)
+bool is_destination_blocked(Engine *engine, EntityId moving_entity_id, t_vec3 dest)
 {   
     EntityIterator roads;
     bool blocked=true;

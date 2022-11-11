@@ -113,6 +113,7 @@ typedef struct DirectionComponent {
 
 typedef struct UpDownComponent {
     int8_t up_down;  //-1 = down   0 = none   1 = up
+    bool found_right_wall; //true == yes  false == no
 } UpDownComponent;
 
 typedef struct ExitedComponent {
