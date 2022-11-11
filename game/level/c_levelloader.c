@@ -32,9 +32,6 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
     uint8_t titel_length;
     fread(&titel_length, 1, 1, level_file);
 
-    //DEBUG LINE
-    int byte_count = 13 + titel_length;
-
     level->name = calloc(titel_length + 1, sizeof(char));
     fread(level->name, sizeof(char), titel_length, level_file);
     level->name[titel_length] = '\0';
@@ -45,7 +42,7 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
     int same = 0;
     int unique = 0;
 
-    //Sets a buffer and a buffer position to read bytes 2 bits at a time.
+    //Tile handeling: sets a buffer and a buffer position to read bytes 2 bits at a time.
     uint8_t buffer;
     uint8_t temp_buffer;
     int buffer_position = -2;
@@ -61,20 +58,14 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
             {
                 fread(&buffer, 1, 1, level_file);
                 buffer_position = 6;
-
-                //DEBUG LINE
-                byte_count++;
             }
             temp_buffer = buffer >>buffer_position;
             int GM = temp_buffer & 0b11;
             buffer_position -= 2;
-            if (buffer_position < 0)
+            if (buffer_position < 0 && x != (level->width)-1)
             {
                 fread(&buffer, 1, 1, level_file);
                 buffer_position = 6;
-
-                //DEBUG LINE
-                byte_count++;
             }
 
             if (GM == 3)
@@ -109,11 +100,8 @@ void levelloader_load_binary_level(Level *level, unsigned int level_nr, const ch
     //Item handeling
     uint16_t item_count;
     fread(&item_count, sizeof(uint16_t), 1, level_file);
-    level->item_count = item_count;
+    level->item_count = __bswap_16(item_count);
     level->items = calloc(item_count, sizeof(LevelItem));
-    
-    byte_count += 2;
-    printf("byte count = %d", byte_count);
 
     for (size_t i = 0; i < level->item_count; i++)
     {
