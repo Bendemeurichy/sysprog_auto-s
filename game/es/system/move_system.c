@@ -57,9 +57,10 @@ void handle_requests(Engine* engine){
                 current_move->endPos[1] = goal[1];
                 current_move->endPos[2] = goal[2];
                 current_move->duration = PLAYER_MOVE_MS;
-                free_component(engine, entity_id, COMP_MOVE_REQUEST);
+                
             }
         }
+        free_component(engine, entity_id, COMP_MOVE_REQUEST);
     }
 }
 
