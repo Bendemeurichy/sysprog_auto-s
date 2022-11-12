@@ -109,6 +109,7 @@ typedef struct InputReceiverComponent {
 
 typedef struct DirectionComponent {
     Direction8 direction;
+    bool found_right_wall;
 } DirectionComponent;
 
 typedef struct UpDownComponent {

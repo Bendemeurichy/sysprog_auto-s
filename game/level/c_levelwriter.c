@@ -141,4 +141,4 @@ void levelwriter_write_binary_level(Level *level, const char *filename, bool use
         fwrite(LIT_VAR, 1, 1, level_file);
     }
     fclose(level_file);
-}
+

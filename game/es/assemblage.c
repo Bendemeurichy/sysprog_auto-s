@@ -243,6 +243,7 @@ EntityId create_car(Engine *engine, t_vec3 pos, LevelItemColor color, Direction 
 
     DirectionComponent* directioncomponent = create_component(engine, entity_id, COMP_DIRECTION);
     directioncomponent->direction = direction_to_direction8(dir);
+    directioncomponent->found_right_wall=false;
 
     UpDownComponent* updown_component = create_component(engine, entity_id, COMP_UPDOWN);
     updown_component->up_down = 0;
@@ -473,6 +474,7 @@ void create_edit_level_entities(Engine* engine, Level *level) {
             glmc_vec3_set(rect->pos1, 1.0f/6.0f, 1.0f/6.0f, 0.0f);
 
             TileEditInfoComponent *leveledit = create_component(engine, entity_id, COMP_TILE_EDIT_INFO);
+            leveledit->hasItem = false;
             leveledit->pos[0] = x;
             leveledit->pos[1] = y;
             leveledit->ground_material = level->points[x][y].ground_material;

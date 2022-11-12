@@ -57,15 +57,16 @@ void handle_requests(Engine* engine){
                 current_move->endPos[1] = goal[1];
                 current_move->endPos[2] = goal[2];
                 current_move->duration = PLAYER_MOVE_MS;
-                free_component(engine, entity_id, COMP_MOVE_REQUEST);
+                
             }
         }
+        free_component(engine, entity_id, COMP_MOVE_REQUEST);
     }
 }
 
 int crate_amount(Engine *engine, EntityId car);
 
-    bool is_destination_blocked(Engine *engine, EntityId moving_entity_id, t_vec3 dest)
+bool is_destination_blocked(Engine *engine, EntityId moving_entity_id, t_vec3 dest)
 {   
     EntityIterator roads;
     bool blocked=true;
