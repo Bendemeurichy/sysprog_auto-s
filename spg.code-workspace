@@ -20,7 +20,8 @@
 			"c_levelloader.h": "c",
 			"*.hardcoded_level": "c",
 			"renderer_3d.h": "c",
-			"hardcoded_levels.h": "c"
+			"hardcoded_levels.h": "c",
+			"c_levelwriter.h": "c"
 		}
 	}
 }

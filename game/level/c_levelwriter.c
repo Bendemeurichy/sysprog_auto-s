@@ -1,4 +1,6 @@
 #include "c_levelwriter.h"
+
+
 #include <byteswap.h>
 
 void levelwriter_write_binary_level(Level *level, const char *filename, bool use_same) {
@@ -42,7 +44,8 @@ void levelwriter_write_binary_level(Level *level, const char *filename, bool use
                 buffer_position = 0;
             }
             
-            if (level->points[x][y].ground_material == prev_GM && level->points[x][y].ground_height == prev_GH)
+           
+            if (level->points[x][y].ground_material == prev_GM && level->points[x][y].ground_height == prev_GH && use_same)
             {
                 new_tile = 3;
                 buffer = (buffer <<2) | new_tile;
@@ -54,6 +57,7 @@ void levelwriter_write_binary_level(Level *level, const char *filename, bool use
                     buffer_position = 0;
                 }
             }
+            
             else
             {
                 switch (level->points[x][y].ground_material)
