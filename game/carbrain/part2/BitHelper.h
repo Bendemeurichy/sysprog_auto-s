@@ -161,7 +161,6 @@ public:
     [[nodiscard]] size_t getBytesRead() const;
 };
 
-//TODO: Schrijf grondige tests voor deze klassen
 
 //TODO: implementeer alle methoden van BitWriter en BitReader
 //      (in deze header ipv cpp file, omwille van de templates!)
