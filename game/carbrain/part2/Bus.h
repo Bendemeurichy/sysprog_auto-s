@@ -20,9 +20,9 @@ class Bus {
 public:
     explicit Bus();
     
-    //the bus should check if addresses are aligned, and raise an exception if they are not
-    //alignment takes byte_count into account of course
-    //it will also raise an interrupt if byte_count is more than allowed (thus > sizeof(spg_register_t))
+    //Er zijn verschillende modules waaruit geheugen kan uitgelezen worden.
+    //Als een read of write niet geheel binnen 1 module valt, gooi je een exception.
+    //Je hoeft m.a.w. geen logica te implementeren voor read/writes over meerdere modules tegelijk.
 
     //TODO: Implementeer methodes om 1 of 2 bytes te lezen en schrijven van een bepaald geheugenadres. 
     //      De Bus zal dan a.d.h.v het geheugenadres de juiste module contacteren. 
