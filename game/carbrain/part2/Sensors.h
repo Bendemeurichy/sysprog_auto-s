@@ -17,7 +17,7 @@ public:
 
 
 class Sensors : public Module, public SensorDataSink {
-    //TODO Implementeer de virtuele methoden van BotModule, om 1 of 2 bytes te lezen uit de 32-bit vision bitmask
+    //TODO Implementeer de virtuele methoden van BotModule, om 1 of 2 bytes te lezen uit de SensorReading
     //TODO Implementeer de virtuele methoden van BotModule ivm schrijven door een exceptie te gooien
     //TODO Implementeer de virtuele methoden van SensorDataSink
 };
