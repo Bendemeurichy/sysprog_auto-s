@@ -28,7 +28,7 @@ size_t Board::loadAndStartCodeFromExeBytes(const std::vector<uint8_t>& exe) {
     //Zet ook de registers correct zodat het programma zal starten.
     //Return de grootte van de binaire code, in byte (= lengte van de "exe" vector)
     //TODO implementeer
-    cpu.reset(code_Mem,stack_Mem);
+    cpu->reset(Board::getCodeMemStartAddress(),Board::getStackMemStartAddress());
     return 0;
 }
 

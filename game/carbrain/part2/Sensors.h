@@ -17,13 +17,11 @@ public:
 
 
 class Sensors : public Module, public SensorDataSink {
-<<<<<<< HEAD
+    
 public:
     Sensors(spg_addr_t start, spg_addr_t stop);
     //TODO Implementeer de virtuele methoden van BotModule, om 1 of 2 bytes te lezen uit de 32-bit vision bitmask
-=======
-    //TODO Implementeer de virtuele methoden van BotModule, om 1 of 2 bytes te lezen uit de SensorReading
->>>>>>> 2dabad42f96b5902d1cf73b22b2d5df1476cae20
+
     //TODO Implementeer de virtuele methoden van BotModule ivm schrijven door een exceptie te gooien
     //TODO Implementeer de virtuele methoden van SensorDataSink
     uint8_t read1(const spg_addr_t &address) override;

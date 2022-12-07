@@ -5,7 +5,7 @@
 #include <assert.h>
 #include "Module.h"
 #include "Constants.h"
-
+#include "Exceptions.h"
 
 class Mem : public Module {
     //TODO Implementeer een constructor, die (o.a.) de grootte van dit blok geheugen mee krijgt.
@@ -29,8 +29,12 @@ public:
     spg_addr_t getEnd() const;
 
     size_t getLen() const;
+
+private:
+    spg_addr_t start;
+    spg_addr_t end;
+    size_t len_byte;
+    std::shared_ptr<uint8_t[]> mem;
 };
-
-
 
 #endif //SYSPROG_MEM_H

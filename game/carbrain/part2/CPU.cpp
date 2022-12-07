@@ -13,7 +13,7 @@
     registers = {0,0,0,0,0,0,0,0};
 }
 
-void CPU::reset(spg_addr_t code_start, spg_addr_t sp) {
+void CPU::reset(spg_addr_t code_start,spg_addr_t sp) {
     //TODO
     registers[REG_IP] = code_start;
     registers[REG_SP] = sp;
