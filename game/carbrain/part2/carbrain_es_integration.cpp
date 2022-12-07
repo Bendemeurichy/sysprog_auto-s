@@ -30,10 +30,11 @@ void init_CarBrainComponent(CarBrainComponent *carBrainComponent,
     //   carBrainComponent->board->loadAndStartCodeFromAsmFile(exeFilename);
 
     //if BitWriter is not yet implemented, you can also read the programs directly from the provided *.carbrain_exe files:
-       carBrainComponent->board = new Board(1024, 256);
-       std::string exeFilename = "level"+ std::to_string(level_nr) +".carbrain_exe"; /* TODO use correct file depending on level_nr */
-       spg_addr_t code_start_addr = carBrainComponent->board->getCodeMemStartAddress();
-       carBrainComponent->board->loadAndStartCodeFromExeFile(exeFilename); //This requires BitReader to be implemented
+      carBrainComponent->board = new Board(1024, 256);
+      std::string exeFilename = "level1.carbrain_exe"; /* TODO use correct file depending on level_nr */
+      spg_addr_t code_start_addr = carBrainComponent->board->getCodeMemStartAddress();
+      carBrainComponent->board->loadAndStartCodeFromExeFile(exeFilename); //This requires BitReader to be implemented
+
     //Note that this exe is compiled according to the fixed memory layout described in Constants.h
 }
 
@@ -41,12 +42,15 @@ int is_carbrain_decision_available(CarBrainComponent *carBrainComponent) {
     assert(carBrainComponent != nullptr);
     //TODO
     return carBrainComponent->board->getDecisionSource()->isDecisionAvailable();
+    //return false;
+
 }
 
 CarBrainDecision pop_carbrain_decision(CarBrainComponent* carBrainComponent) {
     assert(carBrainComponent != nullptr);
     //TODO
     return carBrainComponent->board->getDecisionSource()->popDecision();
+    //return CarBrainDecision::DECISION_FORWARD;
 
 }
 
@@ -61,11 +65,13 @@ void run_carbrain(CarBrainComponent* carBrainComponent) {
     assert(carBrainComponent != nullptr);
     assert(carBrainComponent->board != nullptr);
     
-    ////Run 50 steps, or until decision has been made
+
+    //Run 50 steps, or until decision has been made
     for (int i = 0; i < 50; i++) {
-        if (carBrainComponent->board->getDecisionSource()->isDecisionAvailable())
-            break;
-        carBrainComponent->board->tick();
+       if (carBrainComponent->board->getDecisionSource()->isDecisionAvailable())
+           break;
+       carBrainComponent->board->tick();
+
     }
 }
 

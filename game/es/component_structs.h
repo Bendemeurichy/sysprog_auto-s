@@ -18,6 +18,13 @@ extern "C++"
 #include <stdint.h>
 #include <glmc.h>
 
+#ifdef __cplusplus
+extern "C++"
+{
+    class Board;
+}
+#endif
+
 typedef enum GameRequest { GAME_REQUEST_NONE, GAME_REQUEST_EXIT, GAME_REQUEST_INIT, GAME_REQUEST_GOTO_LEVEL,
                            GAME_REQUEST_NEXT_LEVEL, GAME_REQUEST_PREV_LEVEL, GAME_REQUEST_RESTART_LEVEL,
                            GAME_REQUEST_SAVE, GAME_REQUEST_LOAD } GameRequest;
@@ -153,13 +160,16 @@ typedef struct AutoMoveControlComponent {
 } AutoMoveControlComponent;
 
 typedef struct CarBrainComponent {
-    #ifdef __cplusplus
-        Board* board;
-   //eventueel andere C++ velden
-    #else
-   //C velden of placeholder
-        uint8_t placeholder;
-    #endif // needed because empty structs are not supported everywhere
+
+#ifdef __cplusplus
+    Board *board;
+    // eventueel andere C++ velden
+#else
+    // C velden of placeholder
+    uint8_t placeholder_replaceme;
+#endif
+      //needed because empty structs are not supported everywhere
+
 } CarBrainComponent;
 
 typedef struct CarBrainVisionComponent {

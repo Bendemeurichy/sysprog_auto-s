@@ -43,13 +43,17 @@ size_t Board::loadAndStartCodeFromAsmLines(const std::vector<std::string>& asmLi
 Board::Board(spg_addr_t code_mem_size, spg_addr_t stack_mem_size) {
     assert(code_mem_size > 0);
     assert(stack_mem_size > 0);
-    code_Mem = make_shared<Mem>(Mem(MEM_START,code_mem_size));
-    stack_Mem = make_shared<Mem>(Mem(MEM_START+code_mem_size,stack_mem_size));
-    bus = make_shared<Bus>(Bus(code_Mem,stack_Mem));
-    cpu = make_shared<CPU>(CPU(bus));
-    //FIXME: fout
-    decisionOutput = make_shared<DecisionOutput>(DecisionOutput(code_mem_size,MAX_MAX_DECISIONS));
-    sensors = make_shared<Sensors>(Sensors(code_mem_size,stack_mem_size));
+    codeMem = std::make_shared<Mem>(MEM_START, MEM_START + code_mem_size);
+    stackMem = std::make_shared<Mem>(MEM_START + code_mem_size, MEM_START + code_mem_size + stack_mem_size);
+    bus = std::make_shared<Bus>();
+    cpu = std::make_shared<CPU>(bus);
+
+    spg_addr_t modulesStartMemory = MEM_START + code_mem_size + stack_mem_size;
+    decisionOutput = std::make_shared<DecisionOutput>(modulesStartMemory,modulesStartMemory+ MAX_MAX_DECISIONS);
+    //sensors = std::make_shared<Sensors>(modulesStartMemory + MAX_MAX_DECISIONS );
+    
+    bus->add_module(codeMem);
+    bus->add_module(stackMem);
 
     //Implementeer: Voeg CPU, Bus, DecisionOutput, Sensors, en stack en code Memory toe aan het Board
 }
@@ -73,18 +77,25 @@ std::shared_ptr<Bus> Board::getBus() const {
     return dummyBus;
 }
 #endif
+std::shared_ptr<DecisionOutput> Board::getDecisionSource() const {
+    return decisionOutput;
+}
+
+std::shared_ptr<Sensors> Board::getSensorDataSink() const {
+    return sensors;
+}
 
 spg_addr_t Board::getCodeMemStartAddress() const {
     //TODO
-    return code_Mem->getStart();
-    
+    return codeMem->getStart();
+    //return 0;
 }
 
 spg_addr_t Board::getStackMemStartAddress() const {
     //TODO
-    return stack_Mem->getStart();
-    
-}
+    return stackMem->getStart();
+    //return 0;
+
 
 DecisionOutput* Board::getDecisionSource() {
     DecisionOutput* out = decisionOutput.get();
