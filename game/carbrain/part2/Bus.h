@@ -39,6 +39,9 @@ public:
 
     //Voeg een BotModule toe aan de Bus
     void add_module(const std::shared_ptr<Module>&);
+
+    private:
+    std::vector<std::shared_ptr<Module>> modules;
 };
 
 #endif //SYSPROG_BUS_H
