@@ -28,6 +28,7 @@ size_t Board::loadAndStartCodeFromExeBytes(const std::vector<uint8_t>& exe) {
     //Zet ook de registers correct zodat het programma zal starten.
     //Return de grootte van de binaire code, in byte (= lengte van de "exe" vector)
     //TODO implementeer
+    cpu.reset(code_Mem,stack_Mem);
     return 0;
 }
 
@@ -42,13 +43,20 @@ size_t Board::loadAndStartCodeFromAsmLines(const std::vector<std::string>& asmLi
 Board::Board(spg_addr_t code_mem_size, spg_addr_t stack_mem_size) {
     assert(code_mem_size > 0);
     assert(stack_mem_size > 0);
+    code_Mem = make_shared<Mem>(Mem(MEM_START,code_mem_size));
+    stack_Mem = make_shared<Mem>(Mem(MEM_START+code_mem_size,stack_mem_size));
+    bus = make_shared<Bus>(Bus(code_Mem,stack_Mem));
+    cpu = make_shared<CPU>(CPU(bus));
+    //FIXME: fout
+    decisionOutput = make_shared<DecisionOutput>(DecisionOutput(code_mem_size,MAX_MAX_DECISIONS));
+    sensors = make_shared<Sensors>(Sensors(code_mem_size,stack_mem_size));
 
     //Implementeer: Voeg CPU, Bus, DecisionOutput, Sensors, en stack en code Memory toe aan het Board
 }
 
 void Board::tick() {
     //TODO run the CPU 1 tick
-    //example implementation: cpu->tick();
+    cpu->tick();
 }
 
 
@@ -68,13 +76,22 @@ std::shared_ptr<Bus> Board::getBus() const {
 
 spg_addr_t Board::getCodeMemStartAddress() const {
     //TODO
-    //example implementation: return code_mem->getStart();
-    return 0;
+    return code_Mem->getStart();
+    
 }
 
 spg_addr_t Board::getStackMemStartAddress() const {
     //TODO
-    //example implementation: return stack_mem->getStart();
-    return 0;
+    return stack_Mem->getStart();
+    
 }
 
+DecisionOutput* Board::getDecisionSource() {
+    DecisionOutput* out = decisionOutput.get();
+    return out;
+}
+
+Sensors* Board::getSensorDataSink() {
+    Sensors* out = sensors.get();
+    return out;
+}

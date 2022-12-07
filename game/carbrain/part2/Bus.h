@@ -10,15 +10,18 @@
 class Bus;
 #include "Module.h"
 #include "CPU.h"
+#include "Mem.h"
 
 class Bus {    
     //TODO: Hou in deze klasse een lijst BotModules bij. 
     //      Doe dit generiek: Ga er niet van uit dat Bus op voorhand weet welke modules 
     //      op welk geheugenadres beschikbaar gemaakt zullen worden.
-    
+    std::vector<std::shared_ptr<Module>> modules;
+    std::shared_ptr<Mem> stack_Mem;
+    std::shared_ptr<Mem> code_Mem;
 
 public:
-    explicit Bus();
+    explicit Bus(std::shared_ptr<Mem> code_Mem, std::shared_ptr<Mem> stack_Mem);
     
     //the bus should check if addresses are aligned, and raise an exception if they are not
     //alignment takes byte_count into account of course

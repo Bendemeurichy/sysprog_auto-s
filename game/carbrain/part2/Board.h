@@ -4,6 +4,7 @@
 #include <fstream>
 #include <vector>
 #include <stdint.h>
+#include "DecisionOutput.h"
 
 class Board;
 #include "CPU.h"
@@ -27,16 +28,25 @@ public:
 
     //run one CPU instruction
     void tick();
-
     //TODO add accessors as needed
+    DecisionOutput* getDecisionSource();
+    Sensors* getSensorDataSink();
 
 #ifdef ONLY_IN_PART2_TESTS
-    //allow tests to access parts of bus
-    [[nodiscard]] std::shared_ptr<CPU> getCpu() const;
+        // allow tests to access parts of bus
+        [[nodiscard]] std::shared_ptr<CPU> getCpu() const;
     [[nodiscard]] std::shared_ptr<Bus> getBus() const;
 #endif
 private:
     //TODO: voeg private velden toe (tip: gebruik shared_ptr)
+    
+    std::shared_ptr<Bus> bus;
+    std::shared_ptr<CPU> cpu;
+    std::shared_ptr<Mem> code_Mem;
+    std::shared_ptr<Mem> stack_Mem;
+    std::shared_ptr<DecisionOutput> decisionOutput;
+    std::shared_ptr<Sensors> sensors;
+
 };
 
 #endif //SYSPROG_BOARD_H
