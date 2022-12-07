@@ -23,9 +23,6 @@ class Bus {
 public:
     explicit Bus(std::shared_ptr<Mem> code_Mem, std::shared_ptr<Mem> stack_Mem);
     
-    //the bus should check if addresses are aligned, and raise an exception if they are not
-    //alignment takes byte_count into account of course
-    //it will also raise an interrupt if byte_count is more than allowed (thus > sizeof(spg_register_t))
 
     //TODO: Implementeer methodes om 1 of 2 bytes te lezen en schrijven van een bepaald geheugenadres. 
     //      De Bus zal dan a.d.h.v het geheugenadres de juiste module contacteren. 
