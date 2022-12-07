@@ -15,8 +15,11 @@ class CPU;
 
 class CPU {
 public:
-    CPU(std::shared_ptr<Bus> bus);
+
+    CPU(std::shared_ptr<Bus>& bus);
+
     void reset(spg_addr_t code_start, spg_addr_t sp);
+    void handleInstruction(const CPUInstruction::Instruction& instr);
     void tick();
     void executeInstruction(CPUInstruction::Instruction instruction);
 #ifdef ONLY_IN_PART2_TESTS
@@ -30,7 +33,7 @@ private:
     std::array<spg_register_t, 8> registers;
     std::shared_ptr<Bus> bus;
     std::shared_ptr<spg_register_t> flag;
-    
+
 };
 
 

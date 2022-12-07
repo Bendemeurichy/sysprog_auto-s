@@ -29,8 +29,10 @@ public:
     //run one CPU instruction
     void tick();
     //TODO add accessors as needed
-    DecisionOutput* getDecisionSource();
-    Sensors* getSensorDataSink();
+
+    std::shared_ptr<Sensors> getSensorDataSink() const;
+    std::shared_ptr<DecisionOutput> getDecisionSource() const;
+
 
 #ifdef ONLY_IN_PART2_TESTS
         // allow tests to access parts of bus
@@ -39,13 +41,13 @@ public:
 #endif
 private:
     //TODO: voeg private velden toe (tip: gebruik shared_ptr)
-    
-    std::shared_ptr<Bus> bus;
+
     std::shared_ptr<CPU> cpu;
-    std::shared_ptr<Mem> code_Mem;
-    std::shared_ptr<Mem> stack_Mem;
-    std::shared_ptr<DecisionOutput> decisionOutput;
+    std::shared_ptr<Bus> bus;
+    std::shared_ptr<Mem> codeMem;
+    std::shared_ptr<Mem> stackMem;
     std::shared_ptr<Sensors> sensors;
+    std::shared_ptr<DecisionOutput> decisionOutput;
 
 };
 

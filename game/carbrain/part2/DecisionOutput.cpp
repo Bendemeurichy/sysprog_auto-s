@@ -16,23 +16,12 @@ bool DecisionOutput::isDecisionAvailable() {
     return false;
 }
 
-DecisionOutput::~DecisionOutput() {
+
+DecisionOutput::DecisionOutput(const spg_addr_t start, uint8_t max_decisions) : Module(start, start + max_decisions) {
     //TODO
 }
 
-uint8_t DecisionOutput::read1(const spg_addr_t &address) {
-    //TODO
-    return 0;
-}
 
-spg_register_t DecisionOutput::read2_be(const spg_addr_t &address) {
-    //TODO
-    return 0;
-}
-
-void DecisionOutput::write2_be(const spg_addr_t &address, spg_register_t val) {
-    //TODO
-}
 
 void DecisionOutput::write1(const spg_addr_t &address, uint8_t val) {
     //TODO Implementeer de virtuele methoden van BotModule, om 1 of 2 bytes te schrijven naar de lijst beslissingen

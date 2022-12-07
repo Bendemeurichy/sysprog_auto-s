@@ -5,37 +5,60 @@
 #include "BitHelper.h"
 #include <netinet/in.h>
 
-    CPU::CPU(std::shared_ptr<Bus> bus)
-{
+
     //TODO
     this->bus = bus;
-    flag = std::make_shared<spg_register_t>();
-    registers = {0,0,0,0,0,0,0,0};
+    registers = std::array<spg_register_t, 8>();
 }
 
-void CPU::reset(spg_addr_t code_start,spg_addr_t sp) {
-    //TODO
+
+void CPU::reset(spg_addr_t code_start, spg_addr_t sp) {
+    //TODO set %ip and %sp to inital state
     registers[REG_IP] = code_start;
     registers[REG_SP] = sp;
 }
 
-
 void CPU::tick() {
+    using namespace CPUInstruction;
     //TODO load 1 instruction
     //TODO increase %ip with bytesize of instruction
     //TODO execute 1 instruction
     //Hint:
     size_t bytes_read;
-    const CPUInstruction::Instruction instr = CPUInstruction::Instruction::decode([&]() -> uint8_t { uint8_t operation = bus->read1(registers[REG_IP]);return operation; },bytes_read);\
+
+    const Instruction instr = Instruction::decode([&]() -> uint8_t{ uint8_t operation = bus->read1(registers[REG_IP]);return operation; },bytes_read);
     registers[REG_IP] += bytes_read;
-    executeInstruction(instr);
+    handleInstruction(instr);
 }
 
-void executeInstruction(CPUInstruction::Instruction instruction){
-    //TODO
-    CPUInstruction::Operation operation = instruction.operation;
-    std::shared_ptr<CPUInstruction::Operand> source = instruction.source;
-    std::shared_ptr<CPUInstruction::Operand> destination = instruction.target;
+void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
+{
+    using namespace CPUInstruction;
+    Operation op = instr.operation;
+    switch (op){
+        case Operation::NOP:
+            break;
+        case Operation::MOV:
+            spg_register_t source = fetchOperand(instr.source);
+            spg_register_t target = fetchOperand(instr.target);
+            if (instr.target->type == CPUInstructionOperandType::REGISTER)
+            {
+                store1(instr,source);
+            }
+            else
+            {
+                store2(instr,source);
+            }
+            updateflag()
+            break;
+
+
+    default:
+        break;
+    }
+    
+    // TODO
+
 }
 
 #ifdef ONLY_IN_PART2_TESTS

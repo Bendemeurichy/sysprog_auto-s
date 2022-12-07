@@ -8,6 +8,8 @@
 #include "Exceptions.h"
 
 class Mem : public Module {
+    public:
+    Mem(spg_addr_t start, spg_addr_t end);
     //TODO Implementeer een constructor, die (o.a.) de grootte van dit blok geheugen mee krijgt.
     //TODO Implementeer de virtuele methoden van BotModule, om 1 of 2 bytes te lezen en schrijven uit/naar dit blok geheugen.
 public:
