@@ -10,19 +10,19 @@
 class Bus;
 #include "Module.h"
 #include "CPU.h"
+#include "Mem.h"
 
 class Bus {    
     //TODO: Hou in deze klasse een lijst BotModules bij. 
     //      Doe dit generiek: Ga er niet van uit dat Bus op voorhand weet welke modules 
     //      op welk geheugenadres beschikbaar gemaakt zullen worden.
-    
+    std::vector<std::shared_ptr<Module>> modules;
+    std::shared_ptr<Mem> stack_Mem;
+    std::shared_ptr<Mem> code_Mem;
 
 public:
-    explicit Bus();
+    explicit Bus(std::shared_ptr<Mem> code_Mem, std::shared_ptr<Mem> stack_Mem);
     
-    //Er zijn verschillende modules waaruit geheugen kan uitgelezen worden.
-    //Als een read of write niet geheel binnen 1 module valt, gooi je een exception.
-    //Je hoeft m.a.w. geen logica te implementeren voor read/writes over meerdere modules tegelijk.
 
     //TODO: Implementeer methodes om 1 of 2 bytes te lezen en schrijven van een bepaald geheugenadres. 
     //      De Bus zal dan a.d.h.v het geheugenadres de juiste module contacteren. 

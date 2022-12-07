@@ -16,6 +16,7 @@ bool is_carbrain_available() {
 void free_CarBrainComponent(CarBrainComponent* carBrainComponent) {
     assert(carBrainComponent != nullptr);
     //TODO geef de board pointer in carBrainComponent vrij
+    delete carBrainComponent->board;
 }
 
 void init_CarBrainComponent(CarBrainComponent *carBrainComponent,
@@ -24,7 +25,7 @@ void init_CarBrainComponent(CarBrainComponent *carBrainComponent,
     //TODO
     //Example solution:
     //   carBrainComponent->board = new Board(1024, 256);
-    //   std::string asmFilename = "level1.carbrain_asm"; /* TODO use correct file depending on level_nr */
+    //   std::string asmFilename = "level"+std::to_string(level_nr)+".carbrain_asm"; /* TODO use correct file depending on level_nr */
     //   spg_addr_t code_start_addr = carBrainComponent->board->getCodeMemStartAddress();
     //   carBrainComponent->board->loadAndStartCodeFromAsmFile(exeFilename);
 
@@ -33,6 +34,7 @@ void init_CarBrainComponent(CarBrainComponent *carBrainComponent,
       std::string exeFilename = "level1.carbrain_exe"; /* TODO use correct file depending on level_nr */
       spg_addr_t code_start_addr = carBrainComponent->board->getCodeMemStartAddress();
       carBrainComponent->board->loadAndStartCodeFromExeFile(exeFilename); //This requires BitReader to be implemented
+
     //Note that this exe is compiled according to the fixed memory layout described in Constants.h
 }
 
@@ -41,6 +43,7 @@ int is_carbrain_decision_available(CarBrainComponent *carBrainComponent) {
     //TODO
     return carBrainComponent->board->getDecisionSource()->isDecisionAvailable();
     //return false;
+
 }
 
 CarBrainDecision pop_carbrain_decision(CarBrainComponent* carBrainComponent) {
@@ -48,6 +51,7 @@ CarBrainDecision pop_carbrain_decision(CarBrainComponent* carBrainComponent) {
     //TODO
     return carBrainComponent->board->getDecisionSource()->popDecision();
     //return CarBrainDecision::DECISION_FORWARD;
+
 }
 
 void set_carbrain_sense(CarBrainComponent* carBrainComponent, SensorReading* sensor_reading) {
@@ -61,11 +65,13 @@ void run_carbrain(CarBrainComponent* carBrainComponent) {
     assert(carBrainComponent != nullptr);
     assert(carBrainComponent->board != nullptr);
     
+
     //Run 50 steps, or until decision has been made
     for (int i = 0; i < 50; i++) {
        if (carBrainComponent->board->getDecisionSource()->isDecisionAvailable())
            break;
        carBrainComponent->board->tick();
+
     }
 }
 

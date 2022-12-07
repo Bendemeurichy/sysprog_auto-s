@@ -1,6 +1,12 @@
 #include "DecisionOutput.h"
 
-CarBrainDecision DecisionOutput::popDecision() {
+DecisionOutput::DecisionOutput(const spg_addr_t start, uint8_t max_decisions) : Module(start, 1)
+{
+    // TODO
+}
+
+CarBrainDecision DecisionOutput::popDecision()
+{
     //TODO
     return CarBrainDecision::DECISION_FORWARD;
 }
@@ -10,9 +16,11 @@ bool DecisionOutput::isDecisionAvailable() {
     return false;
 }
 
+
 DecisionOutput::DecisionOutput(const spg_addr_t start, uint8_t max_decisions) : Module(start, start + max_decisions) {
     //TODO
 }
+
 
 
 void DecisionOutput::write1(const spg_addr_t &address, uint8_t val) {

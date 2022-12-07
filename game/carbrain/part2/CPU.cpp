@@ -2,10 +2,10 @@
 
 #include "Bus.h"
 #include "Exceptions.h"
-
+#include "BitHelper.h"
 #include <netinet/in.h>
 
-CPU::CPU(std::shared_ptr<Bus>& bus) {
+
     //TODO
     this->bus = bus;
     registers = std::array<spg_register_t, 8>();
@@ -23,9 +23,9 @@ void CPU::tick() {
     //TODO load 1 instruction
     //TODO increase %ip with bytesize of instruction
     //TODO execute 1 instruction
-
     //Hint:
     size_t bytes_read;
+
     const Instruction instr = Instruction::decode([&]() -> uint8_t{ uint8_t operation = bus->read1(registers[REG_IP]);return operation; },bytes_read);
     registers[REG_IP] += bytes_read;
     handleInstruction(instr);
@@ -58,15 +58,16 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
     }
     
     // TODO
+
 }
 
 #ifdef ONLY_IN_PART2_TESTS
 spg_register_t CPU::getRegisterValue(size_t register_index) const {
-    //TODO
-    return 0;
+    return registers[register_index];
 }
 
 void CPU::setRegisterValue(size_t register_index, spg_register_t value) {
     //TODO
+    registers[register_index] = value;
 }
 #endif //ONLY_IN_PART2_TESTS

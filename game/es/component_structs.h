@@ -6,6 +6,12 @@
 #include "game_util.h"
 #include "../graphics/renderer_3d.h"
 #include "../level/level.h"
+#ifdef __cplusplus
+extern "C++"
+{
+    class Board;
+}
+#endif
 #include "entity.h"
 
 #include <stdbool.h>
@@ -154,6 +160,7 @@ typedef struct AutoMoveControlComponent {
 } AutoMoveControlComponent;
 
 typedef struct CarBrainComponent {
+
 #ifdef __cplusplus
     Board *board;
     // eventueel andere C++ velden
@@ -162,6 +169,7 @@ typedef struct CarBrainComponent {
     uint8_t placeholder_replaceme;
 #endif
       //needed because empty structs are not supported everywhere
+
 } CarBrainComponent;
 
 typedef struct CarBrainVisionComponent {

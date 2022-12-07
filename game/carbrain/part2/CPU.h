@@ -15,11 +15,13 @@ class CPU;
 
 class CPU {
 public:
+
     CPU(std::shared_ptr<Bus>& bus);
+
     void reset(spg_addr_t code_start, spg_addr_t sp);
     void handleInstruction(const CPUInstruction::Instruction& instr);
     void tick();
-
+    void executeInstruction(CPUInstruction::Instruction instruction);
 #ifdef ONLY_IN_PART2_TESTS
     //tests can access some inner working of the CPU, to test it more easily
     [[nodiscard]] spg_register_t getRegisterValue(size_t register_index) const;
@@ -27,9 +29,11 @@ public:
 #endif
 private:
     //TODO Store CPU state (registers etc), shared pointer to Bus (to access memory and other modules), etc.
+
     std::array<spg_register_t, 8> registers;
     std::shared_ptr<Bus> bus;
     std::shared_ptr<spg_register_t> flag;
+
 };
 
 

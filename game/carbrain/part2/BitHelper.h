@@ -162,6 +162,7 @@ public:
 };
 
 
+
 //TODO: implementeer alle methoden van BitWriter en BitReader
 //      (in deze header ipv cpp file, omwille van de templates!)
 

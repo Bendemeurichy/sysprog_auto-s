@@ -21,10 +21,16 @@ class DecisionOutput : public Module, public DecisionOutputSource {
 public:
     DecisionOutput(const spg_addr_t start, uint8_t max_decisions);
 
+    uint8_t read1(const spg_addr_t &address) override;
+    spg_register_t read2_be(const spg_addr_t &address) override;
+
     void write1(const spg_addr_t &address, uint8_t val) override;
+    void write2_be(const spg_addr_t &address, spg_register_t val) override;
     
     CarBrainDecision popDecision() override;
     bool isDecisionAvailable() override;
+
+    ~DecisionOutput() override;
 private:
     //TODO
 };

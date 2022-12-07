@@ -21,7 +21,8 @@
 			"*.hardcoded_level": "c",
 			"renderer_3d.h": "c",
 			"hardcoded_levels.h": "c",
-			"c_levelwriter.h": "c"
+			"c_levelwriter.h": "c",
+			"array": "cpp"
 		}
 	}
 }

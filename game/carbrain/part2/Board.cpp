@@ -28,6 +28,7 @@ size_t Board::loadAndStartCodeFromExeBytes(const std::vector<uint8_t>& exe) {
     //Zet ook de registers correct zodat het programma zal starten.
     //Return de grootte van de binaire code, in byte (= lengte van de "exe" vector)
     //TODO implementeer
+    cpu->reset(Board::getCodeMemStartAddress(),Board::getStackMemStartAddress());
     return 0;
 }
 
@@ -87,12 +88,21 @@ std::shared_ptr<Sensors> Board::getSensorDataSink() const {
 spg_addr_t Board::getCodeMemStartAddress() const {
     //TODO
     return codeMem->getStart();
-    return 0;
+    //return 0;
 }
 
 spg_addr_t Board::getStackMemStartAddress() const {
     //TODO
     return stackMem->getStart();
-    return 0;
+    //return 0;
+
+
+DecisionOutput* Board::getDecisionSource() {
+    DecisionOutput* out = decisionOutput.get();
+    return out;
 }
 
+Sensors* Board::getSensorDataSink() {
+    Sensors* out = sensors.get();
+    return out;
+}
