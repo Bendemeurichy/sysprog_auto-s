@@ -65,14 +65,11 @@ void Board::tick() {
 #ifdef ONLY_IN_PART2_TESTS
 std::shared_ptr<CPU> Board::getCpu() const {
     //TODO replace this by returning cpu stored in Board
-    std::shared_ptr<CPU> dummyCpu(new CPU());
-    return dummyCpu;
+    return cpu
 }
 
 std::shared_ptr<Bus> Board::getBus() const {
-    //TODO replace this by returning cpu stored in Board
-    std::shared_ptr<Bus> dummyBus(new Bus());
-    return dummyBus;
+    return bus;
 }
 #endif
 std::shared_ptr<DecisionOutput> Board::getDecisionSource() const {

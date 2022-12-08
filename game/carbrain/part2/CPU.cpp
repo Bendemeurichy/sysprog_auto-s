@@ -111,9 +111,9 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
         }
         case Operation::POP:{
             spg_register_t target = fetchOperand(instr.target);
-            store2(instr, read2(registers[REG_SP]));
+            store2(instr, registers[REG_SP]);
             registers[REG_SP] += 2;
-            updateflag(read2(registers[REG_SP])==0);
+            updateflag(registers[REG_SP]==0);
             break;
         }
         case Operation::ADD :{
@@ -124,6 +124,60 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             updateflag(result == 0);
             break;
 
+        }
+        case Operation::SUB:{
+            spg_register_t source = fetchOperand(instr.source);
+            spg_register_t target = fetchOperand(instr.target);
+            spg_register_t result = target - source;
+            store2(instr, result);
+            updateflag(result == 0);
+            break;
+        }
+        case Operation::AND: {
+            spg_register_t source = fetchOperand(instr.source);
+            spg_register_t target = fetchOperand(instr.target);
+            spg_register_t result = target & source;
+            store2(instr, result);
+            updateflag(result == 0);
+            break;
+        }
+        case Operation::OR:{
+            spg_register_t source = fetchOperand(instr.source);
+            spg_register_t target = fetchOperand(instr.target);
+            spg_register_t result = target | source;
+            store2(instr, result);
+            updateflag(result == 0);
+            break;
+        }
+        case Operation::XOR:{
+            spg_register_t source = fetchOperand(instr.source);
+            spg_register_t target = fetchOperand(instr.target);
+            spg_register_t result = target ^ source;
+            store2(instr, result);
+            updateflag(result == 0);
+            break;
+        }
+        case Operation::SHL:{
+            spg_register_t source = fetchOperand(instr.source);
+            spg_register_t target = fetchOperand(instr.target);
+            spg_register_t result = target << source;
+            store2(instr, result);
+            updateflag(result == 0);
+            break;
+        }
+        case Operation::INC:{
+            spg_register_t target = fetchOperand(instr.target);
+            spg_register_t result = target + 1;
+            store2(instr, result);
+            updateflag(result == 0);
+            break;
+        }
+        case Operation::DEC:{
+            spg_register_t target = fetchOperand(instr.target);
+            spg_register_t result = target - 1;
+            store2(instr, result);
+            updateflag(result == 0);
+            break;
         }
     default:
         break;
