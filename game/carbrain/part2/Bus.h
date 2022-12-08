@@ -10,7 +10,6 @@
 class Bus;
 #include "Module.h"
 #include "CPU.h"
-#include "Mem.h"
 
 class Bus {    
     //TODO: Hou in deze klasse een lijst BotModules bij. 
@@ -18,7 +17,7 @@ class Bus {
     //      op welk geheugenadres beschikbaar gemaakt zullen worden.
 
 public:
-    explicit Bus(std::shared_ptr<Mem> code_Mem, std::shared_ptr<Mem> stack_Mem);
+    explicit Bus();
     
 
     //TODO: Implementeer methodes om 1 of 2 bytes te lezen en schrijven van een bepaald geheugenadres. 

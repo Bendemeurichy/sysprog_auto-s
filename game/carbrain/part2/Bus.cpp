@@ -2,7 +2,7 @@
 
 //TODO
 
-Bus::Bus(std::shared_ptr<Mem> code_Mem, std::shared_ptr<Mem> stack_Mem) {
+Bus::Bus() {
     //TODO
 }
 

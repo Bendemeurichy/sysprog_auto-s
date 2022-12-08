@@ -17,13 +17,9 @@ class Mem : public Module {
     bool manages(const spg_addr_t& address) const;
     
     uint8_t read1(const spg_addr_t &address);
-    
-    spg_register_t read2_be(const spg_addr_t &address);
-    
+        
     void write1(const spg_addr_t& address, uint8_t val);
-    
-    void write2_be(const spg_addr_t& address, spg_register_t val);
-    
+        
     spg_addr_t getStart() const;
     
     spg_addr_t getEnd() const;

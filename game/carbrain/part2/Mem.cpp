@@ -19,13 +19,6 @@ uint8_t Mem::read1(const spg_addr_t &address) {
     return 0;
 }
 
-spg_register_t Mem::read2_be(const spg_addr_t &address) {
-    //TODO
-    if(!manages(address)){
-        throw ModuleError("Invalid address");
-    }
-    return 0;
-}
 
 void Mem::write1(const spg_addr_t &address, uint8_t val) {
     //TODO
@@ -33,13 +26,6 @@ void Mem::write1(const spg_addr_t &address, uint8_t val) {
         throw ModuleError("Invalid address");
     }
     
-}
-
-void Mem::write2_be(const spg_addr_t &address, spg_register_t val) {
-    //TODO
-    if(!manages(address)){
-        throw ModuleError("Invalid address");
-    }
 }
 
 spg_addr_t Mem::getStart() const {

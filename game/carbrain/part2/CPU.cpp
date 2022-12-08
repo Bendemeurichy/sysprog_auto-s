@@ -39,15 +39,38 @@ void CPU::updateflag(bool flag) {
 }
 
 spg_register_t CPU::fetchOperand(std::shared_ptr<CPUInstruction::Operand> operand) {
-    //TODO
-    return 0;
+    using namespace CPUInstruction;
+    if (operand->type == CPUInstruction::CPUInstructionOperandType::REGISTER) {
+
+        std::shared_ptr<RegisterOperand> reg_operand = std::dynamic_pointer_cast<RegisterOperand>(operand);
+        return registers[reg_operand->register_index];
+
+    } else if (operand->type == CPUInstructionOperandType::MEM_REGISTER) {
+
+        std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(operand);
+        return bus->read2_be(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement);
+
+    } else if (operand->type == CPUInstructionOperandType::MEM_IMMEDIATE) {
+        
+        std::shared_ptr<AddressOperand> mem_imm_operand = std::dynamic_pointer_cast<AddressOperand>(operand);
+        return bus->read2_be(mem_imm_operand->address);
+
+    } else if (operand->type == CPUInstruction::CPUInstructionOperandType::IMMEDIATE) {
+        
+        std::shared_ptr<ImmediateOperand> immediate_operand = std::dynamic_pointer_cast<ImmediateOperand>(operand);
+        return immediate_operand->immediate;
+
+    } else {
+        
+        throw std::runtime_error("Unknown operand type");
+    }
 }
 
-void CPU::store1(spg_register_t target, spg_register_t source) {
+void CPU::store1(CPUInstruction::Instruction instr, spg_register_t source) {
     //TODO
 }
 
-void CPU::store2(spg_register_t target, spg_register_t source) {
+void CPU::store2(CPUInstruction::Instruction instr, spg_register_t source) {
     //TODO
 }
 
@@ -69,30 +92,38 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             }
         case Operation::MOV:{
             spg_register_t source = fetchOperand(instr.source);
-            spg_register_t target = fetchOperand(instr.target);
-            store2(target, source);
+            store2(instr, source);
             updateflag(source == 0);
             break;
         }
         case Operation::MOVB:{
             spg_register_t source = fetchOperand(instr.source);
             spg_register_t target = fetchOperand(instr.target);
-            store1(target, source);
+            store1(instr, source);
             updateflag(target==0);
             break;
         }
         case Operation::PUSH:{
             spg_register_t source = fetchOperand(instr.source);
             registers[REG_SP] -= 2;
-            store2(registers[REG_SP], source);
+            registers[REG_SP] = source;
             break;
         }
         case Operation::POP:{
             spg_register_t target = fetchOperand(instr.target);
-            store2(target, read2(registers[REG_SP]));
+            store2(instr, read2(registers[REG_SP]));
             registers[REG_SP] += 2;
             updateflag(read2(registers[REG_SP])==0);
             break;
+        }
+        case Operation::ADD :{
+            spg_register_t source = fetchOperand(instr.source);
+            spg_register_t target = fetchOperand(instr.target);
+            spg_register_t result = target + source;
+            store2(instr, result);
+            updateflag(result == 0);
+            break;
+
         }
     default:
         break;
