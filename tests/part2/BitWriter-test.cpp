@@ -5,6 +5,7 @@
 
 #include <string>
 #include <assert.h>
+#include <iostream>
 
 #include "../../game/carbrain/part2/Assembler.h"
 #include "../../game/carbrain/part2/CPUInstruction.h"
@@ -17,6 +18,7 @@ using namespace CPUInstruction;
 BOOST_AUTO_TEST_SUITE(BitWriterTests)
 
 BOOST_AUTO_TEST_CASE( BitWriter_A ) {
+    std::cout << "Test A:" << std::endl;
     BitWriter<4> bw;
     
     uint8_t a = 0xA5;
@@ -33,6 +35,7 @@ BOOST_AUTO_TEST_CASE( BitWriter_A ) {
 
 
 BOOST_AUTO_TEST_CASE( BitWriter_B ) {
+    std::cout << "Test B:" << std::endl;
     BitWriter<4> bw;
     
     uint16_t a = 0x1234;
@@ -49,6 +52,7 @@ BOOST_AUTO_TEST_CASE( BitWriter_B ) {
 }
 
 BOOST_AUTO_TEST_CASE( BitWriter_C ) {
+    std::cout << "Test C:" << std::endl;
     BitWriter<4> bw;
     
     bw.writeBits(0x2, 2); //10
@@ -61,6 +65,7 @@ BOOST_AUTO_TEST_CASE( BitWriter_C ) {
 }
 
 BOOST_AUTO_TEST_CASE( BitWriter_D ) {
+    std::cout << "Test D:" << std::endl;
     BitWriter<4> bw;
     
     uint8_t a = 0x1;
@@ -71,6 +76,7 @@ BOOST_AUTO_TEST_CASE( BitWriter_D ) {
 }
 
 BOOST_AUTO_TEST_CASE( BitWriter_E ) {
+    std::cout << "Test E:" << std::endl;
     BitWriter<10> bw;
     bw.writeBits(0x4, 5); //00100
     bw.writeBits(0x3, 2); //11
@@ -91,6 +97,7 @@ BOOST_AUTO_TEST_CASE( BitWriter_E ) {
 }
 
 BOOST_AUTO_TEST_CASE( BitWriter_F ) {
+    std::cout << "Test F:" << std::endl;
     BitWriter<4> bw;
     
     uint8_t a = 0x0;
