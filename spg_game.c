@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
                 }
                 else
                 {
-                    //printf("level with name %s will be loaded", argv[i]);
+                    printf("level with name %s will be loaded", argv[i]);
                     levelloader_load_binary_level(&engine->levels[i-1], i-1, tolowercase(argv[i]));
                 }
             }

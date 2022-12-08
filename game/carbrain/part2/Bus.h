@@ -15,14 +15,10 @@ class Bus {
     //TODO: Hou in deze klasse een lijst BotModules bij. 
     //      Doe dit generiek: Ga er niet van uit dat Bus op voorhand weet welke modules 
     //      op welk geheugenadres beschikbaar gemaakt zullen worden.
-    
 
 public:
     explicit Bus();
     
-    //the bus should check if addresses are aligned, and raise an exception if they are not
-    //alignment takes byte_count into account of course
-    //it will also raise an interrupt if byte_count is more than allowed (thus > sizeof(spg_register_t))
 
     //TODO: Implementeer methodes om 1 of 2 bytes te lezen en schrijven van een bepaald geheugenadres. 
     //      De Bus zal dan a.d.h.v het geheugenadres de juiste module contacteren. 
@@ -39,6 +35,9 @@ public:
 
     //Voeg een BotModule toe aan de Bus
     void add_module(const std::shared_ptr<Module>&);
+
+    private:
+    std::vector<std::shared_ptr<Module>> modules;
 };
 
 #endif //SYSPROG_BUS_H

@@ -28,6 +28,7 @@ size_t Board::loadAndStartCodeFromExeBytes(const std::vector<uint8_t>& exe) {
     //Zet ook de registers correct zodat het programma zal starten.
     //Return de grootte van de binaire code, in byte (= lengte van de "exe" vector)
     //TODO implementeer
+    cpu->reset(Board::getCodeMemStartAddress(),Board::getStackMemStartAddress());
     return 0;
 }
 
@@ -42,13 +43,22 @@ size_t Board::loadAndStartCodeFromAsmLines(const std::vector<std::string>& asmLi
 Board::Board(spg_addr_t code_mem_size, spg_addr_t stack_mem_size) {
     assert(code_mem_size > 0);
     assert(stack_mem_size > 0);
+    codeMem = std::make_shared<Mem>(MEM_START, MEM_START + code_mem_size);
+    stackMem = std::make_shared<Mem>(MEM_START + code_mem_size, MEM_START + code_mem_size + stack_mem_size);
+    bus = std::make_shared<Bus>();
+    cpu = std::make_shared<CPU>(bus);
+
+    spg_addr_t modulesStartMemory = MEM_START + code_mem_size + stack_mem_size;
+    decisionOutput = std::make_shared<DecisionOutput>(modulesStartMemory,modulesStartMemory+ MAX_MAX_DECISIONS);
+    //sensors = std::make_shared<Sensors>(modulesStartMemory + MAX_MAX_DECISIONS );
+    
 
     //Implementeer: Voeg CPU, Bus, DecisionOutput, Sensors, en stack en code Memory toe aan het Board
 }
 
 void Board::tick() {
     //TODO run the CPU 1 tick
-    //example implementation: cpu->tick();
+    cpu->tick();
 }
 
 
@@ -65,16 +75,22 @@ std::shared_ptr<Bus> Board::getBus() const {
     return dummyBus;
 }
 #endif
+std::shared_ptr<DecisionOutput> Board::getDecisionSource() const {
+    return decisionOutput;
+}
+
+std::shared_ptr<Sensors> Board::getSensorDataSink() const {
+    return sensors;
+}
 
 spg_addr_t Board::getCodeMemStartAddress() const {
     //TODO
-    //example implementation: return code_mem->getStart();
-    return 0;
+    return codeMem->getStart();
+    //return 0;
 }
 
 spg_addr_t Board::getStackMemStartAddress() const {
     //TODO
-    //example implementation: return stack_mem->getStart();
-    return 0;
+    return stackMem->getStart();
+    //return 0;
 }
-

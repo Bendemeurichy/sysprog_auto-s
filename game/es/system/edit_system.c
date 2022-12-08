@@ -49,7 +49,7 @@ void system_edit_update(Engine* engine)
                         LevelItem *item = &tile_info->item;
                         if (item->type == BUILDING)
                         {
-                            item->count = (item->count + 1) % 5;
+                            item->count = (item->count + 1) % 6 == 0? 1 : item->count + 1;
                         }
                         else
                         {
