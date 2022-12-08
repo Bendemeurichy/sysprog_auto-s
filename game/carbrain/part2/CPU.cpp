@@ -5,12 +5,11 @@
 #include "BitHelper.h"
 #include <netinet/in.h>
 
-
-    //TODO
+CPU::CPU(std::shared_ptr<Bus>& bus) {
     this->bus = bus;
-    registers = std::array<spg_register_t, 8>();
-}
+    
 
+}
 
 void CPU::reset(spg_addr_t code_start, spg_addr_t sp) {
     //TODO set %ip and %sp to inital state
@@ -31,28 +30,70 @@ void CPU::tick() {
     handleInstruction(instr);
 }
 
+void CPU::updateflag(bool flag) {
+    if (flag) {
+        this->flag = 0b1;
+    } else {
+        this->flag = 0;
+    }
+}
+
+spg_register_t CPU::fetchOperand(std::shared_ptr<CPUInstruction::Operand> operand) {
+    //TODO
+    return 0;
+}
+
+void CPU::store1(spg_register_t target, spg_register_t source) {
+    //TODO
+}
+
+void CPU::store2(spg_register_t target, spg_register_t source) {
+    //TODO
+}
+
+spg_register_t CPU::read2(spg_register_t target) {
+    //TODO
+    return 0;
+}
+
+
+// store1 stores 1 byte store2 2
+//TODO: implement store1 and store2 and fetchoperand
 void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
 {
     using namespace CPUInstruction;
     Operation op = instr.operation;
     switch (op){
-        case Operation::NOP:
+        case Operation::NOP:{
             break;
-        case Operation::MOV:
+            }
+        case Operation::MOV:{
             spg_register_t source = fetchOperand(instr.source);
             spg_register_t target = fetchOperand(instr.target);
-            if (instr.target->type == CPUInstructionOperandType::REGISTER)
-            {
-                store1(instr,source);
-            }
-            else
-            {
-                store2(instr,source);
-            }
-            updateflag()
+            store2(target, source);
+            updateflag(source == 0);
             break;
-
-
+        }
+        case Operation::MOVB:{
+            spg_register_t source = fetchOperand(instr.source);
+            spg_register_t target = fetchOperand(instr.target);
+            store1(target, source);
+            updateflag(target==0);
+            break;
+        }
+        case Operation::PUSH:{
+            spg_register_t source = fetchOperand(instr.source);
+            registers[REG_SP] -= 2;
+            store2(registers[REG_SP], source);
+            break;
+        }
+        case Operation::POP:{
+            spg_register_t target = fetchOperand(instr.target);
+            store2(target, read2(registers[REG_SP]));
+            registers[REG_SP] += 2;
+            updateflag(read2(registers[REG_SP])==0);
+            break;
+        }
     default:
         break;
     }

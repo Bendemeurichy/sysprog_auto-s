@@ -16,9 +16,6 @@ class Bus {
     //TODO: Hou in deze klasse een lijst BotModules bij. 
     //      Doe dit generiek: Ga er niet van uit dat Bus op voorhand weet welke modules 
     //      op welk geheugenadres beschikbaar gemaakt zullen worden.
-    std::vector<std::shared_ptr<Module>> modules;
-    std::shared_ptr<Mem> stack_Mem;
-    std::shared_ptr<Mem> code_Mem;
 
 public:
     explicit Bus(std::shared_ptr<Mem> code_Mem, std::shared_ptr<Mem> stack_Mem);

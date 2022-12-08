@@ -12,8 +12,6 @@ class Mem : public Module {
     Mem(spg_addr_t start, spg_addr_t end);
     //TODO Implementeer een constructor, die (o.a.) de grootte van dit blok geheugen mee krijgt.
     //TODO Implementeer de virtuele methoden van BotModule, om 1 of 2 bytes te lezen en schrijven uit/naar dit blok geheugen.
-public:
-    Mem(spg_addr_t start,spg_addr_t stop);
 
     ~Mem() = default;
     bool manages(const spg_addr_t& address) const;

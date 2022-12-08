@@ -45,15 +45,13 @@ Board::Board(spg_addr_t code_mem_size, spg_addr_t stack_mem_size) {
     assert(stack_mem_size > 0);
     codeMem = std::make_shared<Mem>(MEM_START, MEM_START + code_mem_size);
     stackMem = std::make_shared<Mem>(MEM_START + code_mem_size, MEM_START + code_mem_size + stack_mem_size);
-    bus = std::make_shared<Bus>();
+    bus = std::make_shared<Bus>(codeMem, stackMem);
     cpu = std::make_shared<CPU>(bus);
 
     spg_addr_t modulesStartMemory = MEM_START + code_mem_size + stack_mem_size;
     decisionOutput = std::make_shared<DecisionOutput>(modulesStartMemory,modulesStartMemory+ MAX_MAX_DECISIONS);
     //sensors = std::make_shared<Sensors>(modulesStartMemory + MAX_MAX_DECISIONS );
     
-    bus->add_module(codeMem);
-    bus->add_module(stackMem);
 
     //Implementeer: Voeg CPU, Bus, DecisionOutput, Sensors, en stack en code Memory toe aan het Board
 }
@@ -95,14 +93,4 @@ spg_addr_t Board::getStackMemStartAddress() const {
     //TODO
     return stackMem->getStart();
     //return 0;
-
-
-DecisionOutput* Board::getDecisionSource() {
-    DecisionOutput* out = decisionOutput.get();
-    return out;
-}
-
-Sensors* Board::getSensorDataSink() {
-    Sensors* out = sensors.get();
-    return out;
 }

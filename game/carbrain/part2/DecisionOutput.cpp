@@ -17,10 +17,6 @@ bool DecisionOutput::isDecisionAvailable() {
 }
 
 
-DecisionOutput::DecisionOutput(const spg_addr_t start, uint8_t max_decisions) : Module(start, start + max_decisions) {
-    //TODO
-}
-
 
 
 void DecisionOutput::write1(const spg_addr_t &address, uint8_t val) {

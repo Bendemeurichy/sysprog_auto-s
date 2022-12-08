@@ -3,8 +3,6 @@
 //TODO
 
 Bus::Bus(std::shared_ptr<Mem> code_Mem, std::shared_ptr<Mem> stack_Mem) {
-    this->code_Mem = code_Mem;
-    this->stack_Mem = stack_Mem;
     //TODO
 }
 
