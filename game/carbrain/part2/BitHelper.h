@@ -5,6 +5,7 @@
 #include <functional>
 #include <memory>
 #include <assert.h>
+#include <iostream>
 
 /**
  * Een lambda om bytes naar iets door te geven.
@@ -68,6 +69,11 @@ template<int max_bytes>
 class BitWriter {
 private:
     //TODO: private velden
+    //FIXME: Gebruik een array van bits met lengte max_bytes*8(zo kan je per write operatie een bepaald aantal bits wegschrijven) + evt aantal bits bijhouden als index...
+    int maxBytes;
+    int bits[max_bytes*8];
+    int currentBit = 0;
+
 public:
     BitWriter();
     /**
@@ -131,7 +137,9 @@ public:
 template<int max_bytes>
 class BitReader {
 private:
-    //TODO: private velden
+    int bitsRead;
+    ByteSource source;
+    uint8_t currentByte;
 public:
     /**
      * Constructor, met een byteSource als parameter
@@ -169,23 +177,47 @@ public:
 
 template<int max_bytes>
 BitWriter<max_bytes>::BitWriter() {
-    //TODO
+    maxBytes = max_bytes;
+    currentBit = 0;
 }
 
 template<int max_bytes>
 template<class source_t>
 void BitWriter<max_bytes>::writeBits(source_t source, size_t bitCount) {
-    //TODO
+    assert (currentBit + bitCount <= maxBytes*8);
+
+    int lastBit;
+    for (size_t i = 0; i < bitCount; i++)
+    {
+        lastBit = ((source >> ((bitCount - 1) - i) ) & 1);
+
+        bits[currentBit] = lastBit;
+        std::cout << (bits[currentBit] & 1);
+        currentBit++;
+    }
+    std::cout << std::endl;
 }
 
 template<int max_bytes>
 size_t BitWriter<max_bytes>::getByteCount() const {
-    return 0; //TODO
+    return (currentBit + 7)/8;
 }
 
 template<int max_bytes>
 uint8_t BitWriter<max_bytes>::getByte(size_t index) const {
-    return 0; //TODO
+    assert (index <= getByteCount());
+
+    uint8_t res = 0;
+    int pos = index*8;
+
+    for (int i = 0; i < 8; i++)
+    {
+        res = res << 1;
+        res = res | bits[pos];
+        pos++;
+    }
+    //std::cout << res << std::endl;
+    return res;
 }
 
 template<int max_bytes>
@@ -196,23 +228,38 @@ size_t BitWriter<max_bytes>::toSink(const ByteSink &byteSink) const {
 
 template<int max_bytes>
 BitReader<max_bytes>::BitReader(ByteSource byteSource) {
-    //TODO
+    bitsRead = 0;
+    source = byteSource;
 }
 
+//TODO: finish
 template<int max_bytes>
 template<class target_t>
 target_t BitReader<max_bytes>::readBits(size_t bitCount) {
-    return (target_t)0; //TODO
+    assert (bitsRead + bitCount <= max_bytes*8);
+    
+    // target_t res = 0;
+    // for (size_t i = 0; i < bitCount; i++)
+    // {
+    //     if ((bitsRead % 8) == 0)
+    //     {
+    //         currentByte = source();
+    //     }
+    //     res = (res << 1) | ((currentByte >> ((8 - 1) - (bitsRead % 8))) & 1);
+
+    //     bitsRead ++;
+    // }
+    // return res;
 }
 
 template<int max_bytes>
 size_t BitReader<max_bytes>::getBytesRead() const {
-    return (size_t)0; //TODO
+    return (size_t)((bitsRead + 7)/8);
 }
 
 template<int max_bytes>
 size_t BitReader<max_bytes>::getBitsRead() const {
-    return (size_t)0; //TODO
+    return (size_t)bitsRead;
 }
 
 #endif //SYSPROG_BITHELPER_H
