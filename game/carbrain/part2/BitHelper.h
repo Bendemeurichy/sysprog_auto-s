@@ -71,7 +71,7 @@ private:
     //TODO: private velden
     //FIXME: Gebruik een array van bits met lengte max_bytes*8(zo kan je per write operatie een bepaald aantal bits wegschrijven) + evt aantal bits bijhouden als index...
     int maxBytes;
-    int bits[max_bytes*8];
+    std::array<int, (max_bytes*8)> bits;
     int currentBit = 0;
 
 public:
@@ -179,6 +179,11 @@ template<int max_bytes>
 BitWriter<max_bytes>::BitWriter() {
     maxBytes = max_bytes;
     currentBit = 0;
+    for (int i = 0; i < (max_bytes*8); i++)
+    {
+        bits[i] = 0;
+    }
+    
 }
 
 template<int max_bytes>
@@ -186,16 +191,20 @@ template<class source_t>
 void BitWriter<max_bytes>::writeBits(source_t source, size_t bitCount) {
     assert (currentBit + bitCount <= maxBytes*8);
 
+    for (auto b : bits)
+    {
+        std::cout << (int) (b & 1);
+    }
+    std::cout << std::endl;
+
     int lastBit;
     for (size_t i = 0; i < bitCount; i++)
     {
         lastBit = ((source >> ((bitCount - 1) - i) ) & 1);
 
         bits[currentBit] = lastBit;
-        std::cout << (bits[currentBit] & 1);
         currentBit++;
     }
-    std::cout << std::endl;
 }
 
 template<int max_bytes>
@@ -216,7 +225,6 @@ uint8_t BitWriter<max_bytes>::getByte(size_t index) const {
         res = res | bits[pos];
         pos++;
     }
-    //std::cout << res << std::endl;
     return res;
 }
 
@@ -236,7 +244,6 @@ BitReader<max_bytes>::BitReader(ByteSource byteSource) {
     source = byteSource;
 }
 
-//TODO: finish
 template<int max_bytes>
 template<class target_t>
 target_t BitReader<max_bytes>::readBits(size_t bitCount) {
