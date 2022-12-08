@@ -205,7 +205,7 @@ size_t BitWriter<max_bytes>::getByteCount() const {
 
 template<int max_bytes>
 uint8_t BitWriter<max_bytes>::getByte(size_t index) const {
-    assert (index <= getByteCount());
+    assert (index < getByteCount());
 
     uint8_t res = 0;
     int pos = index*8;
@@ -222,7 +222,11 @@ uint8_t BitWriter<max_bytes>::getByte(size_t index) const {
 
 template<int max_bytes>
 size_t BitWriter<max_bytes>::toSink(const ByteSink &byteSink) const {
-    return 0; //TODO
+    for (size_t i = 0; i < getByteCount(); i++)
+    {
+        byteSink(getByte(i));
+    }
+    return getByteCount();
 }
 
 
@@ -238,18 +242,18 @@ template<class target_t>
 target_t BitReader<max_bytes>::readBits(size_t bitCount) {
     assert (bitsRead + bitCount <= max_bytes*8);
     
-    // target_t res = 0;
-    // for (size_t i = 0; i < bitCount; i++)
-    // {
-    //     if ((bitsRead % 8) == 0)
-    //     {
-    //         currentByte = source();
-    //     }
-    //     res = (res << 1) | ((currentByte >> ((8 - 1) - (bitsRead % 8))) & 1);
+    int res = 0;
+    for (size_t i = 0; i < bitCount; i++)
+    {
+        if ((bitsRead % 8) == 0)
+        {
+            currentByte = source();
+        }
+        res = (res << 1) | ((currentByte >> ((8 - 1) - (bitsRead % 8))) & 1);
 
-    //     bitsRead ++;
-    // }
-    // return res;
+        bitsRead ++;
+    }
+    return (target_t)res;
 }
 
 template<int max_bytes>

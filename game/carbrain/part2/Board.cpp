@@ -65,7 +65,7 @@ void Board::tick() {
 #ifdef ONLY_IN_PART2_TESTS
 std::shared_ptr<CPU> Board::getCpu() const {
     //TODO replace this by returning cpu stored in Board
-    return cpu
+    return cpu;
 }
 
 std::shared_ptr<Bus> Board::getBus() const {
