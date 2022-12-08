@@ -49,7 +49,6 @@ spg_register_t CPU::fetchOperand(std::shared_ptr<CPUInstruction::Operand> operan
 
         std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(operand);
         return bus->read2_be(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement);
-
     } else if (operand->type == CPUInstructionOperandType::MEM_IMMEDIATE) {
         
         std::shared_ptr<AddressOperand> mem_imm_operand = std::dynamic_pointer_cast<AddressOperand>(operand);
@@ -67,15 +66,16 @@ spg_register_t CPU::fetchOperand(std::shared_ptr<CPUInstruction::Operand> operan
 }
 
 void CPU::store1(CPUInstruction::Instruction instr, spg_register_t source) {
-    //TODO
+    //TODO bus->write1(target, source); check target type
+
 }
 
 void CPU::store2(CPUInstruction::Instruction instr, spg_register_t source) {
-    //TODO
+    //TODO bus->write2(target, source); check target type
 }
 
 spg_register_t CPU::read2(spg_register_t target) {
-    //TODO
+    //TODO bus->read2(target); check target type
     return 0;
 }
 
@@ -106,14 +106,14 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
         case Operation::PUSH:{
             spg_register_t source = fetchOperand(instr.source);
             registers[REG_SP] -= 2;
-            registers[REG_SP] = source;
+            bus->write2_be(registers[REG_SP], source);
             break;
         }
         case Operation::POP:{
             spg_register_t target = fetchOperand(instr.target);
-            store2(instr, registers[REG_SP]);
+            store2(instr, bus->read2_be(registers[REG_SP]));
             registers[REG_SP] += 2;
-            updateflag(registers[REG_SP]==0);
+            updateflag(bus->read2_be(registers[REG_SP])==0);
             break;
         }
         case Operation::ADD :{
@@ -177,6 +177,51 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             spg_register_t result = target - 1;
             store2(instr, result);
             updateflag(result == 0);
+            break;
+        }
+        case Operation::CMP:{
+            spg_register_t source = fetchOperand(instr.source);
+            spg_register_t target = fetchOperand(instr.target);
+            spg_register_t result = target - source;
+            updateflag(result == 0);
+            break;
+        }
+        case Operation::TEST:{
+            spg_register_t source = fetchOperand(instr.source);
+            spg_register_t target = fetchOperand(instr.target);
+            spg_register_t result = target & source;
+            updateflag(result == 0);
+            break;
+        }
+        case Operation::JMP:{
+            spg_register_t source = fetchOperand(instr.source);
+            registers[REG_IP] = source;
+            break;
+        }
+        case Operation::JE:{
+            spg_register_t source = fetchOperand(instr.source);
+            if (flag == 0){
+                registers[REG_IP] = source;
+            }
+            break;
+        }
+        case Operation::JNE:{
+            spg_register_t source = fetchOperand(instr.source);
+            if (flag != 0){
+                registers[REG_IP] = source;
+            }
+            break;
+        }
+        case Operation::CALL:{
+            spg_register_t source = fetchOperand(instr.source);
+            registers[REG_SP] -= 2;
+            bus->write2_be(registers[REG_SP],registers[REG_IP]);
+            registers[REG_IP] = source;
+            break;
+        }
+        case Operation::RET:{
+            registers[REG_IP] = bus->read2_be(registers[REG_SP]);
+            registers[REG_SP] += 2;
             break;
         }
     default:
