@@ -17,12 +17,19 @@ bool Module::manages(const spg_addr_t &address) const {
 spg_register_t Module::read2_be(const spg_addr_t &address) {
     //default implementation, that can be overwritten by classes inheriting from Module.
     //TODO implement this by using read1 twice.
+    spg_register_t val = read1(address);
+    val = val << 8;
+    val = val | read1(address+1);
+    return val;
     //     That way, no specific module implementation (=subclass)  will need to implement read2_be itself.
-    return 0;
 }
 
 void Module::write2_be(const spg_addr_t& address, spg_register_t val) {
     //default implementation, that can be overwritten by classes inheriting from Module.
+    spg_register_t val1 = val >> 8;
+    spg_register_t val2 = val & 0xFF;
+    write1(address, val1);
+    write1(address+1, val2);
     //TODO implement this by calling write1 twice.
     //     That way, no specific module implementation (=subclass) will need to implement write2_be itself.
 }

@@ -48,7 +48,7 @@ spg_register_t CPU::fetchOperand(std::shared_ptr<CPUInstruction::Operand> operan
     } else if (operand->type == CPUInstructionOperandType::MEM_REGISTER) {
 
         std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(operand);
-        return bus->read2_be(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement);
+        return bus->read2_be(ntohs(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement));
     } else if (operand->type == CPUInstructionOperandType::MEM_IMMEDIATE) {
         
         std::shared_ptr<AddressOperand> mem_imm_operand = std::dynamic_pointer_cast<AddressOperand>(operand);
@@ -73,7 +73,7 @@ void CPU::store1(CPUInstruction::Instruction instr, spg_register_t source) {
         registers[reg_operand->register_index] = source;
     } else if (instr.target->type == CPUInstructionOperandType::MEM_REGISTER) {
         std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(instr.target);
-        bus->write1(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement, source);
+        bus->write1(ntohs(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement), source);
     } else if (instr.target->type == CPUInstructionOperandType::MEM_IMMEDIATE) {
         std::shared_ptr<AddressOperand> mem_imm_operand = std::dynamic_pointer_cast<AddressOperand>(instr.target);
         bus->write1(mem_imm_operand->address, source);
@@ -93,7 +93,7 @@ void CPU::store2(CPUInstruction::Instruction instr, spg_register_t source) {
         registers[reg_operand->register_index] = source;
     } else if (instr.target->type == CPUInstructionOperandType::MEM_REGISTER) {
         std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(instr.target);
-        bus->write2_be(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement, source);
+        bus->write2_be(ntohs(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement), source);
     } else if (instr.target->type == CPUInstructionOperandType::MEM_IMMEDIATE) {
         std::shared_ptr<AddressOperand> mem_imm_operand = std::dynamic_pointer_cast<AddressOperand>(instr.target);
         bus->write2_be(mem_imm_operand->address, source);
@@ -133,12 +133,12 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
         case Operation::PUSH:{
             spg_register_t source = fetchOperand(instr.source);
             registers[REG_SP] -= 2;
-            bus->write2_be(registers[REG_SP], source);
+            bus->write2_be(ntohs(registers[REG_SP]), source);
             break;
         }
         case Operation::POP:{
             spg_register_t target = fetchOperand(instr.target);
-            store2(instr, bus->read2_be(registers[REG_SP]));
+            store2(instr, bus->read2_be(ntohs(registers[REG_SP])));
             registers[REG_SP] += 2;
             updateflag(bus->read2_be(registers[REG_SP])==0);
             break;
@@ -242,12 +242,12 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
         case Operation::CALL:{
             spg_register_t source = fetchOperand(instr.source);
             registers[REG_SP] -= 2;
-            bus->write2_be(registers[REG_SP],registers[REG_IP]);
+            bus->write2_be(ntohs(registers[REG_SP]),registers[REG_IP]);
             registers[REG_IP] = source;
             break;
         }
         case Operation::RET:{
-            registers[REG_IP] = bus->read2_be(registers[REG_SP]);
+            registers[REG_IP] = bus->read2_be(ntohs(registers[REG_SP]));
             registers[REG_SP] += 2;
             break;
         }
@@ -261,7 +261,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
 
 #ifdef ONLY_IN_PART2_TESTS
 spg_register_t CPU::getRegisterValue(size_t register_index) const {
-    return registers[register_index];
+    return ntohs(registers[register_index]);
 }
 
 void CPU::setRegisterValue(size_t register_index, spg_register_t value) {

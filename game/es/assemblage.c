@@ -253,7 +253,11 @@ EntityId create_car(Engine *engine, t_vec3 pos, LevelItemColor color, Direction 
         create_component(engine,entity_id,COMP_EXIT_ACTIVATOR);
         create_component(engine, entity_id, COMP_INPUTRECEIVER_OPTION);
         create_component(engine,entity_id,COMP_DRAGGER);
-
+        
+        if ( is_carbrain_available()){
+            CarBrainComponent* carbrain =  create_component(engine,entity_id,COMP_CARBRAIN);
+            init_CarBrainComponent(carbrain,level_nr,car_index);
+        }
 
         //make car clickable
         GroundRectComponent* rect = create_component(engine, entity_id, COMP_GROUND_RECT);
