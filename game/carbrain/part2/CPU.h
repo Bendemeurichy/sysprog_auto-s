@@ -25,7 +25,6 @@ public:
     spg_register_t fetchOperand(std::shared_ptr<CPUInstruction::Operand> operand);
     void store1(const CPUInstruction::Instruction instr, spg_register_t source);
     void store2(const CPUInstruction::Instruction instr, spg_register_t source);
-    spg_register_t read2(spg_register_t target);
 #ifdef ONLY_IN_PART2_TESTS
     //tests can access some inner working of the CPU, to test it more easily
     [[nodiscard]] spg_register_t getRegisterValue(size_t register_index) const;

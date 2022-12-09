@@ -67,18 +67,45 @@ spg_register_t CPU::fetchOperand(std::shared_ptr<CPUInstruction::Operand> operan
 
 void CPU::store1(CPUInstruction::Instruction instr, spg_register_t source) {
     //TODO bus->write1(target, source); check target type
-
+    using namespace CPUInstruction;
+    if (instr.target->type == CPUInstructionOperandType::REGISTER) {
+        std::shared_ptr<RegisterOperand> reg_operand = std::dynamic_pointer_cast<RegisterOperand>(instr.target);
+        registers[reg_operand->register_index] = source;
+    } else if (instr.target->type == CPUInstructionOperandType::MEM_REGISTER) {
+        std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(instr.target);
+        bus->write1(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement, source);
+    } else if (instr.target->type == CPUInstructionOperandType::MEM_IMMEDIATE) {
+        std::shared_ptr<AddressOperand> mem_imm_operand = std::dynamic_pointer_cast<AddressOperand>(instr.target);
+        bus->write1(mem_imm_operand->address, source);
+    } else if(instr.target->type == CPUInstructionOperandType::IMMEDIATE) {
+        throw std::runtime_error("Can't store to immediate");
+    }
+    else {
+        throw std::runtime_error("Unknown operand type");
+    }
 }
 
 void CPU::store2(CPUInstruction::Instruction instr, spg_register_t source) {
     //TODO bus->write2(target, source); check target type
+    using namespace CPUInstruction;
+    if (instr.target->type == CPUInstructionOperandType::REGISTER) {
+        std::shared_ptr<RegisterOperand> reg_operand = std::dynamic_pointer_cast<RegisterOperand>(instr.target);
+        registers[reg_operand->register_index] = source;
+    } else if (instr.target->type == CPUInstructionOperandType::MEM_REGISTER) {
+        std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(instr.target);
+        bus->write2_be(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement, source);
+    } else if (instr.target->type == CPUInstructionOperandType::MEM_IMMEDIATE) {
+        std::shared_ptr<AddressOperand> mem_imm_operand = std::dynamic_pointer_cast<AddressOperand>(instr.target);
+        bus->write2_be(mem_imm_operand->address, source);
+    }
+    else if (instr.target->type == CPUInstructionOperandType::IMMEDIATE)
+    {
+        throw std::runtime_error("Can't store to immediate");
+    }
+    else {
+        throw std::runtime_error("Unknown operand type");
+    }
 }
-
-spg_register_t CPU::read2(spg_register_t target) {
-    //TODO bus->read2(target); check target type
-    return 0;
-}
-
 
 // store1 stores 1 byte store2 2
 //TODO: implement store1 and store2 and fetchoperand
