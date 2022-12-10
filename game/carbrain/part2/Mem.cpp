@@ -3,7 +3,7 @@
 //TODO
 
 Mem::Mem(spg_addr_t start, spg_addr_t end) : Module(start, end) {
-    //TODO
+    data.resize(len_byte);
 }
 
 bool Mem::manages(const spg_addr_t &address) const {
@@ -16,7 +16,7 @@ uint8_t Mem::read1(const spg_addr_t &address) {
     if(!manages(address)){
         throw ModuleError("Invalid address");
     }
-    return 0;
+    return (data[address-start]);
 }
 
 
@@ -25,18 +25,6 @@ void Mem::write1(const spg_addr_t &address, uint8_t val) {
     if(!manages(address)){
         throw ModuleError("Invalid address");
     }
-    
-}
-
-spg_addr_t Mem::getStart() const {
-    return start;
-}
-
-spg_addr_t Mem::getEnd() const {
-    return end;
-}
-
-size_t Mem::getLen() const {
-    return len_byte;
+    data[address-start] = val;
 }
 

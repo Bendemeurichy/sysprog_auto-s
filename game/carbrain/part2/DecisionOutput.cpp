@@ -1,6 +1,6 @@
 #include "DecisionOutput.h"
 
-DecisionOutput::DecisionOutput(const spg_addr_t start, const spg_addr_t end) : Module(start, end)
+DecisionOutput::DecisionOutput() : Module(IO_DECISION_START, IO_DECISION_START+IO_DECISION_SIZE)
 {
     // TODO
 }

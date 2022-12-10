@@ -14,6 +14,7 @@ protected:
     const spg_addr_t start; //inclusive
     const spg_addr_t end;   //exclusive !
     const size_t len_byte;
+    std::vector<uint8_t> data;
 public:
     Module(spg_addr_t start, spg_addr_t end);
     virtual ~Module() = default;
@@ -28,6 +29,7 @@ public:
     virtual spg_addr_t getStart() const;
     virtual spg_addr_t getEnd() const;
     virtual size_t getLen() const;
+
 };
 
 

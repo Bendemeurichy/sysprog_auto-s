@@ -24,7 +24,7 @@ public:
     //      De Bus zal dan a.d.h.v het geheugenadres de juiste module contacteren. 
     //      Deze methodes worden door de CPU opgeroepen. 
     //      De CPU zal nooit rechtstreeks een BotModule aanspreken.
-
+    bool is_valid_address(const spg_addr_t& address);
     uint8_t read1(const spg_addr_t& address);
     //result read2_be is assumed to be in BIG ENDIAN order
     spg_register_t read2_be(const spg_addr_t& address);

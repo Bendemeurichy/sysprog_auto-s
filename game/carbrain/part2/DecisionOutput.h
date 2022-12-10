@@ -19,7 +19,7 @@ public:
 
 class DecisionOutput : public Module, public DecisionOutputSource {
 public:
-    DecisionOutput(const spg_addr_t start, const spg_addr_t end);
+    DecisionOutput();
 
     uint8_t read1(const spg_addr_t &address) override;
     spg_register_t read2_be(const spg_addr_t &address) override;

@@ -20,12 +20,13 @@ spg_register_t Module::read2_be(const spg_addr_t &address) {
     spg_register_t val = read1(address);
     val = val << 8;
     val = val | read1(address+1);
-    return val;
+    return htons(val);
     //     That way, no specific module implementation (=subclass)  will need to implement read2_be itself.
 }
 
 void Module::write2_be(const spg_addr_t& address, spg_register_t val) {
     //default implementation, that can be overwritten by classes inheriting from Module.
+    val = ntohs(val);
     spg_register_t val1 = val >> 8;
     spg_register_t val2 = val & 0xFF;
     write1(address, val1);

@@ -47,10 +47,12 @@ Board::Board(spg_addr_t code_mem_size, spg_addr_t stack_mem_size) {
     stackMem = std::make_shared<Mem>(MEM_START + code_mem_size, MEM_START + code_mem_size + stack_mem_size);
     bus = std::make_shared<Bus>();
     cpu = std::make_shared<CPU>(bus);
-
-    spg_addr_t modulesStartMemory = MEM_START + code_mem_size + stack_mem_size;
-    decisionOutput = std::make_shared<DecisionOutput>(modulesStartMemory,modulesStartMemory+ MAX_MAX_DECISIONS);
-    //sensors = std::make_shared<Sensors>(modulesStartMemory + MAX_MAX_DECISIONS );
+    bus->add_module(codeMem);
+    bus->add_module(stackMem);
+    sensors = std::make_shared<Sensors>();
+    decisionOutput = std::make_shared<DecisionOutput>();
+    bus->add_module(sensors);
+    bus->add_module(decisionOutput);
     
 
     //Implementeer: Voeg CPU, Bus, DecisionOutput, Sensors, en stack en code Memory toe aan het Board

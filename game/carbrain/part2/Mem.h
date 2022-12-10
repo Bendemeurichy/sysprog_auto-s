@@ -19,12 +19,6 @@ class Mem : public Module {
     uint8_t read1(const spg_addr_t &address);
         
     void write1(const spg_addr_t& address, uint8_t val);
-        
-    spg_addr_t getStart() const;
-    
-    spg_addr_t getEnd() const;
-
-    size_t getLen() const;
 
 private:
     spg_addr_t start;
