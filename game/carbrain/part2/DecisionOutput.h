@@ -32,6 +32,7 @@ public:
 
 private:
     //TODO
+    std::vector<CarBrainDecision> decisions;
 };
 
 #endif //SYSPROG_DECISION_H

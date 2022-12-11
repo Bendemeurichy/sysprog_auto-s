@@ -24,16 +24,16 @@ void init_CarBrainComponent(CarBrainComponent *carBrainComponent,
         unsigned int carbrain_index) {
     //TODO
     //Example solution:
-    //   carBrainComponent->board = new Board(1024, 256);
-    //   std::string asmFilename = "level"+std::to_string(level_nr)+".carbrain_asm"; /* TODO use correct file depending on level_nr */
-    //   spg_addr_t code_start_addr = carBrainComponent->board->getCodeMemStartAddress();
-    //   carBrainComponent->board->loadAndStartCodeFromAsmFile(exeFilename);
+       carBrainComponent->board = new Board(1024, 256);
+       std::string asmFilename = "level"+std::to_string(level_nr)+".carbrain_asm"; /* TODO use correct file depending on level_nr */
+       spg_addr_t code_start_addr = carBrainComponent->board->getCodeMemStartAddress();
+       carBrainComponent->board->loadAndStartCodeFromAsmFile(asmFilename);
 
     //if BitWriter is not yet implemented, you can also read the programs directly from the provided *.carbrain_exe files:
-      carBrainComponent->board = new Board(1024, 256);
-      std::string exeFilename = "level1.carbrain_exe"; /* TODO use correct file depending on level_nr */
-      spg_addr_t code_start_addr = carBrainComponent->board->getCodeMemStartAddress();
-      carBrainComponent->board->loadAndStartCodeFromExeFile(exeFilename); //This requires BitReader to be implemented
+      //carBrainComponent->board = new Board(1024, 256);
+      //std::string exeFilename = "level1.carbrain_exe"; /* TODO use correct file depending on level_nr */
+      //spg_addr_t code_start_addr = carBrainComponent->board->getCodeMemStartAddress();
+      //carBrainComponent->board->loadAndStartCodeFromExeFile(exeFilename); //This requires BitReader to be implemented
 
     //Note that this exe is compiled according to the fixed memory layout described in Constants.h
 }
