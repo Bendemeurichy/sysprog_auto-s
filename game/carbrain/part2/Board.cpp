@@ -12,7 +12,20 @@ size_t Board::loadAndStartCodeFromExeFile(const std::string& exeFilename) {
     //Zet ook de registers correct zodat het programma zal starten.
     //Return de grootte van de binaire code, in byte
     //TODO implementeer
-    return 0;
+    std::vector<uint8_t> data;
+    std::ifstream file(exeFilename);
+    if(!file.is_open()){
+        throw BoardError("file" + exeFilename + "not found");
+    }
+    while (!file.eof())
+    {
+        uint8_t byte;
+        file.read((char*)&byte, sizeof(byte));
+        data.push_back(byte);
+    }
+    file.close();
+
+    return loadAndStartCodeFromExeBytes(data);
 }
 
 size_t Board::loadAndStartCodeFromAsmFile(const std::string& asmFilename) {
@@ -20,7 +33,19 @@ size_t Board::loadAndStartCodeFromAsmFile(const std::string& asmFilename) {
     //Zet ook de registers correct zodat het programma zal starten.
     //Return de grootte van de binaire code, in byte
     //TODO implementeer
-    return 0;
+    std::vector<std::string> data;
+    std::ifstream file(asmFilename);
+    if(!file.is_open()){
+        throw BoardError("file" + asmFilename + "not found");
+    }
+    while (!file.eof())
+    {
+        std::string line;
+        std::getline(file, line);
+        data.push_back(line);
+    }
+    file.close();
+    return loadAndStartCodeFromAsmLines(data);
 }
 
 size_t Board::loadAndStartCodeFromExeBytes(const std::vector<uint8_t>& exe) {
@@ -28,8 +53,9 @@ size_t Board::loadAndStartCodeFromExeBytes(const std::vector<uint8_t>& exe) {
     //Zet ook de registers correct zodat het programma zal starten.
     //Return de grootte van de binaire code, in byte (= lengte van de "exe" vector)
     //TODO implementeer
-    cpu->reset(Board::getCodeMemStartAddress(),Board::getStackMemStartAddress());
-    return 0;
+    codeMem->setData(exe, exe.size());
+    cpu->reset(getCodeMemStartAddress(),getStackMemStartAddress());
+    return exe.size();
 }
 
 size_t Board::loadAndStartCodeFromAsmLines(const std::vector<std::string>& asmLines) {
@@ -37,7 +63,10 @@ size_t Board::loadAndStartCodeFromAsmLines(const std::vector<std::string>& asmLi
     //Zet ook de registers correct zodat het programma zal starten.
     //Return de grootte van de binaire code, in byte
     //TODO implementeer
-    return 0;
+    std::vector<uint8_t> exe = assemble(asmLines,getCodeMemStartAddress());
+    codeMem->setData(exe, exe.size());
+    cpu->reset(getCodeMemStartAddress(),getStackMemStartAddress());
+    return exe.size();
 }
 
 Board::Board(spg_addr_t code_mem_size, spg_addr_t stack_mem_size) {

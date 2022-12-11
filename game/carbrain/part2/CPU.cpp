@@ -25,8 +25,7 @@ void CPU::tick() {
     //Hint:
     size_t bytes_read;
 
-    const Instruction instr = Instruction::decode([&]() -> uint8_t{ uint8_t operation = bus->read1(registers[REG_IP]);return operation; },bytes_read);
-    registers[REG_IP] += bytes_read;
+    const Instruction instr = Instruction::decode([&]() -> uint8_t{ uint8_t operation = bus->read1(registers[REG_IP]++);return operation; },bytes_read);
     handleInstruction(instr);
 }
 
@@ -48,11 +47,11 @@ spg_register_t CPU::fetchOperand(std::shared_ptr<CPUInstruction::Operand> operan
     } else if (operand->type == CPUInstructionOperandType::MEM_REGISTER) {
 
         std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(operand);
-        return bus->read2_be(ntohs(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement));
+        return ntohs(bus->read2_be(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement));
     } else if (operand->type == CPUInstructionOperandType::MEM_IMMEDIATE) {
         
         std::shared_ptr<AddressOperand> mem_imm_operand = std::dynamic_pointer_cast<AddressOperand>(operand);
-        return bus->read2_be(mem_imm_operand->address);
+        return ntohs(bus->read2_be(mem_imm_operand->address));
 
     } else if (operand->type == CPUInstruction::CPUInstructionOperandType::IMMEDIATE) {
         
@@ -71,14 +70,18 @@ void CPU::store1(CPUInstruction::Instruction instr, spg_register_t source) {
     if (instr.target->type == CPUInstructionOperandType::REGISTER) {
         std::shared_ptr<RegisterOperand> reg_operand = std::dynamic_pointer_cast<RegisterOperand>(instr.target);
         registers[reg_operand->register_index] = source;
+
     } else if (instr.target->type == CPUInstructionOperandType::MEM_REGISTER) {
         std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(instr.target);
-        bus->write1(ntohs(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement), source);
+        bus->write1(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement, htons(source));
+    
     } else if (instr.target->type == CPUInstructionOperandType::MEM_IMMEDIATE) {
         std::shared_ptr<AddressOperand> mem_imm_operand = std::dynamic_pointer_cast<AddressOperand>(instr.target);
-        bus->write1(mem_imm_operand->address, source);
+        bus->write1(mem_imm_operand->address, htons(source));
+    
     } else if(instr.target->type == CPUInstructionOperandType::IMMEDIATE) {
         throw std::runtime_error("Can't store to immediate");
+   
     }
     else {
         throw std::runtime_error("Unknown operand type");
@@ -93,7 +96,7 @@ void CPU::store2(CPUInstruction::Instruction instr, spg_register_t source) {
         registers[reg_operand->register_index] = source;
     } else if (instr.target->type == CPUInstructionOperandType::MEM_REGISTER) {
         std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(instr.target);
-        bus->write2_be(ntohs(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement), source);
+        bus->write2_be(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement, source);
     } else if (instr.target->type == CPUInstructionOperandType::MEM_IMMEDIATE) {
         std::shared_ptr<AddressOperand> mem_imm_operand = std::dynamic_pointer_cast<AddressOperand>(instr.target);
         bus->write2_be(mem_imm_operand->address, source);
@@ -261,7 +264,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
 
 #ifdef ONLY_IN_PART2_TESTS
 spg_register_t CPU::getRegisterValue(size_t register_index) const {
-    return ntohs(registers[register_index]);
+    return registers[register_index];
 }
 
 void CPU::setRegisterValue(size_t register_index, spg_register_t value) {

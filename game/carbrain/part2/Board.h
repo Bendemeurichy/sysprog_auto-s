@@ -5,6 +5,7 @@
 #include <vector>
 #include <stdint.h>
 #include "DecisionOutput.h"
+#include "Assembler.h"
 
 class Board;
 #include "CPU.h"

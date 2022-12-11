@@ -19,12 +19,7 @@ class Mem : public Module {
     uint8_t read1(const spg_addr_t &address);
         
     void write1(const spg_addr_t& address, uint8_t val);
-
-private:
-    spg_addr_t start;
-    spg_addr_t end;
-    size_t len_byte;
-    std::shared_ptr<uint8_t[]> mem;
+    void setData(std::vector<uint8_t> data, int size);
 };
 
 #endif //SYSPROG_MEM_H

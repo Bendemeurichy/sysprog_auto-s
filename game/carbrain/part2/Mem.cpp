@@ -8,7 +8,7 @@ Mem::Mem(spg_addr_t start, spg_addr_t end) : Module(start, end) {
 
 bool Mem::manages(const spg_addr_t &address) const {
     //TODO
-    return address >= start && address <= end;
+    return address >= start && address < end;
 }
 
 uint8_t Mem::read1(const spg_addr_t &address) {
@@ -26,5 +26,15 @@ void Mem::write1(const spg_addr_t &address, uint8_t val) {
         throw ModuleError("Invalid address");
     }
     data[address-start] = val;
+}
+
+void Mem::setData(std::vector<uint8_t> data, int size) {
+    //TODO
+    if(size > len_byte){
+        throw ModuleError("Invalid size");
+    }
+    for(int i = 0; i < size; i++){
+        this->data[i] = data[i];
+    }
 }
 
