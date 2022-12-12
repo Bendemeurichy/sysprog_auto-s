@@ -140,7 +140,7 @@ typedef struct FilterComponent {
 
 typedef struct MarkerComponent {
     //TODO
-    ArtColor color;
+    LevelItemColor color;
 } MarkerComponent;
 
 typedef enum EditorTool {

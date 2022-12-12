@@ -10,6 +10,8 @@
 void system_carbrain_sensor_update(Engine*);
 
 SensorReading sense_environment(Engine *engine, EntityId carbrain_entity_id);
-void set_search_pos(Direction carbrain_direction, t_vec3 pos, size_t sensor_index);
+uint8_t sense_pos(Engine *engine, t_vec3 pos);
+void set_search_pos(Direction carbrain_direction, t_vec3 pos, t_vec3 car_pos, size_t sensor_index);
+int crates(Engine* engine,EntityId car);
 
 #endif //CARBRAIN_VISION_SYSTEM_H

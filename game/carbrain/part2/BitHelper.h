@@ -191,12 +191,6 @@ template<class source_t>
 void BitWriter<max_bytes>::writeBits(source_t source, size_t bitCount) {
     assert (currentBit + bitCount <= maxBytes*8);
 
-    for (auto b : bits)
-    {
-        std::cout << (int) (b & 1);
-    }
-    std::cout << std::endl;
-
     int lastBit;
     for (size_t i = 0; i < bitCount; i++)
     {
