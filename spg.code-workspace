@@ -22,7 +22,9 @@
 			"renderer_3d.h": "c",
 			"hardcoded_levels.h": "c",
 			"c_levelwriter.h": "c",
-			"array": "cpp"
+			"array": "cpp",
+			"chrono": "c",
+			"shared_mutex": "c"
 		}
 	}
 }

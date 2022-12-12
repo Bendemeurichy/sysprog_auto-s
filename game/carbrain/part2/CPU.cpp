@@ -69,7 +69,7 @@ void CPU::store1(CPUInstruction::Instruction instr, spg_register_t source) {
     using namespace CPUInstruction;
     if (instr.target->type == CPUInstructionOperandType::REGISTER) {
         std::shared_ptr<RegisterOperand> reg_operand = std::dynamic_pointer_cast<RegisterOperand>(instr.target);
-        registers[reg_operand->register_index] = source;
+        registers[reg_operand->register_index] = (source & 0xFF);
 
     } else if (instr.target->type == CPUInstructionOperandType::MEM_REGISTER) {
         std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(instr.target);

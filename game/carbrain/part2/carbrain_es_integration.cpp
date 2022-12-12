@@ -67,7 +67,7 @@ void run_carbrain(CarBrainComponent* carBrainComponent) {
     
 
     //Run 50 steps, or until decision has been made
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < 20; i++) {
        if (carBrainComponent->board->getDecisionSource()->isDecisionAvailable())
            break;
        carBrainComponent->board->tick();

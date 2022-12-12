@@ -24,15 +24,14 @@ public:
     uint8_t read1(const spg_addr_t &address) override;
     spg_register_t read2_be(const spg_addr_t &address) override;
 
-    void write1(const spg_addr_t &address, uint8_t val) override;
-    void write2_be(const spg_addr_t &address, spg_register_t val) override;
-    
+    void write1(const spg_addr_t &address, uint8_t val) override;    
     CarBrainDecision popDecision() override;
     bool isDecisionAvailable() override;
+    uint8_t getDecisionCount() { return decisions[0]; }
 
 private:
     //TODO
-    std::vector<CarBrainDecision> decisions;
+    std::array<CarBrainDecision,IO_DECISION_SIZE> decisions= {DECISION__COUNT};
 };
 
 #endif //SYSPROG_DECISION_H
