@@ -27,6 +27,8 @@ public:
     void write1(const spg_addr_t &address, uint8_t val) override;
     void setSense(SensorReading* sensorReading) override;
 
+    private:
+    std::vector<uint8_t> data = std::vector<uint8_t>(IO_VISION_SIZE);
 };
 
 

@@ -22,7 +22,8 @@ public:
     void handleInstruction(const CPUInstruction::Instruction& instr);
     void tick();
     void updateflag(bool flag);
-    spg_register_t fetchOperand(std::shared_ptr<CPUInstruction::Operand> operand);
+    spg_register_t fetchOperand1(std::shared_ptr<CPUInstruction::Operand> operand);
+    spg_register_t fetchOperand2(std::shared_ptr<CPUInstruction::Operand> operand);
     void store1(const CPUInstruction::Instruction instr, spg_register_t source);
     void store2(const CPUInstruction::Instruction instr, spg_register_t source);
 #ifdef ONLY_IN_PART2_TESTS
