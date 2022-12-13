@@ -4,10 +4,7 @@
 #include "../../carbrain/carbrain_es_integration.h"
 
 
-//FIXME: finish this function
 void system_carbrain_sensor_update(Engine* engine) {
-    //only in part2! You can leave this empty in part1
-    //TODO search all carbrains, check their surroundings, and send the info about them to the Sensor module on their "Board".
     EntityIterator car_brains;
     search_entity(engine, COMP_CARBRAIN, &car_brains);
     while (next_entity(&car_brains)) {
@@ -18,7 +15,6 @@ void system_carbrain_sensor_update(Engine* engine) {
     }
 }
 
-//TODO: implement sense_environment -> inspect every position around the carbrain, and return the info about them.
 SensorReading sense_environment(Engine *engine, EntityId carbrain_entity_id) {
     SensorReading sensor_reading;
     LocationComponent* loc_comp = get_component(engine, carbrain_entity_id, COMP_LOCATION);
@@ -37,6 +33,7 @@ SensorReading sense_environment(Engine *engine, EntityId carbrain_entity_id) {
     return sensor_reading;
 }
 
+//Hulpfunctie die de bitmask van een positie teruggeeft.
 uint8_t sense_pos(Engine *engine, t_vec3 pos) {
     uint8_t res = 0;
     EntityIterator comp;
@@ -78,7 +75,7 @@ uint8_t sense_pos(Engine *engine, t_vec3 pos) {
     return res;
 }
 
-
+//Hulpfunctie die de offset van een sensor teruggeeft op basis van de richting van de carbrain.
 void set_search_pos(Direction carbrain_direction, t_vec3 pos, t_vec3 car_pos, size_t sensor_index) {
     switch (carbrain_direction)
     {
@@ -107,6 +104,7 @@ void set_search_pos(Direction carbrain_direction, t_vec3 pos, t_vec3 car_pos, si
     }
 }
 
+//Hulpfunctie die het aantal crates die een carbrain vast heeft, teruggeeft.
 int crates(Engine* engine, EntityId car){
     int i = 0;
 
