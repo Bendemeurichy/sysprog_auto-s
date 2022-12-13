@@ -7,6 +7,8 @@
 #include "../engine.h"
 #include "../../carbrain/carbrain_io.h"
 
+#define STEP_SIZE 1.0f/3.0f
+
 void system_carbrain_sensor_update(Engine*);
 
 SensorReading sense_environment(Engine *engine, EntityId carbrain_entity_id);
