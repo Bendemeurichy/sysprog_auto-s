@@ -15,7 +15,7 @@ void CPU::reset(spg_addr_t code_start, spg_addr_t sp) {
     //TODO set %ip and %sp to inital state
     registers[REG_IP] = code_start;
     registers[REG_SP] = sp;
-    std::cout << "cpu reset to " << sp << " and " << code_start << std::endl;
+    //std::cout << "cpu reset to " << sp << " and " << code_start << std::endl;
 }
 
 void CPU::tick() {
@@ -25,7 +25,7 @@ void CPU::tick() {
     //TODO execute 1 instruction
     //Hint:
     size_t bytes_read;
-    std::cout<<"cpu-tick"<<std::endl;
+    ////std::cout<<"cpu-tick"<<std::endl;
     const Instruction instr = Instruction::decode([&]() -> uint8_t{ uint8_t operation = bus->read1(registers[REG_IP]++);return operation; },bytes_read);
     handleInstruction(instr);
 }
@@ -48,11 +48,11 @@ spg_register_t CPU::fetchOperand2(std::shared_ptr<CPUInstruction::Operand> opera
     } else if (operand->type == CPUInstructionOperandType::MEM_REGISTER) {
 
         std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(operand);
-        return ntohs(bus->read2_be(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement));
+        return htons(bus->read2_be(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement));
     } else if (operand->type == CPUInstructionOperandType::MEM_IMMEDIATE) {
         
         std::shared_ptr<AddressOperand> mem_imm_operand = std::dynamic_pointer_cast<AddressOperand>(operand);
-        return ntohs(bus->read2_be(mem_imm_operand->address));
+        return htons(bus->read2_be(mem_imm_operand->address));
 
     } else if (operand->type == CPUInstruction::CPUInstructionOperandType::IMMEDIATE) {
         
@@ -84,7 +84,7 @@ spg_register_t CPU::fetchOperand1(std::shared_ptr<CPUInstruction::Operand> opera
     } else if (operand->type == CPUInstruction::CPUInstructionOperandType::IMMEDIATE) {
         
         std::shared_ptr<ImmediateOperand> immediate_operand = std::dynamic_pointer_cast<ImmediateOperand>(operand);
-        return immediate_operand->immediate&0xFF;
+        return immediate_operand->immediate;
 
 
     } else {
@@ -97,19 +97,19 @@ void CPU::store1(CPUInstruction::Instruction instr, spg_register_t source) {
     //TODO bus->write1(target, source); check target type
     using namespace CPUInstruction;
     if (instr.target->type == CPUInstructionOperandType::REGISTER) {
-        std::cout<<"store1 in register" << std::endl;
+        //std::cout<<"store1 in register" << std::endl;
         std::shared_ptr<RegisterOperand> reg_operand = std::dynamic_pointer_cast<RegisterOperand>(instr.target);
-        registers[reg_operand->register_index] = (source & 0xFF);
+        registers[reg_operand->register_index] = source;
 
     } else if (instr.target->type == CPUInstructionOperandType::MEM_REGISTER) {
-        std::cout<<"store1 in mem_register" << std::endl;
+        //std::cout<<"store1 in mem_register" << std::endl;
         std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(instr.target);
-        bus->write1(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement, htons(source));
+        bus->write1(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement, source);
     
     } else if (instr.target->type == CPUInstructionOperandType::MEM_IMMEDIATE) {
-        std::cout<<"store1 in mem_immediate" << std::endl;
+        //std::cout<<"store1 in mem_immediate" << std::endl;
         std::shared_ptr<AddressOperand> mem_imm_operand = std::dynamic_pointer_cast<AddressOperand>(instr.target);
-        bus->write1(mem_imm_operand->address, htons(source));
+        bus->write1(mem_imm_operand->address, source);
     
     } else if(instr.target->type == CPUInstructionOperandType::IMMEDIATE) {
         throw std::runtime_error("Can't store to immediate");
@@ -124,17 +124,17 @@ void CPU::store2(CPUInstruction::Instruction instr, spg_register_t source) {
     //TODO bus->write2(target, source); check target type
     using namespace CPUInstruction;
     if (instr.target->type == CPUInstructionOperandType::REGISTER) {
-        std::cout << "store2 in register with value "<< std::to_string(source) << std::endl;
+        //std::cout << "store2 in register with value "<< std::to_string(source) << std::endl;
         std::shared_ptr<RegisterOperand> reg_operand = std::dynamic_pointer_cast<RegisterOperand>(instr.target);
         registers[reg_operand->register_index] = source;
     } else if (instr.target->type == CPUInstructionOperandType::MEM_REGISTER) {
-        std::cout << "store2 in mem_register" << std::endl;
+        //std::cout << "store2 in mem_register" << std::endl;
         std::shared_ptr<MemRegisterOperand> mem_reg_operand = std::dynamic_pointer_cast<MemRegisterOperand>(instr.target);
-        bus->write2_be(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement, source);
+        bus->write2_be(registers[mem_reg_operand->register_index] + mem_reg_operand->displacement, htons(source));
     } else if (instr.target->type == CPUInstructionOperandType::MEM_IMMEDIATE) {
-        std::cout << "store2 in mem_immediate" << std::endl;
+        //std::cout << "store2 in mem_immediate" << std::endl;
         std::shared_ptr<AddressOperand> mem_imm_operand = std::dynamic_pointer_cast<AddressOperand>(instr.target);
-        bus->write2_be(mem_imm_operand->address, source);
+        bus->write2_be(mem_imm_operand->address, htons(source));
     }
     else if (instr.target->type == CPUInstructionOperandType::IMMEDIATE)
     {
@@ -159,21 +159,20 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             spg_register_t source = fetchOperand2(instr.source);
             store2(instr, source);
             updateflag(source == 0);
-            std::cout << "MOV " << std::to_string(source) << std::endl;
+            //std::cout << "MOV " << std::to_string(source) << std::endl;
             break;
         }
         case Operation::MOVB:{
             spg_register_t source = fetchOperand1(instr.source);
-            spg_register_t target = fetchOperand1(instr.target);
             store1(instr, source);
-            updateflag(target==0);
-            std::cout << "MOVB " << std::to_string(source) << std::endl;
+            updateflag(source==0);
+            //std::cout << "MOVB " << std::to_string(source) << std::endl;
             break;
         }
         case Operation::PUSH:{
             spg_register_t source = fetchOperand2(instr.source);
             registers[REG_SP] -= 2;
-            std::cout << "pushing to stack " << std::to_string(source) << std::endl;
+            //std::cout << "pushing to stack " << std::to_string(source) << std::endl;
             bus->write2_be(registers[REG_SP], source);
             break;
         }
@@ -182,7 +181,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             store2(instr, bus->read2_be(ntohs(registers[REG_SP])));
             registers[REG_SP] += 2;
             updateflag(bus->read2_be(registers[REG_SP])==0);
-            std::cout << "popping from stack " << std::to_string(target) << std::endl;
+            //std::cout << "popping from stack " << std::to_string(target) << std::endl;
             break;
         }
         case Operation::ADD :{
@@ -191,7 +190,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             spg_register_t result = target + source;
             store2(instr, result);
             updateflag(result == 0);
-            std::cout << "ADD " << std::to_string(source) << std::endl;
+            //std::cout << "ADD " << std::to_string(source) << std::endl;
             break;
 
         }
@@ -201,7 +200,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             spg_register_t result = target - source;
             store2(instr, result);
             updateflag(result == 0);
-            std::cout << "SUB " << std::to_string(source) << std::endl;
+            //std::cout << "SUB " << std::to_string(source) << std::endl;
             break;
         }
         case Operation::AND: {
@@ -210,7 +209,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             spg_register_t result = target & source;
             store2(instr, result);
             updateflag(result == 0);
-            std::cout << "AND " << std::to_string(source) << std::endl;
+            //std::cout << "AND " << std::to_string(source) << std::endl;
             break;
         }
         case Operation::OR:{
@@ -219,7 +218,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             spg_register_t result = target | source;
             store2(instr, result);
             updateflag(result == 0);
-            std::cout << "OR " << std::to_string(source) << std::endl;
+            //std::cout << "OR " << std::to_string(source) << std::endl;
             break;
         }
         case Operation::XOR:{
@@ -228,7 +227,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             spg_register_t result = target ^ source;
             store2(instr, result);
             updateflag(result == 0);
-            std::cout << "XOR " << std::to_string(source) << std::endl;
+            //std::cout << "XOR " << std::to_string(source) << std::endl;
             break;
         }
         case Operation::SHL:{
@@ -237,7 +236,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             spg_register_t result = target << source;
             store2(instr, result);
             updateflag(result == 0);
-            std::cout << "SHL " << std::to_string(source) << std::endl;
+            //std::cout << "SHL " << std::to_string(source) << std::endl;
             break;
         }
         case Operation::INC:{
@@ -245,7 +244,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             spg_register_t result = target + 1;
             store2(instr, result);
             updateflag(result == 0);
-            std::cout << "INC " << std::to_string(target) << std::endl;
+            //std::cout << "INC " << std::to_string(target) << std::endl;
             break;
         }
         case Operation::DEC:{
@@ -253,7 +252,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             spg_register_t result = target - 1;
             store2(instr, result);
             updateflag(result == 0);
-            std::cout << "DEC " << std::to_string(target) << std::endl;
+            //std::cout << "DEC " << std::to_string(target) << std::endl;
             break;
         }
         case Operation::CMP:{
@@ -261,7 +260,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             spg_register_t target = fetchOperand2(instr.target);
             spg_register_t result = target - source;
             updateflag(result == 0);
-            std::cout << "CMP " << std::to_string(source) << std::endl;
+            //std::cout << "CMP " << std::to_string(source) << std::endl;
             break;
         }
         case Operation::TEST:{
@@ -269,13 +268,13 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             spg_register_t target = fetchOperand2(instr.target);
             spg_register_t result = target & source;
             updateflag(result == 0);
-            std::cout << "TEST " << std::to_string(source) << std::endl;
+            //std::cout << "TEST " << std::to_string(source) << std::endl;
             break;
         }
         case Operation::JMP:{
             spg_register_t source = fetchOperand2(instr.source);
             registers[REG_IP] = source;
-            std::cout << "JMP " << std::to_string(source) << std::endl;
+            //std::cout << "JMP " << std::to_string(source) << std::endl;
             break;
         }
         case Operation::JE:{
@@ -283,7 +282,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             if (flag == 0){
                 registers[REG_IP] = source;
             }
-            std::cout << "JE " << std::to_string(source) << std::endl;
+            //std::cout << "JE " << std::to_string(source) << std::endl;
             break;
         }
         case Operation::JNE:{
@@ -291,13 +290,13 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
             if (flag != 0){
                 registers[REG_IP] = source;
             }
-            std::cout << "JNE " << std::to_string(source) << std::endl;
+            //std::cout << "JNE " << std::to_string(source) << std::endl;
             break;
         }
         case Operation::CALL:{
             spg_register_t source = fetchOperand2(instr.source);
             registers[REG_SP] -= 2;
-            std::cout<<"calling "<<std::to_string(source)<<std::endl;
+            //std::cout<<"calling "<<std::to_string(source)<<std::endl;
             bus->write2_be(registers[REG_SP],registers[REG_IP]);
             registers[REG_IP] = source;
             break;
@@ -305,7 +304,7 @@ void CPU::handleInstruction(const CPUInstruction::Instruction &instr)
         case Operation::RET:{
             registers[REG_IP] = bus->read2_be(ntohs(registers[REG_SP]));
             registers[REG_SP] += 2;
-            std::cout<<"returning"<<std::endl;
+            //std::cout<<"returning"<<std::endl;
             break;
         }
     default:

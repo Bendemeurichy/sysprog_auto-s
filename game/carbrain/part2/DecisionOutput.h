@@ -31,7 +31,9 @@ public:
 
 private:
     //TODO
-    std::array<CarBrainDecision,IO_DECISION_SIZE> decisions= {DECISION__COUNT};
+    std::array<CarBrainDecision,IO_DECISION_SIZE-1> decisions={static_cast<CarBrainDecision>(0)};
+    uint8_t decisionCount=0;
+    uint8_t decisionIndex=0;
 };
 
 #endif //SYSPROG_DECISION_H

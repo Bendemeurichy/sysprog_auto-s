@@ -45,7 +45,7 @@ size_t Board::loadAndStartCodeFromAsmFile(const std::string& asmFilename) {
         data.push_back(line);
     }
     file.close();
-    std::cout << "file loaded" << std::endl;
+    //std::cout << "file loaded" << std::endl;
     return loadAndStartCodeFromAsmLines(data);
 }
 
@@ -78,8 +78,8 @@ Board::Board(spg_addr_t code_mem_size, spg_addr_t stack_mem_size) {
     assert(stack_mem_size > 0);
     codeMem = std::make_shared<Mem>(MEM_START, MEM_START + code_mem_size);
     stackMem = std::make_shared<Mem>(MEM_START + code_mem_size, MEM_START + code_mem_size + stack_mem_size);
-    std::cout << "codeMem start: " << codeMem->getStart() << std::endl;
-    std::cout << "stackMem end: " << stackMem->getEnd() << std::endl;
+    //std::cout << "codeMem start: " << codeMem->getStart() << std::endl;
+    //std::cout << "stackMem end: " << stackMem->getEnd() << std::endl;
     
     bus = std::make_shared<Bus>();
     cpu = std::make_shared<CPU>(bus);
@@ -95,7 +95,7 @@ Board::Board(spg_addr_t code_mem_size, spg_addr_t stack_mem_size) {
 
 void Board::tick() {
     //TODO run the CPU 1 tick
-    std::cout << "tick" << std::endl;
+    //std::cout << "tick" << std::endl;
     cpu->tick();
 }
 

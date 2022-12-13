@@ -255,7 +255,7 @@ EntityId create_car(Engine *engine, t_vec3 pos, LevelItemColor color, Direction 
         create_component(engine,entity_id,COMP_DRAGGER);
         
         if ( is_carbrain_available()){
-            printf("Creating carbrain for car %d\n",car_index);
+            //printf("Creating carbrain for car %d\n",car_index);
             CarBrainComponent* carbrain =  create_component(engine,entity_id,COMP_CARBRAIN);
             init_CarBrainComponent(carbrain,level_nr,car_index);
         }

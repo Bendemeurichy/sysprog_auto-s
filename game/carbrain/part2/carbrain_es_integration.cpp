@@ -57,7 +57,7 @@ CarBrainDecision pop_carbrain_decision(CarBrainComponent* carBrainComponent) {
 
 void set_carbrain_sense(CarBrainComponent* carBrainComponent, SensorReading* sensor_reading) {
     //TODO
-    std::cout<<"set_carbrain_sense"<<std::endl;
+    //std::cout<<"set_carbrain_sense"<<std::endl;
     carBrainComponent->board->getSensorDataSink()->setSense(sensor_reading);
 }
 
@@ -70,11 +70,14 @@ void run_carbrain(CarBrainComponent* carBrainComponent) {
 
     //Run 50 steps, or until decision has been made
     for (int i = 0; i < 20; i++) {
-       if (carBrainComponent->board->getDecisionSource()->isDecisionAvailable())
-           break;
-       carBrainComponent->board->tick();
-
+    if (carBrainComponent->board->getDecisionSource()->isDecisionAvailable()){
+        std::cout<<"decision available"<<std::endl;
+        break;
+    } else {
+    carBrainComponent->board->tick();
+    }
     }
 }
 
 } //extern C
+

@@ -28,7 +28,8 @@ public:
     void setSense(SensorReading* sensorReading) override;
 
     private:
-    std::vector<uint8_t> data = std::vector<uint8_t>(IO_VISION_SIZE);
+    std::vector<uint8_t> data = std::vector<uint8_t>(IO_VISION_SIZE-1);
+    uint8_t crates_dragged = 0;
 };
 
 

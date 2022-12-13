@@ -6,15 +6,27 @@
 
 void system_carbrain_sensor_update(Engine* engine) {
     //printf("system_carbrain_sensor_update:");
-    EntityIterator car_brains;
-    search_entity_1(engine, COMP_CARBRAIN, &car_brains);
-    while (next_entity(&car_brains)) {
-        EntityId car_brain_id = car_brains.entity_id;
-        CarBrainComponent* car_brain_comp = get_component(engine, car_brain_id, COMP_CARBRAIN);
-        SensorReading sensor_reading = sense_environment(engine, car_brain_id);
-        set_carbrain_sense(car_brain_comp, &sensor_reading);
+
+    AutoMoveControlComponent *automove = search_first_component(engine, COMP_AUTOMOVE_CONTROL);
+    if (automove->auto_next || automove->next)
+    {
+
+
+        EntityIterator car_brains;
+        search_entity_1(engine, COMP_CARBRAIN, &car_brains);
+        while (next_entity(&car_brains))
+        {
+            EntityId car_brain_id = car_brains.entity_id;
+            if ((has_component(engine, car_brain_id, COMP_MOVE)) || (has_component(engine, car_brain_id, COMP_ACTION_ATTACH)) || (has_component(engine, car_brain_id, COMP_ACTION_DROP)))
+            {
+                continue;
+            }
+            CarBrainComponent *car_brain_comp = get_component(engine, car_brain_id, COMP_CARBRAIN);
+            SensorReading sensor_reading = sense_environment(engine, car_brain_id);
+            set_carbrain_sense(car_brain_comp, &sensor_reading);
+        }
     }
-}
+    }
 
 SensorReading sense_environment(Engine *engine, EntityId carbrain_entity_id) {
     SensorReading sensor_reading;

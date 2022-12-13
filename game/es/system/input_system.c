@@ -78,17 +78,13 @@ static void handleKeyUp(Engine* engine, SDL_Keysym *keysym, InputReceiverCompone
         case SDLK_RETURN:
         case SDLK_SPACE: {
             if (input_recv_comp != NULL) {
-                if (!has_component(engine, input_recv_entity_id, COMP_ACTION_ATTACH)) {
-                    create_component(engine, input_recv_entity_id, COMP_ACTION_ATTACH);
-                }
+                create_component_if_not_present(engine, input_recv_entity_id, COMP_ACTION_ATTACH);
             }
             break;
         }
         case SDLK_BACKSPACE: {
             if (input_recv_comp != NULL) {
-                if (!has_component(engine, input_recv_entity_id, COMP_ACTION_DROP)) {
-                    create_component(engine, input_recv_entity_id, COMP_ACTION_DROP);
-                }
+                create_component_if_not_present(engine, input_recv_entity_id, COMP_ACTION_DROP );
             }
             break;
         }
