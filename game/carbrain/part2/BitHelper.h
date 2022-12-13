@@ -68,8 +68,6 @@ typedef std::function<uint8_t()> ByteSource;
 template<int max_bytes>
 class BitWriter {
 private:
-    //TODO: private velden
-    //FIXME: Gebruik een array van bits met lengte max_bytes*8(zo kan je per write operatie een bepaald aantal bits wegschrijven) + evt aantal bits bijhouden als index...
     int maxBytes;
     std::array<int, (max_bytes*8)> bits;
     int currentBit = 0;
@@ -170,11 +168,7 @@ public:
 };
 
 
-
-//TODO: implementeer alle methoden van BitWriter en BitReader
-//      (in deze header ipv cpp file, omwille van de templates!)
-
-
+// We maken gebruik van een array om elke bit op te slaan.
 template<int max_bytes>
 BitWriter<max_bytes>::BitWriter() {
     maxBytes = max_bytes;
@@ -186,6 +180,8 @@ BitWriter<max_bytes>::BitWriter() {
     
 }
 
+//Bij het wegschrijven van de bits, wordt er gekeken of er nog genoeg ruimte is om de bits op te slaan. 
+//Hierna schuiven we we de source altijd naar links, zodat we gemakkelijk de laatste bit kunnen pakken.
 template<int max_bytes>
 template<class source_t>
 void BitWriter<max_bytes>::writeBits(source_t source, size_t bitCount) {
@@ -206,6 +202,8 @@ size_t BitWriter<max_bytes>::getByteCount() const {
     return (currentBit + 7)/8;
 }
 
+
+//We kijken in onze array naar de index*8 ste bit, en pakken de volgende 8 bits.
 template<int max_bytes>
 uint8_t BitWriter<max_bytes>::getByte(size_t index) const {
     assert (index < getByteCount());
@@ -238,6 +236,9 @@ BitReader<max_bytes>::BitReader(ByteSource byteSource) {
     source = byteSource;
 }
 
+
+//Hier wordt er gebruik gemaakt van currentByte, zodat er steeds op het juiste moment een nieuwe byte wordt opgehaald.
+//Hierna wordt de volgende bit gewoon geappend aan de res variabele.
 template<int max_bytes>
 template<class target_t>
 target_t BitReader<max_bytes>::readBits(size_t bitCount) {
