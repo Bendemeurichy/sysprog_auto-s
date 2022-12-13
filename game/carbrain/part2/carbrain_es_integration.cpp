@@ -25,7 +25,8 @@ void init_CarBrainComponent(CarBrainComponent *carBrainComponent,
     //TODO
     //Example solution:
        carBrainComponent->board = new Board(1024, 256);
-       std::string asmFilename = "level"+std::to_string(level_nr)+".carbrain_asm"; /* TODO use correct file depending on level_nr */
+       std::string asmFilename = "level"+std::to_string(level_nr)+".carbrain_asm";
+       std::cout<<asmFilename<<std::endl; /* TODO use correct file depending on level_nr */
        spg_addr_t code_start_addr = carBrainComponent->board->getCodeMemStartAddress();
        carBrainComponent->board->loadAndStartCodeFromAsmFile(asmFilename);
 

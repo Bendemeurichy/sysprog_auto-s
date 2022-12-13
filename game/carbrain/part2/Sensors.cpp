@@ -18,7 +18,7 @@ uint8_t Sensors::read1(const spg_addr_t &address) {
 
 void Sensors::write1(const spg_addr_t &address, uint8_t val) {
     //TODO
-    throw ModuleError("can't write to Sensors");
+    throw WriteNotAllowedError();
 }
 
 void Sensors::setSense(SensorReading* SensorReading){

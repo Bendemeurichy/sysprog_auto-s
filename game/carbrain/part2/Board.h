@@ -49,6 +49,7 @@ private:
     std::shared_ptr<Mem> stackMem;
     std::shared_ptr<Sensors> sensors;
     std::shared_ptr<DecisionOutput> decisionOutput;
+    spg_addr_t stack_mem_pointer;
 
 };
 

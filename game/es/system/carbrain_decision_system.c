@@ -7,13 +7,12 @@ void system_carbrain_decision_update(Engine* engine) {
     //TODO search all carbrains, run their CPUs, check if a decision is available, and execute it if so.
 
     EntityIterator it;
-    search_entity(engine,COMP_CARBRAIN , &it);
+    search_entity_1(engine,COMP_CARBRAIN , &it);
 
     while (next_entity(&it))
     {
         EntityId entity_id = it.entity_id;
         CarBrainComponent* carbrain = get_component(engine,entity_id,COMP_CARBRAIN);
-
         if ((!has_component(engine, entity_id,COMP_MOVE))&&(!has_component(engine,entity_id,COMP_ACTION_ATTACH))&&(!has_component(engine,entity_id,COMP_ACTION_DROP)))
         {
             run_carbrain(carbrain);
@@ -62,7 +61,6 @@ void execute_carbrain_decision(Engine *engine, CarBrainDecision decision, Entity
         create_component(engine, carbrain_entity_id, COMP_ACTION_DROP);
         break;
     }
-    
 
     default:
         break;

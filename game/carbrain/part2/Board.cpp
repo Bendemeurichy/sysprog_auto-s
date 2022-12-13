@@ -45,6 +45,7 @@ size_t Board::loadAndStartCodeFromAsmFile(const std::string& asmFilename) {
         data.push_back(line);
     }
     file.close();
+    std::cout << "file loaded" << std::endl;
     return loadAndStartCodeFromAsmLines(data);
 }
 
@@ -53,8 +54,11 @@ size_t Board::loadAndStartCodeFromExeBytes(const std::vector<uint8_t>& exe) {
     //Zet ook de registers correct zodat het programma zal starten.
     //Return de grootte van de binaire code, in byte (= lengte van de "exe" vector)
     //TODO implementeer
+    if(exe.size() > codeMem->manages(exe.size())){
+        throw BoardError("code too big");
+    }
     codeMem->setData(exe, exe.size());
-    cpu->reset(getCodeMemStartAddress(),getStackMemStartAddress());
+    cpu->reset(getCodeMemStartAddress(),stackMem->getEnd()-2);
     return exe.size();
 }
 
@@ -65,7 +69,7 @@ size_t Board::loadAndStartCodeFromAsmLines(const std::vector<std::string>& asmLi
     //TODO implementeer
     std::vector<uint8_t> exe = assemble(asmLines,getCodeMemStartAddress());
     codeMem->setData(exe, exe.size());
-    cpu->reset(getCodeMemStartAddress(),getStackMemStartAddress());
+    cpu->reset(getCodeMemStartAddress(),stackMem->getEnd()-2);
     return exe.size();
 }
 
@@ -74,6 +78,9 @@ Board::Board(spg_addr_t code_mem_size, spg_addr_t stack_mem_size) {
     assert(stack_mem_size > 0);
     codeMem = std::make_shared<Mem>(MEM_START, MEM_START + code_mem_size);
     stackMem = std::make_shared<Mem>(MEM_START + code_mem_size, MEM_START + code_mem_size + stack_mem_size);
+    std::cout << "codeMem start: " << codeMem->getStart() << std::endl;
+    std::cout << "stackMem end: " << stackMem->getEnd() << std::endl;
+    
     bus = std::make_shared<Bus>();
     cpu = std::make_shared<CPU>(bus);
     bus->add_module(codeMem);
@@ -81,14 +88,14 @@ Board::Board(spg_addr_t code_mem_size, spg_addr_t stack_mem_size) {
     sensors = std::make_shared<Sensors>();
     decisionOutput = std::make_shared<DecisionOutput>();
     bus->add_module(sensors);
-    bus->add_module(decisionOutput);
-    
+    bus->add_module(decisionOutput);    
 
     //Implementeer: Voeg CPU, Bus, DecisionOutput, Sensors, en stack en code Memory toe aan het Board
 }
 
 void Board::tick() {
     //TODO run the CPU 1 tick
+    std::cout << "tick" << std::endl;
     cpu->tick();
 }
 
