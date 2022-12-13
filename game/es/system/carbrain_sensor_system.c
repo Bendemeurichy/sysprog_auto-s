@@ -8,8 +8,9 @@
 void system_carbrain_sensor_update(Engine* engine) {
     //only in part2! You can leave this empty in part1
     //TODO search all carbrains, check their surroundings, and send the info about them to the Sensor module on their "Board".
+    printf("system_carbrain_sensor_update:");
     EntityIterator car_brains;
-    search_entity(engine, COMP_CARBRAIN, &car_brains);
+    search_entity_1(engine, COMP_CARBRAIN, &car_brains);
     while (next_entity(&car_brains)) {
         EntityId car_brain_id = car_brains.entity_id;
         CarBrainComponent* car_brain_comp = get_component(engine, car_brain_id, COMP_CARBRAIN);
@@ -105,6 +106,7 @@ void set_search_pos(Direction carbrain_direction, t_vec3 pos, t_vec3 car_pos, si
     default:
         break;
     }
+    printf("x: %f, y: %f", pos[0], pos[1]);
 }
 
 int crates(Engine* engine, EntityId car){
