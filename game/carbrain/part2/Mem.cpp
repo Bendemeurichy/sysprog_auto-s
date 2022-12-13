@@ -14,7 +14,7 @@ bool Mem::manages(const spg_addr_t &address) const {
 uint8_t Mem::read1(const spg_addr_t &address) {
     //TODO
     if(!manages(address)){
-        throw ModuleError("Invalid address");
+        throw ModuleError("Invalid address at address: " + std::to_string(address));
     }
     return (data[address-start]);
 }
@@ -23,7 +23,7 @@ uint8_t Mem::read1(const spg_addr_t &address) {
 void Mem::write1(const spg_addr_t &address, uint8_t val) {
     //TODO
     if(!manages(address)){
-        throw ModuleError("Invalid address");
+        throw ModuleError("Invalid address at address: " + std::to_string(address));
     }
     data[address-start] = val;
 }

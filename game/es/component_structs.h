@@ -160,7 +160,6 @@ typedef struct AutoMoveControlComponent {
 } AutoMoveControlComponent;
 
 typedef struct CarBrainComponent {
-
 #ifdef __cplusplus
     Board *board;
     // eventueel andere C++ velden

@@ -7,11 +7,13 @@ DecisionOutput::DecisionOutput() : Module(IO_DECISION_START, IO_DECISION_START+I
 }
 
 uint8_t DecisionOutput::read1(const spg_addr_t &address) {
-    throw ModuleError("can't read from DecisionOutput");
+    std::cout << "read1 decisions on address "<< std::to_string(address)  <<std::endl;
+        throw ReadNotAllowedError();
 }
 
 spg_register_t DecisionOutput::read2_be(const spg_addr_t &address) {
-    throw ModuleError("can't read from DecisionOutput");
+    std::cout<<"read2_be decisions on address "<< std::to_string(address)  <<std::endl;
+    throw ReadNotAllowedError();
 }
 
 void DecisionOutput::write1(const spg_addr_t &address, uint8_t val) {
