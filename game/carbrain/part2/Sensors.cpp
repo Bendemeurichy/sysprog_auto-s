@@ -16,7 +16,7 @@ uint8_t Sensors::read1(const spg_addr_t &address) {
     if(address-start == SENSOR_POSITION_COUNT){
         return crates_dragged;
     } else {
-        std::cout<<"read1 sensors on address "<< std::to_string(address-start) << " returning " << std::to_string(data[address-start]) <<std::endl;
+        //std::cout<<"read1 sensors on address "<< std::to_string(address-start) << " returning " << std::to_string(data[address-start]) <<std::endl;
         return data[address-start];
     }
 }

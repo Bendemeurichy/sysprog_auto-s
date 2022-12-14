@@ -37,7 +37,7 @@ void execute_carbrain_decision(Engine *engine, CarBrainDecision decision, Entity
     //only in part2! You can leave this empty in part1
     //TODO execute the decision
     //TODO: create component for every possible decision
-    printf("execute_carbrain_decision, decision: %d\n", decision);
+    //printf("execute_carbrain_decision, decision: %d\n", decision);
     switch (decision)
     {
     case DECISION_FORWARD:{
@@ -59,12 +59,12 @@ void execute_carbrain_decision(Engine *engine, CarBrainDecision decision, Entity
     case DECISION_IDLE:
         break;
     case DECISION_ATTACH: {
-        printf("DECISION_ATTACH\n");
+        //printf("DECISION_ATTACH\n");
         create_component_if_not_present(engine, carbrain_entity_id, COMP_ACTION_ATTACH);
         break;
     }
     case DECISION_DROP: {
-        printf("DECISION_DROP\n");
+        //printf("DECISION_DROP\n");
         create_component_if_not_present(engine, carbrain_entity_id, COMP_ACTION_DROP);
         break;
     }
