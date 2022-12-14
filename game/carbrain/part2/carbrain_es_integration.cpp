@@ -26,7 +26,7 @@ void init_CarBrainComponent(CarBrainComponent *carBrainComponent,
     //Example solution:
        carBrainComponent->board = new Board(1024, 256);
        std::string asmFilename = "level"+std::to_string(level_nr)+".carbrain_asm";
-       std::cout<<asmFilename<<std::endl; /* TODO use correct file depending on level_nr */
+       //std::cout<<asmFilename<<std::endl; /* TODO use correct file depending on level_nr */
        spg_addr_t code_start_addr = carBrainComponent->board->getCodeMemStartAddress();
        carBrainComponent->board->loadAndStartCodeFromAsmFile(asmFilename);
 
@@ -71,7 +71,7 @@ void run_carbrain(CarBrainComponent* carBrainComponent) {
     //Run 50 steps, or until decision has been made
     for (int i = 0; i < 20; i++) {
     if (carBrainComponent->board->getDecisionSource()->isDecisionAvailable()){
-        std::cout<<"decision available"<<std::endl;
+        //std::cout<<"decision available"<<std::endl;
         break;
     } else {
     carBrainComponent->board->tick();
