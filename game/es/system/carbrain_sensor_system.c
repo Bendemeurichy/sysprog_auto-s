@@ -44,28 +44,35 @@ SensorReading sense_environment(Engine *engine, EntityId carbrain_entity_id) {
     for (size_t i = 0; i < 8; i++) {
         set_search_pos(direction8_to_direction(dir_comp->direction), search_pos, car_brain_pos, i);
         //printf("POS %d => x: %f, y: %f \n", i, search_pos[0], search_pos[1]);
-        sensor_reading.bitmasks[i] = sense_pos(engine, search_pos);
+        sensor_reading.bitmasks[i] = sense_pos(engine, search_pos, i);
     }
     
     return sensor_reading;
 }
 
 //Hulpfunctie die de bitmask van een positie teruggeeft.
-uint8_t sense_pos(Engine *engine, t_vec3 pos) {
+uint8_t sense_pos(Engine *engine, t_vec3 pos, int sense) {
     uint8_t res = 0;
     EntityIterator comp;
 
-    search_entity_by_location_1(engine, pos, 0.3f, 1, COMP_ROAD, &comp);
+    search_entity_by_location_1(engine, pos, 0.2f, 1, COMP_CARBRAIN, &comp);
+    if (sense != 5) {
+        if (next_entity(&comp) == 1) {
+            return 0;
+        }
+    }
+
+    search_entity_by_location_1(engine, pos, 0.2f, 1, COMP_ROAD, &comp);
     if (next_entity(&comp) == 1) {
         res = res | SENSE_ROAD;
     }
 
-    search_entity_by_location_1(engine, pos, 0.3f, 1, COMP_EXIT, &comp);
+    search_entity_by_location_1(engine, pos, 0.2f, 1, COMP_EXIT, &comp);
     if (next_entity(&comp) == 1) {
         res = res | SENSE_EXIT;
     }
 
-    search_entity_by_location_1(engine, pos, 0.3f, 1, COMP_MARKER, &comp);
+    search_entity_by_location_1(engine, pos, 0.2f, 1, COMP_MARKER, &comp);
     if (next_entity(&comp) == 1) {
         MarkerComponent* marker = get_component(engine, comp.entity_id, COMP_MARKER);
         if (marker -> color == LEVEL_COLOR_GREY) {
@@ -79,12 +86,12 @@ uint8_t sense_pos(Engine *engine, t_vec3 pos) {
         }
     }
 
-    search_entity_by_location_1(engine, pos, 0.3f, 1, COMP_FILTER, &comp);
+    search_entity_by_location_1(engine, pos, 0.2f, 1, COMP_FILTER, &comp);
     if (next_entity(&comp) == 1) {
         res = res | SENSE_FILTER;
     }
 
-    search_entity_by_location_1(engine, pos, 0.3f, 1, COMP_DRAGGABLE, &comp);
+    search_entity_by_location_1(engine, pos, 0.2f, 1, COMP_DRAGGABLE, &comp);
     if (next_entity(&comp) == 1) {
         res = res | SENSE_CRATE;
     }
