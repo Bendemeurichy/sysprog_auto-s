@@ -22,6 +22,7 @@ void DecisionOutput::write1(const spg_addr_t &address, uint8_t val) {
         throw ModuleError("DecisionOutput can't write to address " + std::to_string(address));
     }
     if((address-start)==0){
+        std::cout<<"written to decisioncount "<< std::to_string(val) <<std::endl;
         decisionCount=val;
         decisionIndex=0;
 

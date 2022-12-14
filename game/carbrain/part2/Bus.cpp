@@ -24,12 +24,12 @@ uint8_t Bus::read1(const spg_addr_t &address) {
 spg_register_t Bus::read2_be(const spg_addr_t &address) {
     //TODO
 
-    if (!is_valid_address(htons(address))){
-        throw ModuleError("Invalid address to read2 with bus at address: " + std::to_string(htons(address)));
+    if (!is_valid_address((address))){
+        throw ModuleError("Invalid address to read2 with bus at address: " + std::to_string((address)));
     }
     for (auto module : modules){
-        if (module->manages(htons(address))){
-            return module->read2_be(htons(address));
+        if (module->manages((address))){
+            return module->read2_be((address));
         }
     }
     return 0;
